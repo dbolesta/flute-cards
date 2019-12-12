@@ -4,11 +4,13 @@ import styled from 'styled-components';
 const Card = styled.div`
   border: 1px solid black;
   border-radius: 5px;
-  padding: 1.25rem;
-  height: 1rem;
-  width: 1rem;
+  height: 3rem;
+  width: 3rem;
+  margin: 0.15rem;
   background-color: white;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const CardSource = props => {
