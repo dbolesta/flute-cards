@@ -14,7 +14,11 @@ const Card = styled.div`
 `;
 
 const CardSource = props => {
-  return <Card>{props.note}</Card>;
+  return (
+    <Card onClick={() => props.addCard(props.note)}>
+      {props.note}
+    </Card>
+  );
 };
 
 export default CardSource;

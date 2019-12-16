@@ -13,8 +13,8 @@ const CardShelf = props => {
   return (
     <Shelf>
       <p>testing card shelf</p>
-      {props.notes.map(note => (
-        <CardSource note={note} />
+      {props.notes.map((note, i) => (
+        <CardSource note={note} index={i} addCard={props.addCard} />
       ))}
     </Shelf>
   );
