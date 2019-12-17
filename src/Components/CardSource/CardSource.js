@@ -16,7 +16,9 @@ const Card = styled.div`
 const CardSource = props => {
   return (
     <Card onClick={() => props.addCard(props.note)}>
-      {props.note}
+      {props.note.letters.map((letter, i) => {
+        return <span>{i !== 0 ? ' / ' + letter : letter}</span>;
+      })}
     </Card>
   );
 };
