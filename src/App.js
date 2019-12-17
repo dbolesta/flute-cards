@@ -13,14 +13,8 @@ function App() {
 
   const addCard = note => {
     let cardsCopy = cards.slice();
-    console.log('card copt us');
-    console.log(cardsCopy);
-    console.log('tyina push');
-    console.log(note);
 
     cardsCopy.push(note);
-    console.log('now, card copt iss');
-    console.log(cardsCopy);
     setCards(cardsCopy);
   };
 
