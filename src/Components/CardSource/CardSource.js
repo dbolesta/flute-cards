@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import uuid from 'react-uuid';
 
 const Card = styled.div`
   border: 1px solid black;
@@ -17,7 +18,11 @@ const CardSource = props => {
   return (
     <Card onClick={() => props.addCard(props.note)}>
       {props.note.letters.map((letter, i) => {
-        return <span>{i !== 0 ? ' / ' + letter : letter}</span>;
+        return (
+          <span key={uuid()}>
+            {i !== 0 ? ' / ' + letter : letter}
+          </span>
+        );
       })}
     </Card>
   );

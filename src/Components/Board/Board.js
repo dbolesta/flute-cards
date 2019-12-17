@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Card from '../Card';
+import uuid from 'react-uuid';
 
 const BoardContainer = styled.div`
   border: 1px solid green;
@@ -18,7 +19,7 @@ const Board = ({ cards }) => {
 
       <CardRow>
         {cards.map(card => {
-          return <Card card={card} />;
+          return <Card key={uuid()} card={card} />;
         })}
       </CardRow>
     </BoardContainer>
