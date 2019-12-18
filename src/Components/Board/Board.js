@@ -5,6 +5,7 @@ import uuid from 'react-uuid';
 
 const BoardContainer = styled.div`
   border: 1px solid green;
+  margin-bottom: 2rem;
 `;
 
 const CardRow = styled.div`
