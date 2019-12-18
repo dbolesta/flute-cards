@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CardShelf from './Components/CardShelf';
 import Board from './Components/Board';
 import './App.css';
-import allNotes from './notes2';
+import allNotes from './notes';
 
 function App() {
   const [notes, setNotes] = useState(allNotes);
