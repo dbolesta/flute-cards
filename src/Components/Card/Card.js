@@ -72,7 +72,7 @@ const Card = ({ card }) => {
         engraverParams={{
           ...engraverParams
         }}
-        notation={`K:clef=none\nL:1\n${abcCode}`}
+        notation={`K:clef=treble\nL:1\n${abcCode}`}
       />
       <FingerImg src={svgs[imgRef]} />
     </SCard>

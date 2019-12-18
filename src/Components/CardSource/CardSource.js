@@ -12,15 +12,28 @@ const Card = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  vertical-align: bottom;
+
+  ${({ black }) =>
+    black &&
+    `
+      margin-bottom: 1rem;
+      background-color: black;
+      color: white;
+   `}
 `;
 
 const CardSource = props => {
   return (
-    <Card onClick={() => props.addCard(props.note)}>
+    <Card
+      onClick={() => props.addCard(props.note)}
+      black={props.note.black}
+    >
       {props.note.letters.map((letter, i) => {
         return (
           <span key={uuid()}>
             {i !== 0 ? ' / ' + letter : letter}
+            {console.log(props.note.black)}
           </span>
         );
       })}
