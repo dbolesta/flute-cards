@@ -11,18 +11,27 @@ const BoardContainer = styled.div`
 const CardRow = styled.div`
   display: flex;
   flex-wrap: wrap;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  min-height: 1rem;
 `;
 
-const Board = ({ cards }) => {
+const Board = ({ cards, addRow }) => {
   return (
     <BoardContainer>
       <p>test board</p>
 
-      <CardRow>
-        {cards.map(card => {
-          return <Card key={uuid()} card={card} />;
-        })}
-      </CardRow>
+      {cards.map(row => {
+        return (
+          <CardRow>
+            {row.map(card => {
+              return <Card key={uuid()} card={card} />;
+            })}
+          </CardRow>
+        );
+      })}
+
+      <p onClick={() => addRow()}>New row!</p>
     </BoardContainer>
   );
 };
