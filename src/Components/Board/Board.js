@@ -18,21 +18,24 @@ const CardRow = styled.div`
 
 const Board = ({ cards, addRow }) => {
   return (
-    <BoardContainer>
-      <p>test board</p>
+    <>
+      <h3>Flute Cards</h3>
+      <BoardContainer>
+        {/* loop through first dimension of array (rows) */}
+        {cards.map(row => {
+          return (
+            <CardRow>
+              {/* loop through each array (cards) */}
+              {row.map(card => {
+                return <Card key={uuid()} card={card} />;
+              })}
+            </CardRow>
+          );
+        })}
 
-      {cards.map(row => {
-        return (
-          <CardRow>
-            {row.map(card => {
-              return <Card key={uuid()} card={card} />;
-            })}
-          </CardRow>
-        );
-      })}
-
-      <p onClick={() => addRow()}>New row!</p>
-    </BoardContainer>
+        <p onClick={() => addRow()}>New row!</p>
+      </BoardContainer>
+    </>
   );
 };
 

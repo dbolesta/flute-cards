@@ -14,7 +14,7 @@ const Shelf = styled.div`
 const CardShelf = props => {
   return (
     <Shelf>
-      <p>testing card shelf</p>
+      <h2>Flute Cards</h2>
       {props.notes.map((note, i) => (
         <>
           <CardSource
@@ -24,6 +24,8 @@ const CardShelf = props => {
             addCard={props.addCard}
           />
 
+          {/* put each register on its own line. */}
+          {/* sloppy implementation... should probably restructure notes.js so each register is its own array? */}
           {note.index === 11 || note.index === 23 ? (
             <div style={{ display: 'block', height: '2rem' }}></div>
           ) : null}

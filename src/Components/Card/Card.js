@@ -19,6 +19,7 @@ import uuid from 'react-uuid';
 // C | _D, __E, ^F,|^^G, A, B, C|D E F G|A B c d|e f g a|b c' d' e'|f' g' a' b'|]`;
 
 // https://paulrosen.github.io/abcjs/visual/visual-params.html
+// mostly used here to make the renderes staff responsive
 const engraverParams = {
   add_classes: false,
   editable: false,
@@ -40,6 +41,7 @@ const SCard = styled.div`
   flex-direction: column;
   flex: 0 0 10rem;
   margin: 0.2rem;
+  padding: 0.2rem;
 `;
 
 const Letters = styled.div`
@@ -51,8 +53,7 @@ const Letters = styled.div`
 `;
 
 const FingerImg = styled.img`
-  /* width: 10rem; */
-  /* padding: 1.25rem; */
+  margin-top: -1.5rem;
   padding: 0;
   width: 100%;
   /* padding-top: 0; */
