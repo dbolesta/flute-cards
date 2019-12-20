@@ -19,12 +19,12 @@ function App() {
     // 3. set new cardsCopy as card state
     setCards(cardsCopy);
   };
-  const removeCard = index => {
+  const removeCard = (rowIndex, cardIndex) => {
     // 1. copy current cards
     let cardsCopy = cards.slice();
 
     // 2. push new note into the currently active rows array
-    cardsCopy[activeRow].splice(index, 1);
+    cardsCopy[rowIndex].splice(cardIndex, 1);
 
     // 3. set new cardsCopy as card state
     setCards(cardsCopy);

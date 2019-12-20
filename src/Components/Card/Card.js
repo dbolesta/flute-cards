@@ -83,14 +83,14 @@ const FingerImg = styled.img`
   /* padding-top: 0; */
 `;
 
-const Card = ({ card, removeCard, index }) => {
+const Card = ({ card, removeCard, cardIndex, rowIndex }) => {
   const { letters, abcCode, imgRef } = card;
 
   return (
     <SCard>
       <span
         className="remove-button"
-        onClick={() => removeCard(index)}
+        onClick={() => removeCard(rowIndex, cardIndex)}
       >
         x
       </span>

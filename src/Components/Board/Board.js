@@ -28,17 +28,18 @@ const Board = ({ cards, addRow, removeCard }) => {
       <h3>Flute Cards</h3>
       <BoardContainer>
         {/* loop through first dimension of array (rows) */}
-        {cards.map(row => {
+        {cards.map((row, rowIndex) => {
           return (
             <CardRow>
               {/* loop through each array (cards) */}
-              {row.map((card, i) => {
+              {row.map((card, cardIndex) => {
                 return (
                   <Card
                     key={uuid()}
                     card={card}
                     removeCard={removeCard}
-                    index={i}
+                    cardIndex={cardIndex}
+                    rowIndex={rowIndex}
                   />
                 );
               })}
