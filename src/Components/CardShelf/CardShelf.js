@@ -16,7 +16,7 @@ const CardShelf = props => {
     <Shelf>
       <h2>Flute Cards</h2>
       {props.notes.map((note, i) => (
-        <>
+        <React.Fragment key={uuid()}>
           <CardSource
             key={uuid()}
             note={note}
@@ -29,7 +29,7 @@ const CardShelf = props => {
           {note.index === 11 || note.index === 23 ? (
             <div style={{ display: 'block', height: '2rem' }}></div>
           ) : null}
-        </>
+        </React.Fragment>
       ))}
     </Shelf>
   );

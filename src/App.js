@@ -4,6 +4,13 @@ import Board from './Components/Board';
 import './App.css';
 import allNotes from './notes';
 
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { globalStyles } from './Styles/global';
+
+const GlobalStyle = createGlobalStyle`
+  ${globalStyles}
+`;
+
 function App() {
   const [notes, setNotes] = useState(allNotes); // all note objects (probably shoudnt be state, since never changed?)
   const [cards, setCards] = useState([[]]); // all cards and rows
@@ -46,6 +53,7 @@ function App() {
 
   return (
     <div className="App">
+      <GlobalStyle />
       <CardShelf notes={notes} addCard={addCard} />
       <Board cards={cards} addRow={addRow} removeCard={removeCard} />
     </div>

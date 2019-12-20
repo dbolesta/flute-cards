@@ -30,7 +30,7 @@ const Board = ({ cards, addRow, removeCard }) => {
         {/* loop through first dimension of array (rows) */}
         {cards.map((row, rowIndex) => {
           return (
-            <CardRow>
+            <CardRow key={uuid()}>
               {/* loop through each array (cards) */}
               {row.map((card, cardIndex) => {
                 return (
