@@ -19,6 +19,16 @@ function App() {
     // 3. set new cardsCopy as card state
     setCards(cardsCopy);
   };
+  const removeCard = index => {
+    // 1. copy current cards
+    let cardsCopy = cards.slice();
+
+    // 2. push new note into the currently active rows array
+    cardsCopy[activeRow].splice(index, 1);
+
+    // 3. set new cardsCopy as card state
+    setCards(cardsCopy);
+  };
 
   const addRow = () => {
     // 1. copy current cards
@@ -37,7 +47,7 @@ function App() {
   return (
     <div className="App">
       <CardShelf notes={notes} addCard={addCard} />
-      <Board cards={cards} addRow={addRow} />
+      <Board cards={cards} addRow={addRow} removeCard={removeCard} />
     </div>
   );
 }

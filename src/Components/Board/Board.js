@@ -22,7 +22,7 @@ const CardRow = styled.div`
   flex: 1 0 auto;
 `;
 
-const Board = ({ cards, addRow }) => {
+const Board = ({ cards, addRow, removeCard }) => {
   return (
     <>
       <h3>Flute Cards</h3>
@@ -32,8 +32,15 @@ const Board = ({ cards, addRow }) => {
           return (
             <CardRow>
               {/* loop through each array (cards) */}
-              {row.map(card => {
-                return <Card key={uuid()} card={card} />;
+              {row.map((card, i) => {
+                return (
+                  <Card
+                    key={uuid()}
+                    card={card}
+                    removeCard={removeCard}
+                    index={i}
+                  />
+                );
               })}
             </CardRow>
           );

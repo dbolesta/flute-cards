@@ -46,7 +46,7 @@ const SCard = styled.div`
   padding: 0.2rem;
   position: relative;
 
-  &:after {
+  span.remove-button {
     content: 'x';
     position: absolute;
     top: -5px;
@@ -62,7 +62,7 @@ const SCard = styled.div`
     cursor: pointer;
   }
 
-  &:hover:after {
+  &:hover span.remove-button {
     display: flex;
   }
 `;
@@ -83,11 +83,17 @@ const FingerImg = styled.img`
   /* padding-top: 0; */
 `;
 
-const Card = ({ card }) => {
+const Card = ({ card, removeCard, index }) => {
   const { letters, abcCode, imgRef } = card;
 
   return (
     <SCard>
+      <span
+        className="remove-button"
+        onClick={() => removeCard(index)}
+      >
+        x
+      </span>
       <Letters>
         {letters.map(letter => (
           <span key={uuid()}>{letter}</span>
