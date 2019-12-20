@@ -30,7 +30,7 @@ function App() {
     // 1. copy current cards
     let cardsCopy = cards.slice();
 
-    // 2. push new note into the currently active rows array
+    // 2. splice out selected card in selected row
     cardsCopy[rowIndex].splice(cardIndex, 1);
 
     // 3. set new cardsCopy as card state
@@ -55,7 +55,13 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <CardShelf notes={notes} addCard={addCard} />
-      <Board cards={cards} addRow={addRow} removeCard={removeCard} />
+      <Board
+        cards={cards}
+        addRow={addRow}
+        removeCard={removeCard}
+        activeRow={activeRow}
+        setActiveRow={setActiveRow}
+      />
     </div>
   );
 }

@@ -17,12 +17,49 @@ const CardRow = styled.div`
   flex-wrap: wrap;
   border: 2px solid palevioletred;
   border-radius: 3px;
-  min-height: 1rem;
+  min-height: 11.25rem;
   justify-content: flex-start;
   flex: 1 0 auto;
+
+  &.activeRow {
+    border: 2px solid red;
+  }
 `;
 
-const Board = ({ cards, addRow, removeCard }) => {
+const NewRowButton = styled.div`
+  border-radius: 5px;
+  padding: 15px 25px;
+  font-size: 22px;
+  text-decoration: none;
+  margin: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  &:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+  }
+
+  &.green {
+    background-color: #2ecc71;
+    box-shadow: 0px 5px 0px 0px #15b358;
+  }
+
+  &.green:hover {
+    background-color: #48e68b;
+  }
+`;
+
+const Board = ({
+  cards,
+  addRow,
+  removeCard,
+  activeRow,
+  setActiveRow
+}) => {
   return (
     <>
       <h3>Flute Cards</h3>
@@ -30,7 +67,18 @@ const Board = ({ cards, addRow, removeCard }) => {
         {/* loop through first dimension of array (rows) */}
         {cards.map((row, rowIndex) => {
           return (
-            <CardRow key={uuid()}>
+            <CardRow
+              key={uuid()}
+              className={activeRow === rowIndex ? 'activeRow' : null}
+              onClick={e => {
+                {
+                  /* update activeRow when row is clicked, first check if target matches */
+                  /* maybe should extract this to its own function...? */
+                }
+                if (e.currentTarget !== e.target) return;
+                setActiveRow(rowIndex);
+              }}
+            >
               {/* loop through each array (cards) */}
               {row.map((card, cardIndex) => {
                 return (
@@ -47,7 +95,9 @@ const Board = ({ cards, addRow, removeCard }) => {
           );
         })}
 
-        <p onClick={() => addRow()}>New row!</p>
+        <NewRowButton className="green" onClick={() => addRow()}>
+          New row!
+        </NewRowButton>
       </BoardContainer>
     </>
   );
