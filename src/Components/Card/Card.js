@@ -10,6 +10,8 @@ import uuid from 'react-uuid';
 
 // example of abc notation
 // const notation = 'X:1\nM:C\nL:1\nK:C\nC';
+// can also use `K:clef=treble\nL:1\n${abcCode}` to show treble clef
+
 ////// or
 // const notation = `X:1
 // T:Notes
@@ -42,6 +44,27 @@ const SCard = styled.div`
   flex: 0 0 10rem;
   margin: 0.2rem;
   padding: 0.2rem;
+  position: relative;
+
+  &:after {
+    content: 'x';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 2rem;
+    height: 2rem;
+    background-color: black;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &:hover:after {
+    display: flex;
+  }
 `;
 
 const Letters = styled.div`
@@ -53,9 +76,10 @@ const Letters = styled.div`
 `;
 
 const FingerImg = styled.img`
-  margin-top: -1.5rem;
+  margin-top: -3rem;
   padding: 0;
-  width: 100%;
+  /* width: auto; */
+  width: 160px;
   /* padding-top: 0; */
 `;
 
@@ -73,7 +97,7 @@ const Card = ({ card }) => {
         engraverParams={{
           ...engraverParams
         }}
-        notation={`K:clef=treble\nL:1\n${abcCode}`}
+        notation={`K:clef=none\nL:1\n${abcCode}`}
       />
       <FingerImg src={svgs[imgRef]} />
     </SCard>

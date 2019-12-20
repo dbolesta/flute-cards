@@ -6,14 +6,20 @@ import uuid from 'react-uuid';
 const BoardContainer = styled.div`
   border: 1px solid green;
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
 `;
 
 const CardRow = styled.div`
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   border: 2px solid palevioletred;
   border-radius: 3px;
   min-height: 1rem;
+  justify-content: flex-start;
+  flex: 1 0 auto;
 `;
 
 const Board = ({ cards, addRow }) => {
