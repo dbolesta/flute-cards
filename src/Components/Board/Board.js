@@ -75,7 +75,7 @@ const Board = ({
           }
           {
             row.map(card => {
-              rowNotation = rowNotation + card.abcCode;
+              rowNotation = rowNotation + card.midiCode;
             });
           }
           return (
