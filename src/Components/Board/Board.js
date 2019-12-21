@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Card from '../Card';
 import uuid from 'react-uuid';
+import { Midi } from 'react-abc';
 
 const BoardContainer = styled.div`
   border: 1px solid green;
@@ -66,10 +67,20 @@ const Board = ({
       <BoardContainer>
         {/* loop through first dimension of array (rows) */}
         {cards.map((row, rowIndex) => {
+          let rowNotation = '';
+          {
+            /* collect complete abc notation of all cards in row, so we can use it for midi */
+          }
+          {
+            row.map(card => {
+              rowNotation = rowNotation + card.abcCode;
+            });
+          }
           return (
             <CardRow
               key={uuid()}
               className={activeRow === rowIndex ? 'activeRow' : null}
+              rowNotation={rowNotation}
               onClick={e => {
                 {
                   /* update activeRow when row is clicked, first check if target matches */
@@ -91,6 +102,10 @@ const Board = ({
                   />
                 );
               })}
+              <Midi
+                midiParams={{ generateInline: true, qpm: 80 }}
+                notation={rowNotation}
+              />
             </CardRow>
           );
         })}
