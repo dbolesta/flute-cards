@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Card from '../Card';
 import uuid from 'react-uuid';
 import { Midi } from 'react-abc';
+// midi params: https://github.com/fuhton/react-abc/blob/3e200fd1649b5cc762269b832da1e825333ce016/src/defaults/README.md#midi-params
+// midi program number reference: https://en.wikipedia.org/wiki/General_MIDI
 
 const BoardContainer = styled.div`
   border: 1px solid green;
@@ -103,7 +105,12 @@ const Board = ({
                 );
               })}
               <Midi
-                midiParams={{ generateInline: true, qpm: 80 }}
+                midiParams={{
+                  generateInline: true,
+                  qpm: 80,
+                  program: 74 /* 74 is flute, check "General MIDI" on wikipedia for full reference (73 piccolo might be better..) */,
+                  inlineControls: { startPlaying: false }
+                }}
                 notation={rowNotation}
               />
             </CardRow>

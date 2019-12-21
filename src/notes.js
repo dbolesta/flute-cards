@@ -5,7 +5,7 @@ const notes = [
     black: false,
     register: 'low',
     imgRef: 'lowC',
-    abcCode: 'C|'
+    abcCode: 'C'
   },
   {
     index: 1,
