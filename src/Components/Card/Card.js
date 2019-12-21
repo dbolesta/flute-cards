@@ -86,6 +86,14 @@ const FingerImg = styled.img`
 const Card = ({ card, removeCard, cardIndex, rowIndex }) => {
   const { letters, abcCode, imgRef } = card;
 
+  // only first card in row should have treble clef
+  let clef;
+  if (cardIndex === 0) {
+    clef = 'treble';
+  } else {
+    clef = 'none';
+  }
+
   return (
     <SCard>
       <span
@@ -103,7 +111,7 @@ const Card = ({ card, removeCard, cardIndex, rowIndex }) => {
         engraverParams={{
           ...engraverParams
         }}
-        notation={`K:clef=none\nL:1\n${abcCode}`}
+        notation={`K:clef=${clef}\nL:1\n${abcCode}`}
       />
       <FingerImg src={svgs[imgRef]} />
     </SCard>

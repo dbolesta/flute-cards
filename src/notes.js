@@ -97,7 +97,7 @@ const notes = [
   },
   {
     index: 12,
-    letters: ['B♯', 'C'],
+    letters: ['C'],
     black: false,
     register: 'low',
     imgRef: 'lowMidBs',
