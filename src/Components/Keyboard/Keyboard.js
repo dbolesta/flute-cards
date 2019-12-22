@@ -22,7 +22,12 @@ const NoteHighlight = styled.div`
   margin: auto;
 `;
 
-const Keyboard = ({ notes, hoveredNote }) => {
+const Keyboard = ({
+  notes,
+  hoveredNote,
+  setHoveredNote,
+  addCard
+}) => {
   return (
     <KeyboardContainer>
       <div
@@ -37,7 +42,12 @@ const Keyboard = ({ notes, hoveredNote }) => {
             note.noteClass;
 
           return (
-            <div className={constructedClass}>
+            <div
+              className={constructedClass}
+              onMouseEnter={() => setHoveredNote(note.abcCode)}
+              onMouseLeave={() => setHoveredNote(null)}
+              onClick={() => addCard(note)}
+            >
               {note.noteClass === 'c' ? (
                 <span>{note.spn}</span>
               ) : null}

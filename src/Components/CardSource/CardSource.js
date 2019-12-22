@@ -36,8 +36,8 @@ const CardSource = props => {
     <Card
       onClick={() => props.addCard(props.note)}
       black={props.note.black}
-      onMouseOver={() => props.setHoveredNote(props.note.abcCode)}
-      onMouseOut={() => props.setHoveredNote(null)}
+      onMouseEnter={() => props.setHoveredNote(props.note.abcCode)}
+      onMouseLeave={() => props.setHoveredNote(null)}
       className={
         props.hoveredNote === props.note.abcCode ? 'highlight' : null
       }
