@@ -21,6 +21,15 @@ $whiteKey_BorderColor: #aaaaaa;
 .key {
   float: left;
   position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  span {
+    font-size: 0.5rem;
+    font-family: monospace;
+    padding-bottom: 4px;
+  }
 }
 
 .white {
