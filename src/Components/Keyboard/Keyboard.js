@@ -12,7 +12,17 @@ const KeyboardContainer = styled.div`
   justify-content: center;
 `;
 
-const Keyboard = ({ notes }) => {
+const NoteHighlight = styled.div`
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: red;
+  bottom: 15px;
+  margin: auto;
+`;
+
+const Keyboard = ({ notes, hoveredNote }) => {
   return (
     <KeyboardContainer>
       <div
@@ -30,6 +40,9 @@ const Keyboard = ({ notes }) => {
             <div className={constructedClass}>
               {note.noteClass === 'c' ? (
                 <span>{note.spn}</span>
+              ) : null}
+              {note.abcCode === hoveredNote ? (
+                <NoteHighlight />
               ) : null}
             </div>
           );

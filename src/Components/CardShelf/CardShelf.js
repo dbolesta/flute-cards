@@ -14,7 +14,7 @@ const Shelf = styled.div`
 const CardShelf = props => {
   return (
     <Shelf>
-      <Keyboard notes={props.notes} />
+      <Keyboard notes={props.notes} hoveredNote={props.hoveredNote} />
       <h2>Flute Cards</h2>
 
       {props.notes.map((note, i) => (
