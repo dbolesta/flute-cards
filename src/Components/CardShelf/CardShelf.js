@@ -1,6 +1,7 @@
 import React from 'react';
 import CardSource from '../CardSource';
 import Keyboard from '../Keyboard';
+import Staff from '../Staff';
 import styled from 'styled-components';
 import uuid from 'react-uuid';
 
@@ -20,6 +21,8 @@ const CardShelf = props => {
         setHoveredNote={props.setHoveredNote}
         addCard={props.addCard}
       />
+
+      <Staff />
       <h2>Flute Cards</h2>
 
       {props.notes.map((note, i) => (

@@ -5,7 +5,8 @@ Assists in learning the flute fingering for every note on the flute. Select note
 ## Built With
 
 - [react-abc](https://www.npmjs.com/package/react-abc) - For generate music notes/staffs and playing midi
+- [create-react-app](https://github.com/facebook/create-react-app) - Cool little package
 
 ## Authors
 
-- **Damon Bolesta** - _Initial work_ - [PurpleBooth](https://damonbolesta.com)
+- **Damon Bolesta** - _Initial work_ - [Website](https://damonbolesta.com)
