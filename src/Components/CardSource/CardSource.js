@@ -36,11 +36,9 @@ const CardSource = props => {
     <Card
       onClick={() => props.addCard(props.note)}
       black={props.note.black}
-      onMouseOver={() => props.setHoveredNote(props.note.letters[0])}
+      onMouseOver={() => props.setHoveredNote(props.note.abcCode)}
       className={
-        props.hoveredNote === props.note.letters[0]
-          ? 'highlight'
-          : null
+        props.hoveredNote === props.note.abcCode ? 'highlight' : null
       }
     >
       {props.note.letters.map((letter, i) => {

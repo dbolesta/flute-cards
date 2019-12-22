@@ -1,3 +1,21 @@
+// Object info
+/*
+index:      unique number, sequential order from lowest to highest note
+letters:    array of notes by letters. 
+            some notes have 2 (sharp/flat and regular)
+black:      boolean if note is black or white
+register:   what register (~octave) the flute note is: low, mid, or hi
+imgRef:     variable link to svg image, as defined in svgs.js
+abcCode:    abcNotation used to render staff
+            abc documentation:
+            https://paulrosen.github.io/abcjs/
+            https://github.com/paulrosen/abcjs
+midiCode:   same as above, but used to play Midi, so only contains single note
+noteClass:  class used in Keyboard.js, to render scss properly
+spn:        Scientific Pitch Notation, note + number to indicate octave
+            https://en.wikipedia.org/wiki/Scientific_pitch_notation
+*/
+
 const notes = [
   {
     index: 0,
@@ -6,7 +24,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowC',
     abcCode: 'C',
-    midiCode: 'C'
+    midiCode: 'C',
+    noteClass: 'c',
+    spn: 'C3'
   },
   {
     index: 1,
@@ -15,7 +35,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowCs',
     abcCode: '^C_D',
-    midiCode: '^C'
+    midiCode: '^C',
+    noteClass: 'c_sharp',
+    spn: 'Cs3'
   },
   {
     index: 2,
@@ -24,7 +46,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowD',
     abcCode: 'D',
-    midiCode: 'D'
+    midiCode: 'D',
+    noteClass: 'd',
+    spn: 'D3'
   },
   {
     index: 3,
@@ -33,7 +57,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowDs',
     abcCode: '^D',
-    midiCode: '^D'
+    midiCode: '^D',
+    noteClass: 'd_sharp',
+    spn: 'Ds3'
   },
   {
     index: 4,
@@ -42,7 +68,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowMidE',
     abcCode: 'E_F',
-    midiCode: 'E'
+    midiCode: 'E',
+    noteClass: 'e',
+    spn: 'E3'
   },
   {
     index: 5,
@@ -51,7 +79,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowMidEs',
     abcCode: '^EF',
-    midiCode: 'F'
+    midiCode: 'F',
+    noteClass: 'f',
+    spn: 'F3'
   },
   {
     index: 6,
@@ -60,7 +90,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowMidFs',
     abcCode: '^F_G',
-    midiCode: '^F'
+    midiCode: '^F',
+    noteClass: 'f_sharp',
+    spn: 'Fs3'
   },
   {
     index: 7,
@@ -69,7 +101,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowMidG',
     abcCode: 'G',
-    midiCode: 'G'
+    midiCode: 'G',
+    noteClass: 'g',
+    spn: 'G3'
   },
   {
     index: 8,
@@ -78,7 +112,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowMidGs',
     abcCode: '^G_A',
-    midiCode: '^G'
+    midiCode: '^G',
+    noteClass: 'g_sharp',
+    spn: 'Gs3'
   },
   {
     index: 9,
@@ -87,7 +123,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowMidA',
     abcCode: 'A',
-    midiCode: 'A'
+    midiCode: 'A',
+    noteClass: 'a',
+    spn: 'A3'
   },
   {
     index: 10,
@@ -96,7 +134,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowMidAs',
     abcCode: '^A_B',
-    midiCode: '^A'
+    midiCode: '^A',
+    noteClass: 'a_sharp',
+    spn: 'As3'
   },
   {
     index: 11,
@@ -105,7 +145,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowMidB',
     abcCode: 'B_c',
-    midiCode: 'B'
+    midiCode: 'B',
+    noteClass: 'b',
+    spn: 'B3'
   },
   {
     index: 12,
@@ -114,7 +156,9 @@ const notes = [
     register: 'low',
     imgRef: 'lowMidBs',
     abcCode: '^Bc',
-    midiCode: 'c'
+    midiCode: 'c',
+    noteClass: 'c',
+    spn: 'C4'
   },
   {
     index: 13,
@@ -123,7 +167,9 @@ const notes = [
     register: 'mid',
     imgRef: 'midHiCs',
     abcCode: '^c_d',
-    midiCode: '^c'
+    midiCode: '^c',
+    noteClass: 'c_sharp',
+    spn: 'Cs4'
   },
   {
     index: 14,
@@ -132,7 +178,9 @@ const notes = [
     register: 'mid',
     imgRef: 'midD',
     abcCode: 'd',
-    midiCode: 'd'
+    midiCode: 'd',
+    noteClass: 'd',
+    spn: 'D4'
   },
   {
     index: 15,
@@ -141,7 +189,9 @@ const notes = [
     register: 'mid',
     imgRef: 'midDs',
     abcCode: '^d_e',
-    midiCode: '^d'
+    midiCode: '^d',
+    noteClass: 'd_sharp',
+    spn: 'Ds4'
   },
   {
     index: 16,
@@ -150,7 +200,9 @@ const notes = [
     register: 'mid',
     imgRef: 'lowMidE',
     abcCode: 'e_f',
-    midiCode: 'e'
+    midiCode: 'e',
+    noteClass: 'e',
+    spn: 'E4'
   },
   {
     index: 17,
@@ -159,7 +211,9 @@ const notes = [
     register: 'mid',
     imgRef: 'lowMidEs',
     abcCode: '^ef',
-    midiCode: 'f'
+    midiCode: 'f',
+    noteClass: 'f',
+    spn: 'F4'
   },
   {
     index: 18,
@@ -168,7 +222,9 @@ const notes = [
     register: 'mid',
     imgRef: 'lowMidFs',
     abcCode: '^f_g',
-    midiCode: '^f'
+    midiCode: '^f',
+    noteClass: 'f_sharp',
+    spn: 'Fs4'
   },
   {
     index: 19,
@@ -177,7 +233,9 @@ const notes = [
     register: 'mid',
     imgRef: 'lowMidG',
     abcCode: 'g',
-    midiCode: 'g'
+    midiCode: 'g',
+    noteClass: 'g',
+    spn: 'G4'
   },
   {
     index: 20,
@@ -186,7 +244,9 @@ const notes = [
     register: 'mid',
     imgRef: 'lowMidGs',
     abcCode: '^g_a',
-    midiCode: '^g'
+    midiCode: '^g',
+    noteClass: 'g_sharp',
+    spn: 'Gs4'
   },
   {
     index: 21,
@@ -195,7 +255,9 @@ const notes = [
     register: 'mid',
     imgRef: 'lowMidA',
     abcCode: 'a',
-    midiCode: 'a'
+    midiCode: 'a',
+    noteClass: 'a',
+    spn: 'A4'
   },
   {
     index: 22,
@@ -204,7 +266,9 @@ const notes = [
     register: 'mid',
     imgRef: 'lowMidAs',
     abcCode: '^a_b',
-    midiCode: '^a'
+    midiCode: '^a',
+    noteClass: 'a_sharp',
+    spn: 'As4'
   },
   {
     index: 23,
@@ -213,7 +277,9 @@ const notes = [
     register: 'mid',
     imgRef: 'lowMidB',
     abcCode: "b_c'",
-    midiCode: 'b'
+    midiCode: 'b',
+    noteClass: 'b',
+    spn: 'B4'
   },
   {
     index: 24,
@@ -222,7 +288,9 @@ const notes = [
     register: 'mid',
     imgRef: 'lowMidBs',
     abcCode: "^bc'",
-    midiCode: "c'"
+    midiCode: "c'",
+    noteClass: 'c',
+    spn: 'C5'
   },
   {
     index: 25,
@@ -231,7 +299,9 @@ const notes = [
     register: 'mid',
     imgRef: 'midHiCs',
     abcCode: "^c'_d'",
-    midiCode: "^c'"
+    midiCode: "^c'",
+    noteClass: 'c_sharp',
+    spn: 'Cs5'
   },
   {
     index: 26,
@@ -240,7 +310,9 @@ const notes = [
     register: 'hi',
     imgRef: 'hiD',
     abcCode: "d'",
-    midiCode: "d'"
+    midiCode: "d'",
+    noteClass: 'd',
+    spn: 'D5'
   },
   {
     index: 27,
@@ -249,7 +321,9 @@ const notes = [
     register: 'hi',
     imgRef: 'hiDs',
     abcCode: "^d'_e'",
-    midiCode: "^d'"
+    midiCode: "^d'",
+    noteClass: 'd_sharp',
+    spn: 'Ds5'
   },
   {
     index: 28,
@@ -258,7 +332,9 @@ const notes = [
     register: 'hi',
     imgRef: 'hiE',
     abcCode: "e'_f'",
-    midiCode: "e'"
+    midiCode: "e'",
+    noteClass: 'e',
+    spn: 'E5'
   },
   {
     index: 29,
@@ -267,7 +343,9 @@ const notes = [
     register: 'hi',
     imgRef: 'hiEs',
     abcCode: "^e'f'",
-    midiCode: "f'"
+    midiCode: "f'",
+    noteClass: 'f',
+    spn: 'F5'
   },
   {
     index: 30,
@@ -276,7 +354,9 @@ const notes = [
     register: 'hi',
     imgRef: 'hiFs',
     abcCode: "^f'_g'",
-    midiCode: "^f'"
+    midiCode: "^f'",
+    noteClass: 'f_sharp',
+    spn: 'Fs5'
   },
   {
     index: 31,
@@ -285,7 +365,9 @@ const notes = [
     register: 'hi',
     imgRef: 'hiG',
     abcCode: "g'",
-    midiCode: "g'"
+    midiCode: "g'",
+    noteClass: 'g',
+    spn: 'G5'
   },
   {
     index: 32,
@@ -294,7 +376,9 @@ const notes = [
     register: 'hi',
     imgRef: 'hiGs',
     abcCode: "^g'_a'",
-    midiCode: "^g'"
+    midiCode: "^g'",
+    noteClass: 'g_sharp',
+    spn: 'Gs5'
   },
   {
     index: 33,
@@ -303,7 +387,9 @@ const notes = [
     register: 'hi',
     imgRef: 'hiA',
     abcCode: "a'",
-    midiCode: "a'"
+    midiCode: "a'",
+    noteClass: 'a',
+    spn: 'A5'
   },
   {
     index: 34,
@@ -312,7 +398,9 @@ const notes = [
     register: 'hi',
     imgRef: 'hiAs',
     abcCode: "^a'_b'",
-    midiCode: "^a'"
+    midiCode: "^a'",
+    noteClass: 'a_sharp',
+    spn: 'As5'
   },
   {
     index: 35,
@@ -321,7 +409,9 @@ const notes = [
     register: 'hi',
     imgRef: 'hiB',
     abcCode: "b'_c''",
-    midiCode: "b'"
+    midiCode: "b'",
+    noteClass: 'b',
+    spn: 'B5'
   },
   {
     index: 36,
@@ -330,7 +420,9 @@ const notes = [
     register: 'hi',
     imgRef: 'hiC',
     abcCode: "c''",
-    midiCode: "c''"
+    midiCode: "c''",
+    noteClass: 'c',
+    spn: 'C6'
   }
 ];
 
