@@ -1,5 +1,6 @@
 import React from 'react';
 import CardSource from '../CardSource';
+import Keyboard from '../Keyboard';
 import styled from 'styled-components';
 import uuid from 'react-uuid';
 import { nextTick } from 'q';
@@ -14,7 +15,9 @@ const Shelf = styled.div`
 const CardShelf = props => {
   return (
     <Shelf>
+      <Keyboard />
       <h2>Flute Cards</h2>
+
       {props.notes.map((note, i) => (
         <React.Fragment key={uuid()}>
           <CardSource

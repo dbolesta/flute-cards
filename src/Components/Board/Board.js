@@ -66,10 +66,11 @@ const Board = ({
   return (
     <>
       <h3>Flute Cards</h3>
+
       <BoardContainer>
         {/* loop through first dimension of array (rows) */}
         {cards.map((row, rowIndex) => {
-          let rowNotation = '';
+          let rowNotation = '|:';
           {
             /* collect complete abc notation of all cards in row, so we can use it for midi */
           }

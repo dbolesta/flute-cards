@@ -1,0 +1,55 @@
+// code taken from Enteleforms answer:
+// https://stackoverflow.com/questions/29656280/how-to-create-a-completely-flexible-piano-keyboard-with-html-and-css
+
+// Responsive Sizing
+// (currently optimized for horizontal scaling)
+$keyboard_Width: 40vw;
+$keyboard_Height: ($keyboard_Width * 0.18);
+$border_Width: ($keyboard_Width * 0.0015);
+$whiteKey_Count: 21;
+$whiteKey_Height: $keyboard_Height;
+$whiteKey_Width: ($keyboard_Width / $whiteKey_Count);
+$blackKey_Height: ($whiteKey_Height * 0.55);
+$blackKey_Width: ($whiteKey_Width * 0.55);
+$blackKey_Offset: (-($blackKey_Width / 2) - $border_Width);
+
+$whiteKey_Color: #fff; // #cbcbcb
+$blackKey_Color: #000; // #222222
+$blackKey_BorderColor: #000000;
+$whiteKey_BorderColor: #aaaaaa;
+
+.key {
+  float: left;
+  position: relative;
+}
+
+.white {
+  height: $whiteKey_Height;
+  width: $whiteKey_Width;
+  z-index: 1;
+  border-top: $border_Width solid $whiteKey_BorderColor;
+  border-bottom: $border_Width solid $whiteKey_BorderColor;
+  border-left: $border_Width solid $whiteKey_BorderColor;
+  background-color: $whiteKey_Color;
+}
+
+.black {
+  height: $blackKey_Height;
+  width: $blackKey_Width;
+  z-index: 2;
+  border: $border_Width solid $blackKey_BorderColor;
+  background-color: $blackKey_Color;
+}
+
+.a,
+.b,
+.d,
+.e,
+.g,
+.black {
+  margin: 0 0 0 $blackKey_Offset;
+}
+
+.keyboard > .note:last-child {
+  border-right: $border_Width solid $whiteKey_BorderColor;
+}
