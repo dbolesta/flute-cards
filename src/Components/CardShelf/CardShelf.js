@@ -3,7 +3,6 @@ import CardSource from '../CardSource';
 import Keyboard from '../Keyboard';
 import styled from 'styled-components';
 import uuid from 'react-uuid';
-import { nextTick } from 'q';
 
 const Shelf = styled.div`
   border: 1px solid red;
@@ -25,6 +24,8 @@ const CardShelf = props => {
             note={note}
             index={i}
             addCard={props.addCard}
+            setHoveredNote={props.setHoveredNote}
+            hoveredNote={props.hoveredNote}
           />
 
           {/* put each register on its own line. */}

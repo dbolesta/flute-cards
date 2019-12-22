@@ -16,6 +16,10 @@ const Card = styled.div`
   vertical-align: bottom;
   cursor: pointer;
 
+  &.highlight {
+    border-color: red;
+  }
+
   ${({ black }) =>
     black &&
     `
@@ -32,6 +36,12 @@ const CardSource = props => {
     <Card
       onClick={() => props.addCard(props.note)}
       black={props.note.black}
+      onMouseOver={() => props.setHoveredNote(props.note.letters[0])}
+      className={
+        props.hoveredNote === props.note.letters[0]
+          ? 'highlight'
+          : null
+      }
     >
       {props.note.letters.map((letter, i) => {
         return <span key={uuid()}>{letter}</span>;

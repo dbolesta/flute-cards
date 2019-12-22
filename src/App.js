@@ -16,6 +16,8 @@ function App() {
   const [cards, setCards] = useState([[]]); // all cards and rows
   const [activeRow, setActiveRow] = useState(0); // the currently selected row (which array index new cards will be added)
 
+  const [hoveredNote, setHoveredNote] = useState('');
+
   const addCard = note => {
     // 1. copy current cards
     let cardsCopy = cards.slice();
@@ -54,7 +56,12 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <CardShelf notes={notes} addCard={addCard} />
+      <CardShelf
+        notes={notes}
+        addCard={addCard}
+        setHoveredNote={setHoveredNote}
+        hoveredNote={hoveredNote}
+      />
       <Board
         cards={cards}
         addRow={addRow}

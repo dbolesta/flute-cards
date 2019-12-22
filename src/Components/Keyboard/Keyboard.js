@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import './keyboard.scss';
+import notes from '../../notes';
 
 // bless this beautiful boy:
 // https://stackoverflow.com/questions/29656280/how-to-create-a-completely-flexible-piano-keyboard-with-html-and-css
@@ -14,7 +15,10 @@ const KeyboardContainer = styled.div`
 const Keyboard = () => {
   return (
     <KeyboardContainer>
-      <div className="keyboard">
+      <div
+        className="keyboard"
+        onMouseOver={e => console.log(e.target.dataset.note)}
+      >
         <div className="key white c" data-note="C3"></div>
         <div className="key black c_sharp" data-note="C#3"></div>
         <div className="key white d" data-note="D3"></div>
