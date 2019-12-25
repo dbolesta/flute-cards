@@ -17,7 +17,8 @@ const NoteContainer = styled.div`
 const LineSpaceContainer = styled.div`
   border: 1px solid red;
   width: 100%;
-  margin: 3rem;
+  margin: 4rem;
+  padding: 2rem 0;
   position: relative;
 `;
 
@@ -26,11 +27,44 @@ const Line = styled.div`
   margin: 3px 0;
   display: block;
   width: 100%;
+  position: relative;
+
+  &:after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    right: 20px;
+    bottom: -3px;
+    display: none;
+  }
+
+  &:hover:after {
+    display: block;
+  }
 `;
 const Space = styled.div`
   height: 7px;
   display: block;
   width: 100%;
+  position: relative;
+
+  &:after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    right: 20px;
+    display: none;
+  }
+
+  &:hover:after {
+    display: block;
+  }
 `;
 
 const SVGContainer = styled.div`
@@ -38,6 +72,15 @@ const SVGContainer = styled.div`
   left: 0;
   width: 100%;
   top: 0;
+`;
+
+const Highlighter = styled.div`
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  right: 20px;
 `;
 
 const Staff = () => {
