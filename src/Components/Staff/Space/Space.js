@@ -6,10 +6,17 @@ const StyledSpace = styled.div`
   display: block;
   width: 100%;
   position: relative;
+  cursor: pointer;
 `;
 
-const Space = () => {
-  return <StyledSpace></StyledSpace>;
+const Space = ({ setHoveredNote, note, addCard }) => {
+  return (
+    <StyledSpace
+      onMouseEnter={() => setHoveredNote(note.abcCode)}
+      onMouseLeave={() => setHoveredNote(null)}
+      onClick={() => addCard(note)}
+    ></StyledSpace>
+  );
 };
 
 export default Space;

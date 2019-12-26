@@ -7,10 +7,17 @@ const StyledLine = styled.div`
   display: block;
   width: 100%;
   position: relative;
+  cursor: pointer;
 `;
 
-const Line = () => {
-  return <StyledLine></StyledLine>;
+const Line = ({ setHoveredNote, note, addCard }) => {
+  return (
+    <StyledLine
+      onMouseEnter={() => setHoveredNote(note.abcCode)}
+      onMouseLeave={() => setHoveredNote(null)}
+      onClick={() => addCard(note)}
+    ></StyledLine>
+  );
 };
 
 export default Line;

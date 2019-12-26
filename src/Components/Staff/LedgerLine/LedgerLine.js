@@ -7,6 +7,7 @@ const StyledLedgerLine = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   & span {
     margin: 3px 0;
@@ -26,9 +27,13 @@ const StyledLedgerLine = styled.div`
   }
 `;
 
-const LedgerLine = () => {
+const LedgerLine = ({ setHoveredNote, note, addCard }) => {
   return (
-    <StyledLedgerLine>
+    <StyledLedgerLine
+      onMouseEnter={() => setHoveredNote(note.abcCode)}
+      onMouseLeave={() => setHoveredNote(null)}
+      onClick={() => addCard(note)}
+    >
       <span></span>
       <span></span>
       <span></span>

@@ -53,15 +53,17 @@ const Highlighter = styled.div`
   right: 20px;
 `;
 
-const Staff = ({ notes }) => {
+const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
   // create array of no sharp notes
   let noSharps = notes.filter(
     note => note.noteClass.indexOf('_sharp') === -1
   );
 
   return (
-    <StaffContainer>
-      <LineSpaceContainer>
+    <StaffContainer
+      onMouseEnter={() => console.log('entering the staff??')}
+    >
+      <LineSpaceContainer onMouseEnter={() => setHoveredNote('_B')}>
         <SVGContainer>
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -80,14 +82,29 @@ const Staff = ({ notes }) => {
         {noSharps.map((noSharp, i) => {
           if (isEven(i)) {
             if (i === 0 || i > 10) {
-              console.log(`${noSharp.spn} is a ledger line`);
-              return <LedgerLine />;
+              return (
+                <LedgerLine
+                  setHoveredNote={setHoveredNote}
+                  note={noSharp}
+                  addCard={addCard}
+                />
+              );
             }
-            console.log(`${noSharp.spn} is a line`);
-            return <Line />;
+            return (
+              <Line
+                setHoveredNote={setHoveredNote}
+                note={noSharp}
+                addCard={addCard}
+              />
+            );
           } else {
-            console.log(`${noSharp.spn} is a space`);
-            return <Space />;
+            return (
+              <Space
+                setHoveredNote={setHoveredNote}
+                note={noSharp}
+                addCard={addCard}
+              />
+            );
           }
         })}
       </LineSpaceContainer>

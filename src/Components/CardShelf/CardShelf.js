@@ -22,7 +22,12 @@ const CardShelf = props => {
         addCard={props.addCard}
       />
 
-      <Staff notes={props.notes} />
+      <Staff
+        hoveredNote={props.hoveredNote}
+        setHoveredNote={props.setHoveredNote}
+        notes={props.notes}
+        addCard={props.addCard}
+      />
       <h2>Flute Cards</h2>
 
       {props.notes.map((note, i) => (
