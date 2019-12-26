@@ -6,6 +6,8 @@ import Line from './Line';
 import Space from './Space';
 import LedgerLine from './LedgerLine';
 
+import trebleSVG from '../../Images/treble.svg';
+
 const StaffContainer = styled.div`
   background-color: white;
   width: 244px;
@@ -15,8 +17,21 @@ const StaffContainer = styled.div`
   left: 0;
 `;
 
-const NoteContainer = styled.div`
-  position: relative;
+const TrebleContainer = styled.img`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+`;
+const SVGContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 23%;
+  margin-bottom: 4rem;
+  padding-bottom: 2.85rem;
+  margin-left: 0.2rem;
 `;
 
 const LineSpaceContainer = styled.div`
@@ -27,13 +42,6 @@ const LineSpaceContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-`;
-
-const SVGContainer = styled.div`
-  position: absolute;
-  left: 0;
-  width: 100%;
-  top: 0;
 `;
 
 const Highlighter = styled.div`
@@ -55,7 +63,7 @@ const Staff = ({ notes }) => {
     <StaffContainer>
       <LineSpaceContainer>
         <SVGContainer>
-          <svg
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 200 200"
           >
@@ -64,7 +72,9 @@ const Staff = ({ notes }) => {
               stroke="none"
               fill="#000000"
             ></path>
-          </svg>
+          </svg> */}
+
+          <TrebleContainer src={trebleSVG} />
         </SVGContainer>
 
         {noSharps.map((noSharp, i) => {
