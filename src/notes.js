@@ -26,7 +26,7 @@ const notes = [
     abcCode: 'C',
     midiCode: 'C',
     noteClass: 'c',
-    spn: 'C3'
+    spn: 'C4'
   },
   {
     index: 1,
@@ -37,7 +37,7 @@ const notes = [
     abcCode: '^C_D',
     midiCode: '^C',
     noteClass: 'c_sharp',
-    spn: 'Cs3'
+    spn: 'Cs4'
   },
   {
     index: 2,
@@ -48,7 +48,7 @@ const notes = [
     abcCode: 'D',
     midiCode: 'D',
     noteClass: 'd',
-    spn: 'D3'
+    spn: 'D4'
   },
   {
     index: 3,
@@ -59,7 +59,7 @@ const notes = [
     abcCode: '^D',
     midiCode: '^D',
     noteClass: 'd_sharp',
-    spn: 'Ds3'
+    spn: 'Ds4'
   },
   {
     index: 4,
@@ -70,7 +70,7 @@ const notes = [
     abcCode: 'E_F',
     midiCode: 'E',
     noteClass: 'e',
-    spn: 'E3'
+    spn: 'E4'
   },
   {
     index: 5,
@@ -81,7 +81,7 @@ const notes = [
     abcCode: '^EF',
     midiCode: 'F',
     noteClass: 'f',
-    spn: 'F3'
+    spn: 'F4'
   },
   {
     index: 6,
@@ -92,7 +92,7 @@ const notes = [
     abcCode: '^F_G',
     midiCode: '^F',
     noteClass: 'f_sharp',
-    spn: 'Fs3'
+    spn: 'Fs4'
   },
   {
     index: 7,
@@ -103,7 +103,7 @@ const notes = [
     abcCode: 'G',
     midiCode: 'G',
     noteClass: 'g',
-    spn: 'G3'
+    spn: 'G4'
   },
   {
     index: 8,
@@ -114,7 +114,7 @@ const notes = [
     abcCode: '^G_A',
     midiCode: '^G',
     noteClass: 'g_sharp',
-    spn: 'Gs3'
+    spn: 'Gs4'
   },
   {
     index: 9,
@@ -125,7 +125,7 @@ const notes = [
     abcCode: 'A',
     midiCode: 'A',
     noteClass: 'a',
-    spn: 'A3'
+    spn: 'A4'
   },
   {
     index: 10,
@@ -136,7 +136,7 @@ const notes = [
     abcCode: '^A_B',
     midiCode: '^A',
     noteClass: 'a_sharp',
-    spn: 'As3'
+    spn: 'As4'
   },
   {
     index: 11,
@@ -147,7 +147,7 @@ const notes = [
     abcCode: 'B_c',
     midiCode: 'B',
     noteClass: 'b',
-    spn: 'B3'
+    spn: 'B4'
   },
   {
     index: 12,
@@ -158,7 +158,7 @@ const notes = [
     abcCode: '^Bc',
     midiCode: 'c',
     noteClass: 'c',
-    spn: 'C4'
+    spn: 'C5'
   },
   {
     index: 13,
@@ -169,7 +169,7 @@ const notes = [
     abcCode: '^c_d',
     midiCode: '^c',
     noteClass: 'c_sharp',
-    spn: 'Cs4'
+    spn: 'Cs5'
   },
   {
     index: 14,
@@ -180,7 +180,7 @@ const notes = [
     abcCode: 'd',
     midiCode: 'd',
     noteClass: 'd',
-    spn: 'D4'
+    spn: 'D5'
   },
   {
     index: 15,
@@ -191,7 +191,7 @@ const notes = [
     abcCode: '^d_e',
     midiCode: '^d',
     noteClass: 'd_sharp',
-    spn: 'Ds4'
+    spn: 'Ds5'
   },
   {
     index: 16,
@@ -202,7 +202,7 @@ const notes = [
     abcCode: 'e_f',
     midiCode: 'e',
     noteClass: 'e',
-    spn: 'E4'
+    spn: 'E5'
   },
   {
     index: 17,
@@ -213,7 +213,7 @@ const notes = [
     abcCode: '^ef',
     midiCode: 'f',
     noteClass: 'f',
-    spn: 'F4'
+    spn: 'F5'
   },
   {
     index: 18,
@@ -224,7 +224,7 @@ const notes = [
     abcCode: '^f_g',
     midiCode: '^f',
     noteClass: 'f_sharp',
-    spn: 'Fs4'
+    spn: 'Fs5'
   },
   {
     index: 19,
@@ -235,7 +235,7 @@ const notes = [
     abcCode: 'g',
     midiCode: 'g',
     noteClass: 'g',
-    spn: 'G4'
+    spn: 'G5'
   },
   {
     index: 20,
@@ -246,7 +246,7 @@ const notes = [
     abcCode: '^g_a',
     midiCode: '^g',
     noteClass: 'g_sharp',
-    spn: 'Gs4'
+    spn: 'Gs5'
   },
   {
     index: 21,
@@ -257,7 +257,7 @@ const notes = [
     abcCode: 'a',
     midiCode: 'a',
     noteClass: 'a',
-    spn: 'A4'
+    spn: 'A5'
   },
   {
     index: 22,
@@ -268,7 +268,7 @@ const notes = [
     abcCode: '^a_b',
     midiCode: '^a',
     noteClass: 'a_sharp',
-    spn: 'As4'
+    spn: 'As5'
   },
   {
     index: 23,
@@ -279,7 +279,7 @@ const notes = [
     abcCode: "b_c'",
     midiCode: 'b',
     noteClass: 'b',
-    spn: 'B4'
+    spn: 'B5'
   },
   {
     index: 24,
@@ -290,7 +290,7 @@ const notes = [
     abcCode: "^bc'",
     midiCode: "c'",
     noteClass: 'c',
-    spn: 'C5'
+    spn: 'C6'
   },
   {
     index: 25,
@@ -301,7 +301,7 @@ const notes = [
     abcCode: "^c'_d'",
     midiCode: "^c'",
     noteClass: 'c_sharp',
-    spn: 'Cs5'
+    spn: 'Cs6'
   },
   {
     index: 26,
@@ -312,7 +312,7 @@ const notes = [
     abcCode: "d'",
     midiCode: "d'",
     noteClass: 'd',
-    spn: 'D5'
+    spn: 'D6'
   },
   {
     index: 27,
@@ -323,7 +323,7 @@ const notes = [
     abcCode: "^d'_e'",
     midiCode: "^d'",
     noteClass: 'd_sharp',
-    spn: 'Ds5'
+    spn: 'Ds6'
   },
   {
     index: 28,
@@ -334,7 +334,7 @@ const notes = [
     abcCode: "e'_f'",
     midiCode: "e'",
     noteClass: 'e',
-    spn: 'E5'
+    spn: 'E6'
   },
   {
     index: 29,
@@ -345,7 +345,7 @@ const notes = [
     abcCode: "^e'f'",
     midiCode: "f'",
     noteClass: 'f',
-    spn: 'F5'
+    spn: 'F6'
   },
   {
     index: 30,
@@ -356,7 +356,7 @@ const notes = [
     abcCode: "^f'_g'",
     midiCode: "^f'",
     noteClass: 'f_sharp',
-    spn: 'Fs5'
+    spn: 'Fs6'
   },
   {
     index: 31,
@@ -367,7 +367,7 @@ const notes = [
     abcCode: "g'",
     midiCode: "g'",
     noteClass: 'g',
-    spn: 'G5'
+    spn: 'G6'
   },
   {
     index: 32,
@@ -378,7 +378,7 @@ const notes = [
     abcCode: "^g'_a'",
     midiCode: "^g'",
     noteClass: 'g_sharp',
-    spn: 'Gs5'
+    spn: 'Gs6'
   },
   {
     index: 33,
@@ -389,7 +389,7 @@ const notes = [
     abcCode: "a'",
     midiCode: "a'",
     noteClass: 'a',
-    spn: 'A5'
+    spn: 'A6'
   },
   {
     index: 34,
@@ -400,7 +400,7 @@ const notes = [
     abcCode: "^a'_b'",
     midiCode: "^a'",
     noteClass: 'a_sharp',
-    spn: 'As5'
+    spn: 'As6'
   },
   {
     index: 35,
@@ -411,7 +411,7 @@ const notes = [
     abcCode: "b'_c''",
     midiCode: "b'",
     noteClass: 'b',
-    spn: 'B5'
+    spn: 'B6'
   },
   {
     index: 36,
@@ -422,7 +422,7 @@ const notes = [
     abcCode: "c''",
     midiCode: "c''",
     noteClass: 'c',
-    spn: 'C6'
+    spn: 'C7'
   }
 ];
 
