@@ -1,5 +1,5 @@
-// create random key for lists
-// PROBABLY SHOULD NOT USE, CREATING DUPLICATE IDS
-export const generateKey = pre => {
-  return `${pre}_${new Date().getTime()}`;
-};
+// checks if number is even
+// returns a boolean
+export function isEven(n) {
+  return n % 2 === 0;
+}

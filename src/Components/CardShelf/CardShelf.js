@@ -22,7 +22,7 @@ const CardShelf = props => {
         addCard={props.addCard}
       />
 
-      <Staff />
+      <Staff notes={props.notes} />
       <h2>Flute Cards</h2>
 
       {props.notes.map((note, i) => (
