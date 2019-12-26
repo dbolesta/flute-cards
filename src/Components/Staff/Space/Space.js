@@ -12,7 +12,7 @@ const StyledSpace = styled.div`
   cursor: pointer;
 
   & span {
-    height: 5px;
+    height: 7px;
   }
 
   & span:nth-of-type(1) {
@@ -30,7 +30,7 @@ const StyledSpace = styled.div`
 `;
 
 const WholeNoteImg = styled.img`
-  height: 225%;
+  height: 164%;
   margin-left: 14px;
 `;
 

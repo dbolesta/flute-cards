@@ -12,7 +12,7 @@ const StyledLine = styled.div`
   cursor: pointer;
 
   & span {
-    margin: 3px 0;
+    margin: 2px 0;
   }
 
   & span:nth-of-type(1) {
@@ -25,6 +25,7 @@ const StyledLine = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
   & span:nth-of-type(3) {
     border-bottom: 1px solid black;
@@ -33,9 +34,14 @@ const StyledLine = styled.div`
 `;
 
 const WholeNoteImg = styled.img`
-  height: 161%;
+  /* height: 161%;
   position: absolute;
-  margin-top: 1px;
+  margin-top: 1px; */
+  width: 95%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const Line = ({ setHoveredNote, hoveredNote, note, addCard }) => {
