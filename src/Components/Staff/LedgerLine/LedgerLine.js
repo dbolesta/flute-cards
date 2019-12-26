@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import wholeNoteSVG from '../../../Images/wholeNote.svg';
+
 const StyledLedgerLine = styled.div`
   display: flex;
   width: 100%;
@@ -20,6 +22,9 @@ const StyledLedgerLine = styled.div`
   & span:nth-of-type(2) {
     border-bottom: 1px solid black;
     flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   & span:nth-of-type(3) {
     border-bottom: 1px solid transparent;
@@ -27,7 +32,18 @@ const StyledLedgerLine = styled.div`
   }
 `;
 
-const LedgerLine = ({ setHoveredNote, note, addCard }) => {
+const WholeNoteImg = styled.img`
+  height: 161%;
+  position: absolute;
+  margin-top: 1px;
+`;
+
+const LedgerLine = ({
+  setHoveredNote,
+  hoveredNote,
+  note,
+  addCard
+}) => {
   return (
     <StyledLedgerLine
       onMouseEnter={() => setHoveredNote(note.abcCode)}
@@ -35,7 +51,11 @@ const LedgerLine = ({ setHoveredNote, note, addCard }) => {
       onClick={() => addCard(note)}
     >
       <span></span>
-      <span></span>
+      <span>
+        {hoveredNote === note.abcCode ? (
+          <WholeNoteImg src={wholeNoteSVG} />
+        ) : null}
+      </span>
       <span></span>
     </StyledLedgerLine>
   );

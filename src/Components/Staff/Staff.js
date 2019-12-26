@@ -87,6 +87,7 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
                   setHoveredNote={setHoveredNote}
                   note={noSharp}
                   addCard={addCard}
+                  hoveredNote={hoveredNote}
                 />
               );
             }
@@ -95,6 +96,7 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
                 setHoveredNote={setHoveredNote}
                 note={noSharp}
                 addCard={addCard}
+                hoveredNote={hoveredNote}
               />
             );
           } else {
@@ -103,6 +105,7 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
                 setHoveredNote={setHoveredNote}
                 note={noSharp}
                 addCard={addCard}
+                hoveredNote={hoveredNote}
               />
             );
           }
