@@ -60,6 +60,10 @@ function App() {
     // 2. splice out selected row
     cardsCopy.splice(rowIndex, 1);
 
+    console.log('%c Whats it look like', 'font-size: 16px');
+
+    console.log(cardsCopy);
+
     // 3. if active row no longer exists, set it to last row
     if (cardsCopy[activeRow] === undefined) {
       setActiveRow(cardsCopy.length - 1);

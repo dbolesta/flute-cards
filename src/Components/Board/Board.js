@@ -136,7 +136,10 @@ const Board = ({
                 notation={rowNotation}
               />
 
-              <span className="remove-row-button" onClick={removeRow}>
+              <span
+                className="remove-row-button"
+                onClick={() => removeRow(rowIndex)}
+              >
                 x
               </span>
             </CardRow>
