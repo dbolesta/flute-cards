@@ -53,6 +53,22 @@ function App() {
     setActiveRow(cardsCopy.length - 1);
   };
 
+  const removeRow = rowIndex => {
+    // 1. copy current cards
+    let cardsCopy = cards.slice();
+
+    // 2. splice out selected row
+    cardsCopy.splice(rowIndex, 1);
+
+    // 3. if active row no longer exists, set it to last row
+    if (cardsCopy[activeRow] === undefined) {
+      setActiveRow(cardsCopy.length - 1);
+    }
+
+    // 4. set new cardsCopy as card state
+    setCards(cardsCopy);
+  };
+
   return (
     <div className="App">
       <GlobalStyle />
@@ -68,6 +84,7 @@ function App() {
         removeCard={removeCard}
         activeRow={activeRow}
         setActiveRow={setActiveRow}
+        removeRow={removeRow}
       />
     </div>
   );

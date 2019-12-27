@@ -23,9 +23,29 @@ const CardRow = styled.div`
   min-height: 11.25rem;
   justify-content: flex-start;
   flex: 1 0 auto;
+  position: relative;
 
   &.activeRow {
     border: 2px solid red;
+  }
+
+  span.remove-row-button {
+    content: 'x';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 2rem;
+    height: 2rem;
+    background-color: black;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  &:hover span.remove-row-button {
+    display: flex;
   }
 `;
 
@@ -61,7 +81,8 @@ const Board = ({
   addRow,
   removeCard,
   activeRow,
-  setActiveRow
+  setActiveRow,
+  removeRow
 }) => {
   return (
     <>
@@ -114,6 +135,10 @@ const Board = ({
                 }}
                 notation={rowNotation}
               />
+
+              <span className="remove-row-button" onClick={removeRow}>
+                x
+              </span>
             </CardRow>
           );
         })}

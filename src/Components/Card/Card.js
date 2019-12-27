@@ -47,7 +47,6 @@ const SCard = styled.div`
   position: relative;
 
   span.remove-button {
-    content: 'x';
     position: absolute;
     top: -5px;
     right: -5px;
