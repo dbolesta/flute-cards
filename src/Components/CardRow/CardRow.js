@@ -68,7 +68,7 @@ const CardRow = ({
       onClick={e => {
         /* update activeRow when row is clicked, first check if target matches */
         /* maybe should extract this to its own function...? */
-        if (e.currentTarget !== e.target) return;
+        if (e.currentTarget !== e.target) return; // need to click on empty space in row
         setActiveRow(rowIndex);
       }}
     >

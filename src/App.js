@@ -15,10 +15,18 @@ function App() {
   const [notes, setNotes] = useState(allNotes); // all note objects (probably shoudnt be state, since never changed?)
   const [cards, setCards] = useState([[]]); // all cards and rows
   const [activeRow, setActiveRow] = useState(0); // the currently selected row (which array index new cards will be added)
-
-  const [hoveredNote, setHoveredNote] = useState('');
+  const [hoveredNote, setHoveredNote] = useState(''); // note user is hovering over on any Selector (keyboard, staff, notes), which is used to display that note on all selectors
 
   const addCard = note => {
+    // if no rows exist (activeRow === -1),
+    // just manually set the cards state to the note, and set active row
+    if (activeRow === -1) {
+      setCards([[note]]);
+      setActiveRow(0);
+      return; // cut the function short
+    }
+
+    // otherwise, procede as normal:
     // 1. copy current cards
     let cardsCopy = cards.slice();
 
@@ -59,10 +67,6 @@ function App() {
 
     // 2. splice out selected row
     cardsCopy.splice(rowIndex, 1);
-
-    console.log('%c Whats it look like', 'font-size: 16px');
-
-    console.log(cardsCopy);
 
     // 3. if active row no longer exists, set it to last row
     if (cardsCopy[activeRow] === undefined) {
