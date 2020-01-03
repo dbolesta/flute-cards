@@ -12,7 +12,7 @@ const Shelf = styled.div`
   }
 `;
 
-const CardShelf = props => {
+const SelectorShelf = props => {
   return (
     <Shelf>
       <Keyboard
@@ -52,4 +52,4 @@ const CardShelf = props => {
   );
 };
 
-export default CardShelf;
+export default SelectorShelf;

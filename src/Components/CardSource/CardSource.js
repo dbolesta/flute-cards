@@ -31,18 +31,21 @@ const Card = styled.div`
    `}
 `;
 
-const CardSource = props => {
+const CardSource = ({
+  addCard,
+  note,
+  setHoveredNote,
+  hoveredNote
+}) => {
   return (
     <Card
-      onClick={() => props.addCard(props.note)}
-      black={props.note.black}
-      onMouseEnter={() => props.setHoveredNote(props.note.abcCode)}
-      onMouseLeave={() => props.setHoveredNote(null)}
-      className={
-        props.hoveredNote === props.note.abcCode ? 'highlight' : null
-      }
+      onClick={() => addCard(note)}
+      black={note.black}
+      onMouseEnter={() => setHoveredNote(note.abcCode)}
+      onMouseLeave={() => setHoveredNote(null)}
+      className={hoveredNote === note.abcCode ? 'highlight' : null}
     >
-      {props.note.letters.map((letter, i) => {
+      {note.letters.map((letter, i) => {
         return <span key={uuid()}>{letter}</span>;
       })}
     </Card>

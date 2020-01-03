@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CardShelf from './Components/CardShelf';
+import SelectorShelf from './Components/SelectorShelf';
 import Board from './Components/Board';
 import './App.css';
 import allNotes from './notes';
@@ -80,7 +80,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <CardShelf
+      <SelectorShelf
         notes={notes}
         addCard={addCard}
         setHoveredNote={setHoveredNote}
