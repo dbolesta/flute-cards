@@ -44,3 +44,34 @@
 .black {
   margin-bottom: 1rem;
 }
+
+/* this is midi controls, unfortunately listed as empty div.
+maybe we can attach a classname via the abc docs...? */
+.row-controls > div:nth-of-type(2) {
+  flex: 1 0 auto;
+  width: 100%;
+  cursor: pointer;
+}
+
+.abcjs-inline-midi {
+  height: 100%;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+}
+
+.abcjs-midi-reset,
+.abcjs-midi-progress-background,
+.abcjs-midi-clock {
+  display: none !important;
+}
+
+span.row-controls div.abcjs-inline-midi button.abcjs-midi-start {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  margin-right: 0;
+  float: none;
+  cursor: pointer;
+}

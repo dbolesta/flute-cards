@@ -29,22 +29,21 @@ const CardRow = styled.div`
     border: 2px solid red;
   }
 
-  span.remove-row-button {
-    content: 'x';
+  span.row-controls {
+    /* border: 2px solid palegreen; */
     position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 2rem;
-    height: 2rem;
-    background-color: black;
-    color: white;
-    display: none;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2.5rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    justify-content: space-around;
+    display: none;
   }
 
-  &:hover span.remove-row-button {
+  &:hover span.row-controls {
     display: flex;
   }
 `;
@@ -75,6 +74,34 @@ const NewRowButton = styled.div`
     background-color: #48e68b;
   }
 `;
+
+const RemoveRowButton = styled.div`
+  /* position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 2rem;
+  height: 2rem; */
+  width: 100%;
+  background-color: black;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: 1 0 auto;
+  display: flex;
+`;
+
+const StyledMidi = styled(Midi)`
+  display: flex;
+  flex-direction: column;
+
+  &.abcjs-midi-reset,
+  &.abcjs-midi-progress-background,
+  &.abcjs-midi-clock {
+    display: none !important;
+  }
+`;
+// styling for Midi component is located in App.css
 
 const Board = ({
   cards,
@@ -126,21 +153,20 @@ const Board = ({
                   />
                 );
               })}
-              <Midi
-                midiParams={{
-                  generateInline: true,
-                  qpm: 80,
-                  program: 74 /* 74 is flute, check "General MIDI" on wikipedia for full reference (73 piccolo might be better..) */,
-                  inlineControls: { startPlaying: false }
-                }}
-                notation={rowNotation}
-              />
 
-              <span
-                className="remove-row-button"
-                onClick={() => removeRow(rowIndex)}
-              >
-                x
+              <span className="row-controls">
+                <RemoveRowButton onClick={() => removeRow(rowIndex)}>
+                  x
+                </RemoveRowButton>
+                <Midi
+                  midiParams={{
+                    generateInline: true,
+                    qpm: 80,
+                    program: 74 /* 74 is flute, check "General MIDI" on wikipedia for full reference (73 piccolo might be better..) */,
+                    inlineControls: { startPlaying: false }
+                  }}
+                  notation={rowNotation}
+                />
               </span>
             </CardRow>
           );
