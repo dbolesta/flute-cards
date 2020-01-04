@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { isEven } from '../../Utils/utils';
+import uuid from 'react-uuid';
 
 import Line from './Line';
 import Space from './Space';
@@ -66,6 +67,7 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
                   note={noSharp}
                   addCard={addCard}
                   hoveredNote={hoveredNote}
+                  key={uuid()}
                 />
               );
             }
@@ -75,6 +77,7 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
                 note={noSharp}
                 addCard={addCard}
                 hoveredNote={hoveredNote}
+                key={uuid()}
               />
             );
           } else {
@@ -84,6 +87,7 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
                 note={noSharp}
                 addCard={addCard}
                 hoveredNote={hoveredNote}
+                key={uuid()}
               />
             );
           }
