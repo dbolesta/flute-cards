@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import uuid from 'react-uuid';
 
 const RegistersContainer = styled.div`
-  border: 2px solid green;
+  /* border: 2px solid green; */
   padding: 1rem;
 `;
 
 const RegisterRow = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 
 // we want each register to be in its own row, so we create this row generating function

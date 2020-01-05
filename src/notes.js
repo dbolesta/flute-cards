@@ -63,7 +63,7 @@ const notes = [
   },
   {
     index: 4,
-    letters: ['E', 'F♭'],
+    letters: ['E'],
     black: false,
     register: 'low',
     imgRef: 'lowMidE',
@@ -74,7 +74,7 @@ const notes = [
   },
   {
     index: 5,
-    letters: ['E♯', 'F'],
+    letters: ['F'],
     black: false,
     register: 'low',
     imgRef: 'lowMidEs',
@@ -140,7 +140,7 @@ const notes = [
   },
   {
     index: 11,
-    letters: ['B', 'C♭'],
+    letters: ['B'],
     black: false,
     register: 'low',
     imgRef: 'lowMidB',
@@ -195,7 +195,7 @@ const notes = [
   },
   {
     index: 16,
-    letters: ['E', 'F♭'],
+    letters: ['E'],
     black: false,
     register: 'mid',
     imgRef: 'lowMidE',
@@ -206,7 +206,7 @@ const notes = [
   },
   {
     index: 17,
-    letters: ['E♯', 'F'],
+    letters: ['F'],
     black: false,
     register: 'mid',
     imgRef: 'lowMidEs',
@@ -272,7 +272,7 @@ const notes = [
   },
   {
     index: 23,
-    letters: ['B', 'C♭'],
+    letters: ['B'],
     black: false,
     register: 'mid',
     imgRef: 'lowMidB',
@@ -283,7 +283,7 @@ const notes = [
   },
   {
     index: 24,
-    letters: ['B♯', 'C'],
+    letters: ['C'],
     black: false,
     register: 'mid',
     imgRef: 'lowMidBs',
@@ -327,7 +327,7 @@ const notes = [
   },
   {
     index: 28,
-    letters: ['E', 'F♭'],
+    letters: ['E'],
     black: false,
     register: 'hi',
     imgRef: 'hiE',
@@ -338,7 +338,7 @@ const notes = [
   },
   {
     index: 29,
-    letters: ['E♯', 'F'],
+    letters: ['F'],
     black: false,
     register: 'hi',
     imgRef: 'hiEs',
@@ -404,7 +404,7 @@ const notes = [
   },
   {
     index: 35,
-    letters: ['B', 'C♭'],
+    letters: ['B'],
     black: false,
     register: 'hi',
     imgRef: 'hiB',

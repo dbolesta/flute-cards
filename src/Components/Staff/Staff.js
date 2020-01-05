@@ -42,7 +42,7 @@ const LineSpaceContainer = styled.div`
   padding: 2rem 0;
   position: relative;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column-reverse; /* i love flexbox lmao */
 `;
 
 const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
