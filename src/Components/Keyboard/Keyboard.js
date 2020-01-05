@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import './keyboard.scss';
-import uuid from 'react-uuid';
 
 // bless this beautiful boy:
 // https://stackoverflow.com/questions/29656280/how-to-create-a-completely-flexible-piano-keyboard-with-html-and-css
@@ -44,7 +43,7 @@ const Keyboard = ({
               onMouseEnter={() => setHoveredNote(note.abcCode)}
               onMouseLeave={() => setHoveredNote(null)}
               onClick={() => addCard(note)}
-              key={uuid()}
+              key={note.index}
             >
               {note.noteClass === 'c' ? (
                 <span>{note.spn}</span>

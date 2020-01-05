@@ -24,7 +24,7 @@ const renderRow = (notes, addCard, setHoveredNote, hoveredNote) => {
           addCard={addCard}
           setHoveredNote={setHoveredNote}
           hoveredNote={hoveredNote}
-          key={uuid()}
+          key={note.index}
         />
       ))}
     </RegisterRow>

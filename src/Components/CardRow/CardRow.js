@@ -2,7 +2,6 @@ import React from 'react';
 import Card from '../Card';
 import styled from 'styled-components';
 import { Midi } from 'react-abc';
-import uuid from 'react-uuid';
 // midi params: https://github.com/fuhton/react-abc/blob/3e200fd1649b5cc762269b832da1e825333ce016/src/defaults/README.md#midi-params
 // midi program number reference: https://en.wikipedia.org/wiki/General_MIDI
 
@@ -62,7 +61,6 @@ const CardRow = ({
 }) => {
   return (
     <RowContainer
-      key={uuid()}
       className={activeRow === rowIndex ? 'activeRow' : null}
       rowNotation={rowNotation}
       onClick={e => {
@@ -76,7 +74,7 @@ const CardRow = ({
       {row.map((card, cardIndex) => {
         return (
           <Card
-            key={uuid()}
+            key={card.index}
             card={card}
             removeCard={removeCard}
             cardIndex={cardIndex}

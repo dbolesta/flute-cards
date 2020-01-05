@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Notation } from 'react-abc';
 import svgs from '../../svgs';
-import uuid from 'react-uuid';
 
 //abc documentation:
 // https://paulrosen.github.io/abcjs/
@@ -102,8 +101,8 @@ const Card = ({ card, removeCard, cardIndex, rowIndex }) => {
         x
       </span>
       <Letters>
-        {letters.map(letter => (
-          <span key={uuid()}>{letter}</span>
+        {letters.map((letter, i) => (
+          <span key={i}>{letter}</span>
         ))}
       </Letters>
       <Notation
