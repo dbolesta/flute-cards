@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Card';
 import styled from 'styled-components';
+import { Droppable } from 'react-beautiful-dnd';
 import { Midi } from 'react-abc';
 // midi params: https://github.com/fuhton/react-abc/blob/3e200fd1649b5cc762269b832da1e825333ce016/src/defaults/README.md#midi-params
 // midi program number reference: https://en.wikipedia.org/wiki/General_MIDI
@@ -60,44 +61,55 @@ const CardRow = ({
   rowNotation
 }) => {
   return (
-    <RowContainer
-      className={activeRow === rowIndex ? 'activeRow' : null}
-      rowNotation={rowNotation}
-      onClick={e => {
-        /* update activeRow when row is clicked, first check if target matches */
-        /* maybe should extract this to its own function...? */
-        if (e.currentTarget !== e.target) return; // need to click on empty space in row
-        setActiveRow(rowIndex);
-      }}
+    <Droppable
+      droppableId={rowIndex + rowNotation}
+      type="card"
+      direction="horizontal"
     >
-      {/* loop through each array (cards) */}
-      {row.map((card, cardIndex) => {
-        return (
-          <Card
-            key={card.index}
-            card={card}
-            removeCard={removeCard}
-            cardIndex={cardIndex}
-            rowIndex={rowIndex}
-          />
-        );
-      })}
-
-      <span className="row-controls">
-        <RemoveRowButton onClick={() => removeRow(rowIndex)}>
-          x
-        </RemoveRowButton>
-        <Midi
-          midiParams={{
-            generateInline: true,
-            qpm: 80,
-            program: 73 /* 74 is flute, check "General MIDI" on wikipedia for full reference (73 piccolo might be better..) */,
-            inlineControls: { startPlaying: false }
+      {(provided, snapshot) => (
+        <RowContainer
+          className={activeRow === rowIndex ? 'activeRow' : null}
+          rowNotation={rowNotation}
+          onClick={e => {
+            /* update activeRow when row is clicked, first check if target matches */
+            /* maybe should extract this to its own function...? */
+            if (e.currentTarget !== e.target) return; // need to click on empty space in row
+            setActiveRow(rowIndex);
           }}
-          notation={rowNotation}
-        />
-      </span>
-    </RowContainer>
+          {...provided.draggableProps}
+          ref={provided.innerRef}
+        >
+          {/* loop through each array (cards) */}
+          {row.map((card, cardIndex) => {
+            return (
+              <Card
+                key={cardIndex + card.index + card.abcCode}
+                card={card}
+                removeCard={removeCard}
+                cardIndex={cardIndex}
+                rowIndex={rowIndex}
+              />
+            );
+          })}
+
+          <span className="row-controls">
+            <RemoveRowButton onClick={() => removeRow(rowIndex)}>
+              x
+            </RemoveRowButton>
+            <Midi
+              midiParams={{
+                generateInline: true,
+                qpm: 80,
+                program: 73 /* 74 is flute, check "General MIDI" on wikipedia for full reference (73 piccolo might be better..) */,
+                inlineControls: { startPlaying: false }
+              }}
+              notation={rowNotation}
+            />
+          </span>
+          {provided.placeholder}
+        </RowContainer>
+      )}
+    </Droppable>
   );
 };
 

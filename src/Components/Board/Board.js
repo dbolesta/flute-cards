@@ -72,7 +72,7 @@ const Board = ({
               row={row}
               rowIndex={rowIndex}
               rowNotation={rowNotation}
-              key={uuid()}
+              key={rowIndex + rowNotation}
             />
           );
         })}

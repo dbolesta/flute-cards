@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { DragDropContext } from 'react-beautiful-dnd';
 import SelectorShelf from './Components/SelectorShelf';
 import Board from './Components/Board';
 import './App.css';
 import allNotes from './notes';
 
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import { globalStyles } from './Styles/global';
 
 const GlobalStyle = createGlobalStyle`
@@ -77,24 +78,33 @@ function App() {
     setCards(cardsCopy);
   };
 
+  /// react beautiful dnd-stuff
+  const onDragEnd = result => {
+    const { destination, source, draggableId, type } = result;
+
+    console.log('drag ended bruv');
+  };
+
   return (
-    <div className="App">
-      <GlobalStyle />
-      <SelectorShelf
-        notes={notes}
-        addCard={addCard}
-        setHoveredNote={setHoveredNote}
-        hoveredNote={hoveredNote}
-      />
-      <Board
-        cards={cards}
-        addRow={addRow}
-        removeCard={removeCard}
-        activeRow={activeRow}
-        setActiveRow={setActiveRow}
-        removeRow={removeRow}
-      />
-    </div>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className="App">
+        <GlobalStyle />
+        <SelectorShelf
+          notes={notes}
+          addCard={addCard}
+          setHoveredNote={setHoveredNote}
+          hoveredNote={hoveredNote}
+        />
+        <Board
+          cards={cards}
+          addRow={addRow}
+          removeCard={removeCard}
+          activeRow={activeRow}
+          setActiveRow={setActiveRow}
+          removeRow={removeRow}
+        />
+      </div>
+    </DragDropContext>
   );
 }
 

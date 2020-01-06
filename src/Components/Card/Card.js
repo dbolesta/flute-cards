@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Draggable } from 'react-beautiful-dnd';
 import { Notation } from 'react-abc';
 import svgs from '../../svgs';
 
@@ -40,7 +41,7 @@ const SCard = styled.div`
   border-radius: 5px;
   display: inline-flex;
   flex-direction: column;
-  flex: 0 0 10rem;
+  flex: 0 1 10rem;
   margin: 0.2rem;
   padding: 0.2rem;
   position: relative;
@@ -77,7 +78,8 @@ const FingerImg = styled.img`
   margin-top: -3rem;
   padding: 0;
   /* width: auto; */
-  width: 160px;
+  /* width: 160px; */
+  width: 100%;
   /* padding-top: 0; */
 `;
 
@@ -93,26 +95,34 @@ const Card = ({ card, removeCard, cardIndex, rowIndex }) => {
   }
 
   return (
-    <SCard>
-      <span
-        className="remove-button"
-        onClick={() => removeCard(rowIndex, cardIndex)}
-      >
-        x
-      </span>
-      <Letters>
-        {letters.map((letter, i) => (
-          <span key={i}>{letter}</span>
-        ))}
-      </Letters>
-      <Notation
-        engraverParams={{
-          ...engraverParams
-        }}
-        notation={`K:clef=${clef}\nL:1\n${abcCode}`}
-      />
-      <FingerImg src={svgs[imgRef]} />
-    </SCard>
+    <Draggable draggableId={'' + cardIndex} index={cardIndex}>
+      {(provided, snapshot) => (
+        <SCard
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
+          <span
+            className="remove-button"
+            onClick={() => removeCard(rowIndex, cardIndex)}
+          >
+            x
+          </span>
+          <Letters>
+            {letters.map((letter, i) => (
+              <span key={i}>{letter}</span>
+            ))}
+          </Letters>
+          <Notation
+            engraverParams={{
+              ...engraverParams
+            }}
+            notation={`K:clef=${clef}\nL:1\n${abcCode}`}
+          />
+          <FingerImg src={svgs[imgRef]} />
+        </SCard>
+      )}
+    </Draggable>
   );
 };
 
