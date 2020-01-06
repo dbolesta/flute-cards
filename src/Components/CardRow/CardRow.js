@@ -8,7 +8,7 @@ import { Midi } from 'react-abc';
 
 const RowContainer = styled.div`
   display: inline-flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   border: 2px solid palevioletred;
   border-radius: 3px;
   min-height: 11.25rem;

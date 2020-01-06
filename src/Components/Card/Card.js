@@ -45,6 +45,7 @@ const SCard = styled.div`
   margin: 0.2rem;
   padding: 0.2rem;
   position: relative;
+  min-width: 0px;
 
   span.remove-button {
     position: absolute;
@@ -80,6 +81,7 @@ const FingerImg = styled.img`
   /* width: auto; */
   /* width: 160px; */
   width: 100%;
+
   /* padding-top: 0; */
 `;
 
