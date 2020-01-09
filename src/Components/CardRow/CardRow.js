@@ -62,7 +62,7 @@ const CardRow = ({
 }) => {
   return (
     <Droppable
-      droppableId={rowIndex + rowNotation}
+      droppableId={'' + rowIndex}
       type="card"
       direction="horizontal"
     >

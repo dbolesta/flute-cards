@@ -4,6 +4,7 @@ import SelectorShelf from './Components/SelectorShelf';
 import Board from './Components/Board';
 import './App.css';
 import allNotes from './notes';
+import { array_move } from './Utils/utils';
 
 import { createGlobalStyle } from 'styled-components';
 import { globalStyles } from './Styles/global';
@@ -82,19 +83,60 @@ function App() {
   const onDragEnd = result => {
     const { destination, source, draggableId, type } = result;
 
-    console.log('drag ended bruv');
+    // if no target, cancel method
+    if (!destination) {
+      return;
+    }
+
+    // if destination is the same as the source (no change), cancel method
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+
+    // to do:
+    // update state with new info
+    // use array_move util function to shift array? then
+
+    // 1. make reference to row were working within
+    let row = cards[source.droppableId];
+
+    // 2. make deeper copy that we will tamper with
+    const newRow = Array.from(row); // can also copy array with `const newRow = [...row];`
+
+    // 3. use splice to remove the card that was moved (source)
+    newRow.splice(source.index, 1);
+
+    // 4. use splice to insert the moved card (taken from first copy) into its new position
+    newRow.splice(destination.index, 0, row[draggableId]);
+
+    // 5. copy state, and insert newly constructed array in place of old one
+    // IMPORTANT: dealt with a bug for a long time because previously, the following line was:
+    // let newCards = cards;
+    // because that was just a reference, not a copy, the component was not re-rendering
+    // thanks https://stackoverflow.com/a/55856425/1925805
+    let newCards = Array.from(cards);
+    newCards[source.droppableId] = newRow;
+
+    // 6. set the state with new array
+    setCards(newCards);
+    // console.log('drag ended bruv');
+    // console.log(result);
+    return;
   };
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <div className="App">
-        <GlobalStyle />
-        <SelectorShelf
-          notes={notes}
-          addCard={addCard}
-          setHoveredNote={setHoveredNote}
-          hoveredNote={hoveredNote}
-        />
+    <div className="App">
+      <GlobalStyle />
+      <SelectorShelf
+        notes={notes}
+        addCard={addCard}
+        setHoveredNote={setHoveredNote}
+        hoveredNote={hoveredNote}
+      />
+      <DragDropContext onDragEnd={onDragEnd}>
         <Board
           cards={cards}
           addRow={addRow}
@@ -103,8 +145,8 @@ function App() {
           setActiveRow={setActiveRow}
           removeRow={removeRow}
         />
-      </div>
-    </DragDropContext>
+      </DragDropContext>
+    </div>
   );
 }
 
