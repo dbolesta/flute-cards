@@ -40,6 +40,8 @@ const SCard = styled.div`
   background-color: white;
   border-radius: 5px;
   display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
   flex-direction: column;
   flex: 0 1 10rem;
   margin: 0.2rem;
@@ -72,7 +74,7 @@ const Letters = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 50%;
-  margin: auto;
+  margin: 0.75rem auto auto;
 `;
 
 const FingerImg = styled.img`
