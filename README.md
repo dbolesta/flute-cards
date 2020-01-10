@@ -4,9 +4,14 @@ Assists in learning the flute fingering for every note on the flute. Select note
 
 ## Built With
 
-- [react-abc](https://www.npmjs.com/package/react-abc) - For generate music notes/staffs and playing midi
 - [create-react-app](https://github.com/facebook/create-react-app) - Cool little package
+- [react-abc](https://www.npmjs.com/package/react-abc) - Generates music note & staff svgs, and plays midi audio
+- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - Allows for dragging and dropping of cards and row
 
 ## Authors
 
-- **Damon Bolesta** - _Initial work_ - [Website](https://damonbolesta.com)
+- **Damon Bolesta** - [Website](https://damonbolesta.com)
+
+## Learning Log
+
+- Array.from() is a great way to quickly make a copy of state before you tamper with it

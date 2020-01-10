@@ -96,10 +96,24 @@ function App() {
       return;
     }
 
-    // to do:
-    // update state with new info
-    // use array_move util function to shift array? then
+    // if we dragged a row...
+    if (type === 'row') {
+      let cardsCopy = [...cards]; // copy state
 
+      // capture start and destination index
+      let start = source.index;
+      let end = destination.index;
+
+      let arrToMove = cardsCopy[start]; // copy the array that is being moved
+
+      cardsCopy.splice(start, 1); // delete where it was
+      cardsCopy.splice(end, 0, arrToMove); // insert where we want it
+
+      setCards(cardsCopy); // save state
+      return; // end onDragEnd
+    }
+
+    // if we dragged a card...
     // 1. make reference to row were working within
     let row = cards[source.droppableId];
 
@@ -122,8 +136,6 @@ function App() {
 
     // 6. set the state with new array
     setCards(newCards);
-    // console.log('drag ended bruv');
-    // console.log(result);
     return;
   };
 

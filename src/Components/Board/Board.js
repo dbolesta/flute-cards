@@ -1,8 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Droppable } from 'react-beautiful-dnd';
 
 import CardRow from '../CardRow';
 import uuid from 'react-uuid';
+
+const RowsContainer = styled.div`
+  border: 5px solid purple;
+`;
 
 const BoardContainer = styled.div`
   border: 1px solid green;
@@ -53,29 +58,39 @@ const Board = ({
       <h3>Flute Cards</h3>
 
       <BoardContainer>
-        {/* loop through first dimension of array (rows) */}
-        {cards.map((row, rowIndex) => {
-          let rowNotation = '|:';
+        <Droppable droppableId="all-rows" type="row">
+          {provided => (
+            <RowsContainer
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
+              {/* loop through first dimension of array (rows) */}
+              {cards.map((row, rowIndex) => {
+                let rowNotation = '|:';
 
-          row.map(card => {
-            // collect complete abc notation of all cards in row, so we can use it for midi
-            rowNotation = rowNotation + card.midiCode;
-            return rowNotation;
-          });
+                row.map(card => {
+                  // collect complete abc notation of all cards in row, so we can use it for midi
+                  rowNotation = rowNotation + card.midiCode;
+                  return rowNotation;
+                });
 
-          return (
-            <CardRow
-              removeCard={removeCard}
-              activeRow={activeRow}
-              setActiveRow={setActiveRow}
-              removeRow={removeRow}
-              row={row}
-              rowIndex={rowIndex}
-              rowNotation={rowNotation}
-              key={rowIndex + rowNotation}
-            />
-          );
-        })}
+                return (
+                  <CardRow
+                    removeCard={removeCard}
+                    activeRow={activeRow}
+                    setActiveRow={setActiveRow}
+                    removeRow={removeRow}
+                    row={row}
+                    rowIndex={rowIndex}
+                    rowNotation={rowNotation}
+                    key={rowIndex + rowNotation}
+                  />
+                );
+              })}
+              {provided.placeholder}
+            </RowsContainer>
+          )}
+        </Droppable>
 
         <NewRowButton className="green" onClick={() => addRow()}>
           New row!
