@@ -109,7 +109,8 @@ function App() {
       cardsCopy.splice(start, 1); // delete where it was
       cardsCopy.splice(end, 0, arrToMove); // insert where we want it
 
-      setCards(cardsCopy); // save state
+      setActiveRow(end); // active row is whatever row we just moved
+      setCards(cardsCopy); // save new card state
       return; // end onDragEnd
     }
 
