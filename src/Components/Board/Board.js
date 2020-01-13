@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import DeckControls from './DeckControls';
 import { Droppable } from 'react-beautiful-dnd';
 
 import CardRow from '../CardRow';
@@ -51,11 +52,13 @@ const Board = ({
   removeCard,
   activeRow,
   setActiveRow,
-  removeRow
+  removeRow,
+  deckName,
+  setDeckName
 }) => {
   return (
     <>
-      <h3>Flute Cards</h3>
+      <DeckControls deckName={deckName} setDeckName={setDeckName} />
 
       <BoardContainer>
         <Droppable droppableId="all-rows" type="row">

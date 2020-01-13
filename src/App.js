@@ -4,7 +4,6 @@ import SelectorShelf from './Components/SelectorShelf';
 import Board from './Components/Board';
 import './App.css';
 import allNotes from './notes';
-import { array_move } from './Utils/utils';
 
 import { createGlobalStyle } from 'styled-components';
 import { globalStyles } from './Styles/global';
@@ -18,6 +17,7 @@ function App() {
   const [cards, setCards] = useState([[]]); // all cards and rows
   const [activeRow, setActiveRow] = useState(0); // the currently selected row (which array index new cards will be added)
   const [hoveredNote, setHoveredNote] = useState(''); // note user is hovering over on any Selector (keyboard, staff, notes), which is used to display that note on all selectors
+  const [deckName, setDeckName] = useState('Deck 1');
 
   const addCard = note => {
     // if no rows exist (activeRow === -1),
@@ -157,6 +157,8 @@ function App() {
           activeRow={activeRow}
           setActiveRow={setActiveRow}
           removeRow={removeRow}
+          deckName={deckName}
+          setDeckName={setDeckName}
         />
       </DragDropContext>
     </div>
