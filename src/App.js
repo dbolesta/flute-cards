@@ -159,6 +159,7 @@ function App() {
           removeRow={removeRow}
           deckName={deckName}
           setDeckName={setDeckName}
+          setCards={setCards}
         />
       </DragDropContext>
     </div>
