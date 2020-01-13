@@ -54,7 +54,8 @@ const Board = ({
   setActiveRow,
   removeRow,
   deckName,
-  setDeckName
+  setDeckName,
+  setCards
 }) => {
   return (
     <>
@@ -62,6 +63,7 @@ const Board = ({
         deckName={deckName}
         setDeckName={setDeckName}
         cards={cards}
+        setCards={setCards}
       />
 
       <BoardContainer>
