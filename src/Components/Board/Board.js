@@ -58,7 +58,11 @@ const Board = ({
 }) => {
   return (
     <>
-      <DeckControls deckName={deckName} setDeckName={setDeckName} />
+      <DeckControls
+        deckName={deckName}
+        setDeckName={setDeckName}
+        cards={cards}
+      />
 
       <BoardContainer>
         <Droppable droppableId="all-rows" type="row">

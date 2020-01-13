@@ -17,7 +17,7 @@ function App() {
   const [cards, setCards] = useState([[]]); // all cards and rows
   const [activeRow, setActiveRow] = useState(0); // the currently selected row (which array index new cards will be added)
   const [hoveredNote, setHoveredNote] = useState(''); // note user is hovering over on any Selector (keyboard, staff, notes), which is used to display that note on all selectors
-  const [deckName, setDeckName] = useState('Deck 1');
+  const [deckName, setDeckName] = useState('Deck 1'); // Name of Deck, to be used when saving / loading
 
   const addCard = note => {
     // if no rows exist (activeRow === -1),
