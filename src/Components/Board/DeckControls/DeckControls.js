@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import sampleSongs from './sampleSongs';
 
 const ControlsContainer = styled.div`
   display: flex;
@@ -57,10 +58,19 @@ const DeckControls = ({ deckName, setDeckName, cards, setCards }) => {
 
   // take currently selected select option and load it to state, along with deck name
   const loadDeck = () => {
-    let deckToLoad = localStorage.getItem(toLoad);
+    let deckToLoad; // establish var
+
+    // first attempt to load from localStorage
+    deckToLoad = localStorage.getItem(toLoad);
+    // if we cant, check for it in sample songs
+    if (deckToLoad === null) {
+      deckToLoad = sampleSongs[`${toLoad}`];
+    }
+    if (deckToLoad === null) return; // if still nothing, abandon function
+
     deckToLoad = JSON.parse(deckToLoad); // need to parse string
-    setCards(deckToLoad);
-    setDeckName(toLoad);
+    setCards(deckToLoad); // load state
+    setDeckName(toLoad); // load name as well
   };
 
   return (
@@ -77,6 +87,7 @@ const DeckControls = ({ deckName, setDeckName, cards, setCards }) => {
 
       <InnerContainerRight>
         <select value={toLoad} onChange={e => handleChange(e)}>
+          {/* we first loop through localStorage */}
           <option key={12093102} value={'load'}>
             --load deck--
           </option>
@@ -85,7 +96,18 @@ const DeckControls = ({ deckName, setDeckName, cards, setCards }) => {
               {key}
             </option>
           ))}
+
+          {/* then we loop through sample songs */}
+          <option key={123841123} value={'sample'}>
+            --sample songs--
+          </option>
+          {Object.keys(sampleSongs).map((key, i) => (
+            <option key={i + 69} value={key}>
+              {key}
+            </option>
+          ))}
         </select>
+
         <div onClick={() => loadDeck()}>Load</div>
       </InnerContainerRight>
     </ControlsContainer>
