@@ -1,23 +1,55 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-<<<<<<< HEAD
+const ControlsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+`;
+const InnerContainerLeft = styled.div`
+  display: flex;
+
+  input {
+    font-size: 1.5rem;
+  }
+
+  div {
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    color: white;
+    cursor: pointer;
+  }
+`;
+const InnerContainerRight = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  div {
+    background-color: blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+  }
+`;
+
 const DeckControls = ({ deckName, setDeckName, cards, setCards }) => {
   const [toLoad, setToLoad] = useState('');
 
   // stringify and save state in localStorage
-||||||| merged common ancestors
-const DeckControls = ({ deckName, setDeckName, cards }) => {
-=======
-const DeckControls = ({ deckName, setDeckName, cards, setCards }) => {
-  const [toLoad, setToLoad] = useState('');
-
->>>>>>> cc85dcf5ff8879837917147462007990a26ce0ea
   const saveDeck = () => {
     localStorage.setItem(deckName, JSON.stringify(cards));
   };
 
-<<<<<<< HEAD
   // update the select dropdown
   const handleChange = e => {
     setToLoad(e.target.value);
@@ -31,46 +63,32 @@ const DeckControls = ({ deckName, setDeckName, cards, setCards }) => {
     setDeckName(toLoad);
   };
 
-||||||| merged common ancestors
-=======
-  const handleChange = e => {
-    console.log(e.target.value);
-    setToLoad(e.target.value);
-  };
-  const loadDeck = () => {
-    console.log(`loading deck ${toLoad}...`);
-    let deckToLoad = localStorage.getItem(toLoad);
-    console.log(deckToLoad);
-    deckToLoad = JSON.parse(deckToLoad);
-    console.log(deckToLoad);
-    setCards(deckToLoad);
-    setDeckName(toLoad);
-  };
-
->>>>>>> cc85dcf5ff8879837917147462007990a26ce0ea
   return (
-    <div>
-      <h3>
+    <ControlsContainer>
+      <InnerContainerLeft>
         <input
           type="text"
           value={deckName}
           onChange={e => setDeckName(e.target.value)}
         />
-      </h3>
 
-      <div onClick={() => saveDeck()}>Save da deck!</div>
+        <div onClick={() => saveDeck()}>Save</div>
+      </InnerContainerLeft>
 
-      <form>
+      <InnerContainerRight>
         <select value={toLoad} onChange={e => handleChange(e)}>
+          <option key={12093102} value={'load'}>
+            --load deck--
+          </option>
           {Object.keys(localStorage).map((key, i) => (
             <option key={i} value={key}>
               {key}
             </option>
           ))}
         </select>
-        <h4 onClick={() => loadDeck()}>Load</h4>
-      </form>
-    </div>
+        <div onClick={() => loadDeck()}>Load</div>
+      </InnerContainerRight>
+    </ControlsContainer>
   );
 };
 
