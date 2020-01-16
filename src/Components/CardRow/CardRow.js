@@ -90,7 +90,7 @@ const CardRow = ({
                   if (e.currentTarget !== e.target) return; // need to click on empty space in row
                   setActiveRow(rowIndex);
                 }}
-                {...provided.draggableProps}
+                {...provided.droppableProps}
                 ref={provided.innerRef}
               >
                 {/* loop through each array (cards) */}
