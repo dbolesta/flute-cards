@@ -15,3 +15,7 @@ Assists in learning the flute fingering for every note on the flute. Select note
 ## Learning Log
 
 - Array.from() is a great way to quickly make a copy of state before you tamper with it
+
+## Known Issues
+
+- MIDI will not play the first note on the very first play after pageload

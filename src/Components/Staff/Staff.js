@@ -10,7 +10,7 @@ import trebleSVG from '../../Images/treble.svg';
 
 const StaffContainer = styled.div`
   background-color: white;
-  width: 244px;
+  width: 11.5rem;
   display: inline-flex;
   position: absolute;
   top: 0;
@@ -37,7 +37,7 @@ const SVGContainer = styled.div`
 const LineSpaceContainer = styled.div`
   border: 1px solid red;
   width: 100%;
-  margin: 4rem;
+  margin: 2rem;
   padding: 2rem 0;
   position: relative;
   display: flex;

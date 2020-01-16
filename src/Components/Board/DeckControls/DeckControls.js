@@ -10,9 +10,11 @@ const ControlsContainer = styled.div`
 `;
 const InnerContainerLeft = styled.div`
   display: flex;
+  width: 40%;
 
   input {
     font-size: 1.5rem;
+    width: 100%;
   }
 
   div {
