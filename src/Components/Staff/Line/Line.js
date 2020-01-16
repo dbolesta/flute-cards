@@ -19,10 +19,10 @@ const StyledLine = styled.div`
   & span:nth-of-type(1) {
     border-bottom: 1px solid black;
     flex: 3 0 auto;
-    position: relative;
+    /* position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-end; */
   }
   & span:nth-of-type(2) {
     border-bottom: 1px solid black;
@@ -39,25 +39,24 @@ const StyledLine = styled.div`
 `;
 
 const WholeNoteImg = styled.img`
-  /* height: 161%;
+  /* width: 95%;
   position: absolute;
-  margin-top: 1px; */
-  width: 95%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */
+  width: 93%;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 `;
-const SharpImg = styled.img`
-  /* height: 161%;
-  position: absolute;
-  margin-top: 1px; */
-  width: 45%;
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  transform: translate(-50%, -50%);
-`;
+// const SharpImg = styled.img`
+//   width: 75%;
+//   position: absolute;
+//   left: 0%;
+//   top: 0%;
+//   transform: translate(-50%, -50%);
+// `;
 
 const Line = ({ setHoveredNote, hoveredNote, note, addCard }) => {
   return (

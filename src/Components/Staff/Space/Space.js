@@ -23,6 +23,7 @@ const StyledSpace = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
   & span:nth-of-type(3) {
     flex: 1 0 auto;
@@ -30,8 +31,13 @@ const StyledSpace = styled.div`
 `;
 
 const WholeNoteImg = styled.img`
-  height: 164%;
-  margin-left: 14px;
+  /* height: 164%;
+  margin-left: 14px; */
+  width: 95%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const Space = ({ setHoveredNote, hoveredNote, note, addCard }) => {

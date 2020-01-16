@@ -34,11 +34,7 @@ const StyledLedgerLine = styled.div`
 `;
 
 const WholeNoteImg = styled.img`
-  /* height: 161%;
-  position: absolute;
-  margin-top: 1px; */
-
-  width: 95%;
+  width: 93%;
   position: absolute;
   left: 50%;
   top: 50%;
