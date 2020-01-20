@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import sampleSongs from './sampleSongs';
+import uuid from 'react-uuid';
 
 const ControlsContainer = styled.div`
   display: flex;
@@ -45,7 +46,14 @@ const InnerContainerRight = styled.div`
   }
 `;
 
-const DeckControls = ({ deckName, setDeckName, cards, setCards }) => {
+const DeckControls = ({
+  deckName,
+  setDeckName,
+  cards,
+  setCards,
+  uuids,
+  setUuids
+}) => {
   const [toLoad, setToLoad] = useState('');
 
   // stringify and save state in localStorage
@@ -71,6 +79,18 @@ const DeckControls = ({ deckName, setDeckName, cards, setCards }) => {
     if (deckToLoad === null) return; // if still nothing, abandon function
 
     deckToLoad = JSON.parse(deckToLoad); // need to parse string
+
+    // create Uuids before we set the cards
+    let sampleUuids = [];
+    deckToLoad.forEach((arr, i) => {
+      sampleUuids.push([]);
+      deckToLoad[i].forEach((data, x) => {
+        sampleUuids[i].push(uuid());
+      });
+    });
+
+    setUuids(sampleUuids);
+
     setCards(deckToLoad); // load state
     setDeckName(toLoad); // load name as well
   };

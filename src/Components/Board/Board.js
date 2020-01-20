@@ -55,7 +55,9 @@ const Board = ({
   removeRow,
   deckName,
   setDeckName,
-  setCards
+  setCards,
+  uuids,
+  setUuids
 }) => {
   return (
     <>
@@ -64,6 +66,8 @@ const Board = ({
         setDeckName={setDeckName}
         cards={cards}
         setCards={setCards}
+        uuids={uuids}
+        setUuids={setUuids}
       />
 
       <BoardContainer>
@@ -93,6 +97,7 @@ const Board = ({
                     rowIndex={rowIndex}
                     rowNotation={rowNotation}
                     key={rowIndex + rowNotation}
+                    uuids={uuids}
                   />
                 );
               })}

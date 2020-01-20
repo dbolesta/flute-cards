@@ -87,7 +87,7 @@ const FingerImg = styled.img`
   /* padding-top: 0; */
 `;
 
-const Card = ({ card, removeCard, cardIndex, rowIndex }) => {
+const Card = ({ card, removeCard, cardIndex, rowIndex, uuids }) => {
   const { letters, abcCode, imgRef } = card;
 
   // only first card in row should have treble clef
@@ -98,8 +98,11 @@ const Card = ({ card, removeCard, cardIndex, rowIndex }) => {
     clef = 'none';
   }
 
+  // unique id from the uuids state
+  const uniqueId = uuids[rowIndex][cardIndex];
+
   return (
-    <Draggable draggableId={'' + cardIndex} index={cardIndex}>
+    <Draggable draggableId={uniqueId} index={cardIndex}>
       {(provided, snapshot) => (
         <SCard
           {...provided.draggableProps}
@@ -117,6 +120,7 @@ const Card = ({ card, removeCard, cardIndex, rowIndex }) => {
               <span key={i}>{letter}</span>
             ))}
           </Letters>
+          <div>{uniqueId.substring(0, 4)}</div>
           <Notation
             engraverParams={{
               ...engraverParams

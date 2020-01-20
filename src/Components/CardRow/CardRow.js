@@ -63,7 +63,8 @@ const CardRow = ({
   removeRow,
   row,
   rowIndex,
-  rowNotation
+  rowNotation,
+  uuids
 }) => {
   return (
     <Draggable draggableId={rowNotation + rowIndex} index={rowIndex}>
@@ -102,6 +103,7 @@ const CardRow = ({
                       removeCard={removeCard}
                       cardIndex={cardIndex}
                       rowIndex={rowIndex}
+                      uuids={uuids}
                     />
                   );
                 })}
