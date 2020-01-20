@@ -40,7 +40,7 @@ const Keyboard = ({
           return (
             <div
               className={constructedClass}
-              onMouseEnter={() => setHoveredNote(note.index)}
+              onMouseEnter={() => setHoveredNote(note)}
               onMouseLeave={() => setHoveredNote(null)}
               onClick={() => addCard(note)}
               key={note.index}
@@ -48,7 +48,9 @@ const Keyboard = ({
               {note.noteClass === 'c' ? (
                 <span>{note.spn}</span>
               ) : null}
-              {note.index === hoveredNote ? <NoteHighlight /> : null}
+              {hoveredNote && hoveredNote.index === note.index ? (
+                <NoteHighlight />
+              ) : null}
             </div>
           );
         })}
