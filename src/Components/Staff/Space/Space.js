@@ -43,13 +43,13 @@ const WholeNoteImg = styled.img`
 const Space = ({ setHoveredNote, hoveredNote, note, addCard }) => {
   return (
     <StyledSpace
-      onMouseEnter={() => setHoveredNote(note.abcCode)}
+      onMouseEnter={() => setHoveredNote(note.index)}
       onMouseLeave={() => setHoveredNote(null)}
       onClick={() => addCard(note)}
     >
       <span></span>
       <span>
-        {hoveredNote === note.abcCode ? (
+        {hoveredNote === note.index ? (
           <WholeNoteImg src={wholeNoteSVG} />
         ) : null}
       </span>

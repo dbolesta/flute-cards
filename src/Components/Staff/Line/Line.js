@@ -61,13 +61,13 @@ const WholeNoteImg = styled.img`
 const Line = ({ setHoveredNote, hoveredNote, note, addCard }) => {
   return (
     <StyledLine
-      onMouseEnter={() => setHoveredNote(note.abcCode)}
+      onMouseEnter={() => setHoveredNote(note.index)}
       onMouseLeave={() => setHoveredNote(null)}
       onClick={() => addCard(note)}
     >
       <span></span>
       <span>
-        {hoveredNote === note.abcCode ? (
+        {hoveredNote === note.index ? (
           <WholeNoteImg src={wholeNoteSVG} />
         ) : null}
       </span>

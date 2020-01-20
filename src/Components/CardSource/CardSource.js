@@ -40,9 +40,9 @@ const CardSource = ({
     <Card
       onClick={() => addCard(note)}
       black={note.black}
-      onMouseEnter={() => setHoveredNote(note.abcCode)}
+      onMouseEnter={() => setHoveredNote(note.index)}
       onMouseLeave={() => setHoveredNote(null)}
-      className={hoveredNote === note.abcCode ? 'highlight' : null}
+      className={hoveredNote === note.index ? 'highlight' : null}
     >
       {note.letters.map((letter, i) => {
         return <span key={i}>{letter}</span>;
