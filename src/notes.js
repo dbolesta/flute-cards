@@ -1,19 +1,21 @@
 // Object info
 /*
-index:      unique number, sequential order from lowest to highest note
-letters:    array of notes by letters. 
-            some notes have 2 (sharp/flat and regular)
-black:      boolean if note is black or white
-register:   what register (~octave) the flute note is: low, mid, or hi
-imgRef:     variable link to svg image, as defined in svgs.js
-abcCode:    abcNotation used to render staff
-            abc documentation:
-            https://paulrosen.github.io/abcjs/
-            https://github.com/paulrosen/abcjs
-midiCode:   same as above, but used to play Midi, so only contains single note
-noteClass:  class used in Keyboard.js, to render scss properly
-spn:        Scientific Pitch Notation, note + number to indicate octave
-            https://en.wikipedia.org/wiki/Scientific_pitch_notation
+index:        unique number, sequential order from lowest to highest note
+letters:      array of notes by letters. 
+              some notes have 2 (sharp/flat and regular)
+black:        boolean if note is black or white
+nextIsSharp:  if the note could be "sharped" (the following note is a black key)
+              used for detemining if we should allow sharp selection on Staff components
+register:     what register (~octave) the flute note is: low, mid, or hi
+imgRef:       variable link to svg image, as defined in svgs.js
+abcCode:      abcNotation used to render staff
+              abc documentation:
+              https://paulrosen.github.io/abcjs/
+              https://github.com/paulrosen/abcjs
+midiCode:     same as above, but used to play Midi, so only contains single note
+noteClass:    class used in Keyboard.js, to render scss properly
+spn:          Scientific Pitch Notation, note + number to indicate octave
+              https://en.wikipedia.org/wiki/Scientific_pitch_notation
 */
 
 const notes = [

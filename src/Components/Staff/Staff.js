@@ -57,6 +57,13 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
           <TrebleContainer src={trebleSVG} />
         </SVGContainer>
 
+        {/* 
+            this loop uses the `notes` objects nextIsSharp prop to determine if it should pass along
+            a second note to the component, which would be its "sharped" note (the next note in the object)
+            this allows the components that have a sharp, display a way to select it on the staff
+            uses `notes.find(data => data.index === noSharp.index + 1)` to find the sharped note
+        */}
+
         {noSharps.map((noSharp, i) => {
           if (isEven(i)) {
             if (i === 0 || i > 10) {
@@ -67,6 +74,13 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
                   addCard={addCard}
                   hoveredNote={hoveredNote}
                   key={noSharp.index}
+                  sharp={
+                    noSharp.nextIsSharp
+                      ? notes.find(
+                          data => data.index === noSharp.index + 1
+                        )
+                      : null
+                  }
                 />
               );
             }
@@ -77,6 +91,13 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
                 addCard={addCard}
                 hoveredNote={hoveredNote}
                 key={noSharp.index}
+                sharp={
+                  noSharp.nextIsSharp
+                    ? notes.find(
+                        data => data.index === noSharp.index + 1
+                      )
+                    : null
+                }
               />
             );
           } else {
@@ -87,6 +108,13 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
                 addCard={addCard}
                 hoveredNote={hoveredNote}
                 key={noSharp.index}
+                sharp={
+                  noSharp.nextIsSharp
+                    ? notes.find(
+                        data => data.index === noSharp.index + 1
+                      )
+                    : null
+                }
               />
             );
           }
