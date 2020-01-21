@@ -47,7 +47,7 @@ const SharpImg = styled.img`
   left: -35%;
   top: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.2;
+  opacity: ${props => (props.staffHovered ? 0.2 : 0)};
 
   &:hover {
     opacity: 1;
@@ -70,7 +70,8 @@ const Space = ({
   hoveredNote,
   note,
   addCard,
-  sharp
+  sharp,
+  staffHovered
 }) => {
   return (
     <StyledSpace
@@ -120,6 +121,7 @@ const Space = ({
             }}
             sharp={sharp}
             hoveredNote={hoveredNote}
+            staffHovered={staffHovered}
           />
         ) : null}
       </span>

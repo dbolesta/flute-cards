@@ -44,14 +44,24 @@ const LineSpaceContainer = styled.div`
   flex-direction: column-reverse; /* i love flexbox lmao */
 `;
 
-const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
+const Staff = ({
+  notes,
+  hoveredNote,
+  setHoveredNote,
+  addCard,
+  staffHovered,
+  setStaffHovered
+}) => {
   // create array of no sharp notes
   let noSharps = notes.filter(
     note => note.noteClass.indexOf('_sharp') === -1
   );
 
   return (
-    <StaffContainer>
+    <StaffContainer
+      onMouseEnter={() => setStaffHovered(true)}
+      onMouseLeave={() => setStaffHovered(false)}
+    >
       <LineSpaceContainer>
         <SVGContainer>
           <TrebleContainer src={trebleSVG} />
@@ -69,11 +79,12 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
             if (i === 0 || i > 10) {
               return (
                 <LedgerLine
+                  key={noSharp.index}
                   setHoveredNote={setHoveredNote}
                   note={noSharp}
                   addCard={addCard}
                   hoveredNote={hoveredNote}
-                  key={noSharp.index}
+                  staffHovered={staffHovered}
                   sharp={
                     noSharp.nextIsSharp
                       ? notes.find(
@@ -86,11 +97,12 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
             }
             return (
               <Line
+                key={noSharp.index}
                 setHoveredNote={setHoveredNote}
                 note={noSharp}
                 addCard={addCard}
                 hoveredNote={hoveredNote}
-                key={noSharp.index}
+                staffHovered={staffHovered}
                 sharp={
                   noSharp.nextIsSharp
                     ? notes.find(
@@ -103,11 +115,12 @@ const Staff = ({ notes, hoveredNote, setHoveredNote, addCard }) => {
           } else {
             return (
               <Space
+                key={noSharp.index}
                 setHoveredNote={setHoveredNote}
                 note={noSharp}
                 addCard={addCard}
                 hoveredNote={hoveredNote}
-                key={noSharp.index}
+                staffHovered={staffHovered}
                 sharp={
                   noSharp.nextIsSharp
                     ? notes.find(

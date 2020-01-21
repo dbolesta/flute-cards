@@ -28,6 +28,8 @@ const SelectorShelf = props => {
         setHoveredNote={props.setHoveredNote}
         notes={props.notes}
         addCard={props.addCard}
+        staffHovered={props.staffHovered}
+        setStaffHovered={props.setStaffHovered}
       />
       <h2>Flute Cards</h2>
 

@@ -29,6 +29,7 @@ function App() {
   const [hoveredNote, setHoveredNote] = useState(''); // note user is hovering over on any Selector (keyboard, staff, notes), which is used to display that note on all selectors
   const [deckName, setDeckName] = useState('Deck 1'); // Name of Deck, to be used when saving / loading
   const [uuids, setUuids] = useState([[]]); // unique ids for Cards, will match length of cards state
+  const [staffHovered, setStaffHovered] = useState(false); // if the staff is being hovered over, used to check if we should show the optional sharp icon
 
   ///////////////
   // CARD CRUD STUFF
@@ -185,6 +186,8 @@ function App() {
         addCard={addCard}
         setHoveredNote={setHoveredNote}
         hoveredNote={hoveredNote}
+        staffHovered={staffHovered}
+        setStaffHovered={setStaffHovered}
       />
       <DragDropContext onDragEnd={onDragEnd}>
         <Board
