@@ -46,6 +46,42 @@ const NewRowButton = styled.div`
   }
 `;
 
+const InnerRow = React.memo(
+  ({
+    cards,
+    removeCard,
+    activeRow,
+    setActiveRow,
+    removeRow,
+    uuids
+  }) => {
+    /* loop through first dimension of array (rows) */
+    return cards.map((row, rowIndex) => {
+      let rowNotation = '|:';
+
+      row.map(card => {
+        // collect complete abc notation of all cards in row, so we can use it for midi
+        rowNotation = rowNotation + card.midiCode;
+        return rowNotation;
+      });
+
+      return (
+        <CardRow
+          removeCard={removeCard}
+          activeRow={activeRow}
+          setActiveRow={setActiveRow}
+          removeRow={removeRow}
+          row={row}
+          rowIndex={rowIndex}
+          rowNotation={rowNotation}
+          key={rowIndex + rowNotation}
+          uuids={uuids}
+        />
+      );
+    });
+  }
+);
+
 const Board = ({
   cards,
   addRow,
@@ -77,30 +113,15 @@ const Board = ({
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              {/* loop through first dimension of array (rows) */}
-              {cards.map((row, rowIndex) => {
-                let rowNotation = '|:';
+              <InnerRow
+                cards={cards}
+                removeCard={removeCard}
+                activeRow={activeRow}
+                setActiveRow={setActiveRow}
+                removeRow={removeRow}
+                uuids={uuids}
+              />
 
-                row.map(card => {
-                  // collect complete abc notation of all cards in row, so we can use it for midi
-                  rowNotation = rowNotation + card.midiCode;
-                  return rowNotation;
-                });
-
-                return (
-                  <CardRow
-                    removeCard={removeCard}
-                    activeRow={activeRow}
-                    setActiveRow={setActiveRow}
-                    removeRow={removeRow}
-                    row={row}
-                    rowIndex={rowIndex}
-                    rowNotation={rowNotation}
-                    key={rowIndex + rowNotation}
-                    uuids={uuids}
-                  />
-                );
-              })}
               {provided.placeholder}
             </RowsContainer>
           )}

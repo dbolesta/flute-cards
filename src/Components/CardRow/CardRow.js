@@ -56,6 +56,23 @@ const RemoveRowButton = styled.div`
 
 // styling for Midi component is located in App.css
 
+// function used to try and memoize Cards? increase performance?
+// loop for cards is moved here, was previously where InnerCards is within CardRow function
+const InnerCards = React.memo(
+  ({ row, removeCard, rowIndex, uuids }) => {
+    return row.map((card, cardIndex) => (
+      <Card
+        key={cardIndex + card.index + card.abcCode}
+        card={card}
+        removeCard={removeCard}
+        cardIndex={cardIndex}
+        rowIndex={rowIndex}
+        uuids={uuids}
+      />
+    ));
+  }
+);
+
 const CardRow = ({
   removeCard,
   activeRow,
@@ -95,18 +112,13 @@ const CardRow = ({
                 ref={provided.innerRef}
               >
                 {/* loop through each array (cards) */}
-                {row.map((card, cardIndex) => {
-                  return (
-                    <Card
-                      key={cardIndex + card.index + card.abcCode}
-                      card={card}
-                      removeCard={removeCard}
-                      cardIndex={cardIndex}
-                      rowIndex={rowIndex}
-                      uuids={uuids}
-                    />
-                  );
-                })}
+                {/* deferred to second function so we can memoize? */}
+                <InnerCards
+                  row={row}
+                  removeCard={removeCard}
+                  rowIndex={rowIndex}
+                  uuids={uuids}
+                />
 
                 <span className="row-controls">
                   <RemoveRowButton
@@ -134,4 +146,4 @@ const CardRow = ({
   );
 };
 
-export default CardRow;
+export default React.memo(CardRow);

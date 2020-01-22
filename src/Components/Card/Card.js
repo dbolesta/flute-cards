@@ -134,4 +134,4 @@ const Card = ({ card, removeCard, cardIndex, rowIndex, uuids }) => {
   );
 };
 
-export default Card;
+export default React.memo(Card);
