@@ -130,4 +130,4 @@ const Space = ({
   );
 };
 
-export default Space;
+export default React.memo(Space);

@@ -138,4 +138,4 @@ const Line = ({
   );
 };
 
-export default Line;
+export default React.memo(Line);

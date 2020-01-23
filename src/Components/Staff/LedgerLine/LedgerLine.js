@@ -131,4 +131,4 @@ const LedgerLine = ({
   );
 };
 
-export default LedgerLine;
+export default React.memo(LedgerLine);
