@@ -28,13 +28,11 @@ const RowContainer = styled.div`
   span.row-controls {
     position: absolute;
     right: 0;
-    top: 0;
     bottom: 0;
-    width: 2.5rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
     display: none;
   }
 
@@ -44,7 +42,9 @@ const RowContainer = styled.div`
 `;
 
 const RemoveRowButton = styled.div`
-  width: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
+  width: 3rem;
   background-color: black;
   color: white;
   align-items: center;
@@ -52,6 +52,25 @@ const RemoveRowButton = styled.div`
   cursor: pointer;
   flex: 1 0 auto;
   display: flex;
+`;
+
+const RowHandle = styled.div`
+  background-color: green;
+  width: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    width: 60%;
+    height: 3px;
+    position: relative;
+    margin: 2px 0;
+    /* transform-origin: 1px center; */
+    background: black;
+    border-radius: 10px;
+  }
 `;
 
 // styling for Midi component is located in App.css
@@ -135,6 +154,11 @@ const CardRow = ({
                     }}
                     notation={rowNotation}
                   />
+                  <RowHandle>
+                    <span />
+                    <span />
+                    <span />
+                  </RowHandle>
                 </span>
                 {provided.placeholder}
               </RowContainer>
