@@ -56,6 +56,12 @@ const Staff = ({
   let noSharps = notes.filter(
     note => note.noteClass.indexOf('_sharp') === -1
   );
+  // also all sharps
+  let sharps = notes.filter(
+    note => note.noteClass.indexOf('_sharp') !== -1
+  );
+  // as we loop through, we will incremement this is we find a note where nextIsSharp
+  let sharpIndex = -1; // start at -1 because incremement needs to happen at the top of the loop (see below)
 
   return (
     <StaffContainer
@@ -69,12 +75,26 @@ const Staff = ({
 
         {/* 
             this loop uses the `notes` objects nextIsSharp prop to determine if it should pass along
-            a second note to the component, which would be its "sharped" note (the next note in the object)
-            this allows the components that have a sharp, display a way to select it on the staff
-            uses `notes.find(data => data.index === noSharp.index + 1)` to find the sharped note
+            a `sharp` object from the `sharps` array, 
+            this allows the components that have a sharp to display a way to select it on the staff
+        */}
+
+        {/* 
+          explination of some of the more confusing props
+          hovered:      will pass boolean
+                        checks if `hoveredNote` exists, and if its index matches that current note
+                        we do this so we dont need to pass the whole object
+          hoveredSharp: also passes boolean
+                        same as above but just checks if hoveredNote index matches sharp note
+          staffHovered: boolean
+                        true if were hovering over the Staff, used so we can only show greyed sharp note
+                        when hovering over staff
+          sharp:        passes the next index of `sharps` if the `noSharp` note has a `nextIsSharp` prop
+
         */}
 
         {noSharps.map((noSharp, i) => {
+          if (noSharp.nextIsSharp) sharpIndex++; // need to incremement at the beginning, which is why sharpIndex starts at -1
           if (isEven(i)) {
             if (i === 0 || i > 10) {
               return (
@@ -83,14 +103,17 @@ const Staff = ({
                   setHoveredNote={setHoveredNote}
                   note={noSharp}
                   addCard={addCard}
-                  hoveredNote={hoveredNote}
+                  hovered={
+                    hoveredNote && hoveredNote.index === noSharp.index
+                  }
+                  hoveredSharp={
+                    hoveredNote &&
+                    noSharp.nextIsSharp &&
+                    hoveredNote.index === sharps[sharpIndex].index
+                  }
                   staffHovered={staffHovered}
                   sharp={
-                    noSharp.nextIsSharp
-                      ? notes.find(
-                          data => data.index === noSharp.index + 1
-                        )
-                      : null
+                    noSharp.nextIsSharp ? sharps[sharpIndex] : null
                   }
                 />
               );
@@ -101,14 +124,17 @@ const Staff = ({
                 setHoveredNote={setHoveredNote}
                 note={noSharp}
                 addCard={addCard}
-                hoveredNote={hoveredNote}
+                hovered={
+                  hoveredNote && hoveredNote.index === noSharp.index
+                }
+                hoveredSharp={
+                  hoveredNote &&
+                  noSharp.nextIsSharp &&
+                  hoveredNote.index === sharps[sharpIndex].index
+                }
                 staffHovered={staffHovered}
                 sharp={
-                  noSharp.nextIsSharp
-                    ? notes.find(
-                        data => data.index === noSharp.index + 1
-                      )
-                    : null
+                  noSharp.nextIsSharp ? sharps[sharpIndex] : null
                 }
               />
             );
@@ -119,14 +145,17 @@ const Staff = ({
                 setHoveredNote={setHoveredNote}
                 note={noSharp}
                 addCard={addCard}
-                hoveredNote={hoveredNote}
+                hovered={
+                  hoveredNote && hoveredNote.index === noSharp.index
+                }
+                hoveredSharp={
+                  hoveredNote &&
+                  noSharp.nextIsSharp &&
+                  hoveredNote.index === sharps[sharpIndex].index
+                }
                 staffHovered={staffHovered}
                 sharp={
-                  noSharp.nextIsSharp
-                    ? notes.find(
-                        data => data.index === noSharp.index + 1
-                      )
-                    : null
+                  noSharp.nextIsSharp ? sharps[sharpIndex] : null
                 }
               />
             );

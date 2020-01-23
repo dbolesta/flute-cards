@@ -66,8 +66,8 @@ const SharpImg = styled.img`
      here we check if the sharp img should be dark, which means the current hovered note
      is a sharped note 
   */
-  ${({ sharp, hoveredNote }) =>
-    sharp.index === hoveredNote.index &&
+  ${({ hoveredSharp }) =>
+    hoveredSharp &&
     `
     opacity: 1;
   `}
@@ -75,7 +75,8 @@ const SharpImg = styled.img`
 
 const Line = ({
   setHoveredNote,
-  hoveredNote,
+  hovered,
+  hoveredSharp,
   note,
   addCard,
   sharp,
@@ -88,37 +89,24 @@ const Line = ({
       onClick={() => addCard(note)}
     >
       {/* 
-        a bit more complicated that I would like, but
         each line / space is broken up into 3 sections (spans), where the notes are displayed on the middle one
-        and spaced used flexbox, so the middle note is more towards the right ( to give the treble clef space)
+        and spaced used flexbox, so the middle note is more towards the right (to give the treble clef space)
 
-        within those middle spans, a check is performed:
-          (hoveredNote && hoveredNote.index === note.index)
-        this simply checks if a hoveredNote exists, and if its index matches, so we can show the note
-        we also check for the `sharp` note, because if we show the sharp img, we also want to show the note next to it
+        first we check `hovered || hoveredSharp`
+          this means we should display the whole note
+
+        second we check `(hovered || hoveredSharp) && (note.nextIsSharp || sharp)`
+          this means we are either hovering over a sharp note or the note has a sharp note
+          in which case, we should display a sharp note
       */}
 
       <span></span>
       <span>
-        {(hoveredNote && hoveredNote.index === note.index) ||
-        (hoveredNote &&
-          sharp &&
-          hoveredNote.index === sharp.index) ? (
+        {hovered || hoveredSharp ? (
           <WholeNoteImg src={wholeNoteSVG} />
         ) : null}
 
-        {/* 
-          in the event that a sharp note is passesed, we want to display the sharp svg next to the note
-          we will show if there is a `nextIsSharp` on the hovered note,
-          or if the current hovered note is the sharp notes index
-         */}
-
-        {(hoveredNote &&
-          hoveredNote.index === note.index &&
-          hoveredNote.nextIsSharp) ||
-        (hoveredNote &&
-          sharp &&
-          hoveredNote.index === sharp.index) ? (
+        {(hovered || hoveredSharp) && (note.nextIsSharp || sharp) ? (
           <SharpImg
             src={sharpSVG}
             onMouseEnter={() => setHoveredNote(sharp)}
@@ -127,9 +115,8 @@ const Line = ({
               e.stopPropagation(); // important, so we dont add the regular note too
               addCard(sharp);
             }}
-            sharp={sharp}
-            hoveredNote={hoveredNote}
             staffHovered={staffHovered}
+            hoveredSharp={hoveredSharp}
           />
         ) : null}
       </span>
