@@ -18,6 +18,7 @@ const RegisterRow = styled.div`
 const renderRow = (notes, addCard, setHoveredNote, hoveredNote) => {
   return (
     <RegisterRow key={uuid()}>
+      <span>{notes[2].register}</span>
       {notes.map(note => (
         <CardSource
           note={note}
