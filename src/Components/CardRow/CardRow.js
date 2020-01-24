@@ -7,22 +7,46 @@ import { Midi } from 'react-abc';
 // midi program number reference: https://en.wikipedia.org/wiki/General_MIDI
 
 const OuterContainer = styled.div`
-  border: 1px solid white;
+  /* border: 1px solid white; */
+  margin: 0.25rem;
 `;
 
 const RowContainer = styled.div`
   display: inline-flex;
   flex-wrap: nowrap;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
+  /* border: 2px solid palevioletred; */
+  border-radius: 5px;
+  overflow: hidden;
   min-height: 11.25rem;
   justify-content: flex-start;
   flex: 1 0 auto;
   position: relative;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.25s ease-in-out;
 
   &.activeRow {
-    border: 2px solid red;
+    /* border: 2px solid red; */
+    background-color: rgba(255, 255, 255, 0.4);
+
+    &:after {
+      ${({ rowNotation }) =>
+        rowNotation.length <= 2 &&
+        `
+          content: 'Click a note above to add a Card';
+          color: black;
+          position: absolute;
+          height: 100%;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: -1;
+      `}
+    }
   }
 
   span.row-controls {

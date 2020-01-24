@@ -7,7 +7,7 @@ import CardRow from '../CardRow';
 import uuid from 'react-uuid';
 
 const RowsContainer = styled.div`
-  border: 5px solid purple;
+  /* border: 5px solid purple; */
 `;
 
 const BoardContainer = styled.div`
