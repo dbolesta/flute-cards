@@ -59,9 +59,9 @@ const InnerRow = React.memo(
     return cards.map((row, rowIndex) => {
       let rowNotation = '|:';
 
+      // collect complete abc notation of all cards in row, so we can use it for midi
       row.map(card => {
-        // collect complete abc notation of all cards in row, so we can use it for midi
-        rowNotation = rowNotation + card.midiCode;
+        rowNotation += card.midiCode;
         return rowNotation;
       });
 

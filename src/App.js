@@ -110,9 +110,7 @@ function App() {
     const { destination, source, draggableId, type } = result;
 
     // if no target, cancel method
-    if (!destination) {
-      return;
-    }
+    if (!destination) return;
 
     // if destination is the same as the source (no change), cancel method
     if (
@@ -143,6 +141,7 @@ function App() {
       return; // end onDragEnd
     }
 
+    // if we dragged a card...
     // 0. move uuid to new position in uuids state
     setUuids(
       dragUuid(
@@ -152,7 +151,7 @@ function App() {
         destination.index
       )
     );
-    // if we dragged a card...
+
     // 1. make reference to row were working within
     let row = cards[source.droppableId];
 
