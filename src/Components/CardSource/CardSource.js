@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const Card = styled.div`
   border: 1px solid black;
   border-radius: 5px;
-  height: 4rem;
-  width: 3rem;
+  height: 3.5rem;
+  width: 2.5rem;
   margin: 0.15rem;
   background-color: white;
   display: inline-flex;

@@ -34,10 +34,10 @@ const StyledSpace = styled.div`
 const WholeNoteImg = styled.img`
   /* height: 164%;
   margin-left: 14px; */
-  width: 95%;
+  width: 93%;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
 `;
 

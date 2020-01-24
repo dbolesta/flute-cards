@@ -10,11 +10,11 @@ import trebleSVG from '../../Images/treble.svg';
 
 const StaffContainer = styled.div`
   background-color: white;
-  width: 11.5rem;
+  width: 9.5rem;
   display: inline-flex;
-  position: absolute;
-  top: 0;
-  left: 0;
+  /* position: absolute; */
+  /* top: 0;
+  left: 0; */
 `;
 
 const TrebleContainer = styled.img`
@@ -29,16 +29,16 @@ const SVGContainer = styled.div`
   position: absolute;
   bottom: 0;
   width: 23%;
-  margin-bottom: 4rem;
-  padding-bottom: 2.85rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
   margin-left: 0.2rem;
 `;
 
 const LineSpaceContainer = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100%;
-  margin: 2rem;
-  padding: 2rem 0;
+  margin: 1rem;
+  padding: 1rem 0;
   position: relative;
   display: flex;
   flex-direction: column-reverse; /* i love flexbox lmao */

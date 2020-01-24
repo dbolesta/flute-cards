@@ -180,6 +180,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
+      <h2>Flute Cards</h2>
       <SelectorShelf
         notes={notes}
         addCard={addCard}

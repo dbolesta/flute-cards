@@ -5,11 +5,22 @@ import uuid from 'react-uuid';
 
 const RegistersContainer = styled.div`
   /* border: 2px solid green; */
-  padding: 1rem;
+  /* padding: 1rem; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 `;
 
 const RegisterRow = styled.div`
-  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  & > span {
+    width: 2.75rem;
+    text-align: left;
+  }
 `;
 
 // we want each register to be in its own row, so we create this row generating function
@@ -18,7 +29,10 @@ const RegisterRow = styled.div`
 const renderRow = (notes, addCard, setHoveredNote, hoveredNote) => {
   return (
     <RegisterRow key={uuid()}>
-      <span>{notes[2].register}</span>
+      {/* super terrible way to display name of register row..*/}
+      <span>
+        {notes[2].register.replace(/^\w/, c => c.toUpperCase())}:
+      </span>
       {notes.map(note => (
         <CardSource
           note={note}

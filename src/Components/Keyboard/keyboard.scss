@@ -3,7 +3,8 @@
 
 // Responsive Sizing
 // (currently optimized for horizontal scaling)
-$keyboard_Width: 40vw;
+// $keyboard_Width: 40vw;
+$keyboard_Width: 25rem;
 $keyboard_Height: ($keyboard_Width * 0.18);
 $border_Width: ($keyboard_Width * 0.0015);
 $whiteKey_Count: 21;
