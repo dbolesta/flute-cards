@@ -9,6 +9,7 @@ const KeyboardContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  /* border: 5px solid #39d2fa; */
 `;
 
 const NoteHighlight = styled.div`

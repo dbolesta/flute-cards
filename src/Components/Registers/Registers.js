@@ -9,7 +9,17 @@ const RegistersContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-around;
+  height: 100%;
+
+  box-shadow: 0px 0px 0px 5px #f1e95e;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s cubic-bezier(0.7, 0.23, 0.31, 1.2);
+
+  &:hover {
+    box-shadow: 0px 0px 0px 8px #f1e95e;
+  }
 `;
 
 const RegisterRow = styled.div`
@@ -18,8 +28,15 @@ const RegisterRow = styled.div`
   align-items: center;
 
   & > span {
-    width: 2.75rem;
     text-align: left;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    background-color: pink;
+    align-self: stretch;
+    text-align: center;
+    margin-right: 3px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
   }
 `;
 
@@ -31,7 +48,7 @@ const renderRow = (notes, addCard, setHoveredNote, hoveredNote) => {
     <RegisterRow key={uuid()}>
       {/* super terrible way to display name of register row..*/}
       <span>
-        {notes[2].register.replace(/^\w/, c => c.toUpperCase())}:
+        {notes[2].register.replace(/^\w/, c => c.toUpperCase())}
       </span>
       {notes.map(note => (
         <CardSource

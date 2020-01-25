@@ -12,48 +12,60 @@ const Shelf = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-
-  & > div:first-child {
-    padding-left: 0.5rem;
-  }
-
-  & > div:last-child {
-    padding-right: 0.5rem;
-  }
+`;
+const SelectorContainer = styled.div`
+  margin: 0.75rem;
+`;
+const AllSelectors = styled.div`
+  border: 2px solid green;
+  display: flex;
+  flex-direction: column;
+`;
+const TopShelf = styled.div`
+  border: 2px solid red;
+`;
+const BottomShelf = styled.div`
+  border: 2px solid purple;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
 `;
 
 const SelectorShelf = props => {
   return (
     <Shelf>
-      <div>
-        <h3>Registers</h3>
-        <Registers
-          hoveredNote={props.hoveredNote}
-          setHoveredNote={props.setHoveredNote}
-          notes={props.notes}
-          addCard={props.addCard}
-        />
-      </div>
-      <div>
-        <h3>Keyboard</h3>
-        <Keyboard
-          notes={props.notes}
-          hoveredNote={props.hoveredNote}
-          setHoveredNote={props.setHoveredNote}
-          addCard={props.addCard}
-        />
-      </div>
-      <div>
-        <h3>Staff</h3>
-        <Staff
-          hoveredNote={props.hoveredNote}
-          setHoveredNote={props.setHoveredNote}
-          notes={props.notes}
-          addCard={props.addCard}
-          staffHovered={props.staffHovered}
-          setStaffHovered={props.setStaffHovered}
-        />
-      </div>
+      <AllSelectors>
+        <TopShelf>
+          <SelectorContainer>
+            <Keyboard
+              notes={props.notes}
+              hoveredNote={props.hoveredNote}
+              setHoveredNote={props.setHoveredNote}
+              addCard={props.addCard}
+            />
+          </SelectorContainer>
+        </TopShelf>
+        <BottomShelf>
+          <SelectorContainer>
+            <Staff
+              hoveredNote={props.hoveredNote}
+              setHoveredNote={props.setHoveredNote}
+              notes={props.notes}
+              addCard={props.addCard}
+              staffHovered={props.staffHovered}
+              setStaffHovered={props.setStaffHovered}
+            />
+          </SelectorContainer>
+          <SelectorContainer>
+            <Registers
+              hoveredNote={props.hoveredNote}
+              setHoveredNote={props.setHoveredNote}
+              notes={props.notes}
+              addCard={props.addCard}
+            />
+          </SelectorContainer>
+        </BottomShelf>
+      </AllSelectors>
     </Shelf>
   );
 };
