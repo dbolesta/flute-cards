@@ -41,7 +41,7 @@ const SCard = styled.div`
   /* box-shadow: 0px 1px 3px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5; */
   box-shadow: 5px 5px 15px rgba(186, 126, 126, 0.5);
   background-color: white;
-  border-radius: 5px;
+  border-radius: 0.2rem;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -54,16 +54,17 @@ const SCard = styled.div`
 
   span.remove-button {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: -2px;
+    right: -2px;
     width: 2rem;
     height: 2rem;
-    background-color: black;
+    background-color: #db2828;
     color: white;
     display: none;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    font-weight: 700;
+    border-radius: 0.2rem;
     cursor: pointer;
   }
 

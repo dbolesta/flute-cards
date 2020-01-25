@@ -15,8 +15,8 @@ $blackKey_Width: ($whiteKey_Width * 0.55);
 $blackKey_Offset: (-($blackKey_Width / 2) - $border_Width);
 
 $whiteKey_Color: #fff; // #cbcbcb
-$blackKey_Color: #000; // #222222
-$blackKey_BorderColor: #000000;
+$blackKey_Color: #1c1c1c; // #222222
+$blackKey_BorderColor: #222222;
 $whiteKey_BorderColor: #aaaaaa;
 
 .key {

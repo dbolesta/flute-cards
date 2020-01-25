@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Card = styled.div`
-  border: 1px solid black;
+  border: 1px solid #1c1c1c;
+  color: #1c1c1c;
   border-radius: 5px;
   height: 3.5rem;
   width: 2.5rem;
@@ -23,7 +24,7 @@ const Card = styled.div`
     black &&
     `
       margin-bottom: 1rem;
-      background-color: black;
+      background-color: #1C1C1C;
       color: white;
       width: 2rem;
       

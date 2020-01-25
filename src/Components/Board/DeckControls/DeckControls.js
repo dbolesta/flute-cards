@@ -19,9 +19,10 @@ const InnerContainerLeft = styled.div`
   }
 
   div {
-    background-color: green;
+    background-color: #21ba45;
     display: flex;
     align-items: center;
+    border-radius: 0.2rem;
     justify-content: center;
     padding: 0.5rem;
     margin-left: 0.5rem;
@@ -35,7 +36,8 @@ const InnerContainerRight = styled.div`
   justify-content: center;
 
   div {
-    background-color: blue;
+    background-color: #2185d0;
+    border-radius: 0.2rem;
     color: white;
     display: flex;
     align-items: center;

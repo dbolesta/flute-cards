@@ -64,6 +64,7 @@ maybe we can attach a classname via the abc docs...? */
   align-items: center;
   justify-content: center;
   border-radius: 0;
+  background-color: #2fd566;
 }
 
 .abcjs-midi-reset,

@@ -15,7 +15,7 @@ const RowContainer = styled.div`
   display: inline-flex;
   flex-wrap: nowrap;
   /* border: 2px solid palevioletred; */
-  border-radius: 5px;
+  border-radius: 0.2rem;
   overflow: hidden;
   min-height: 11.25rem;
   justify-content: flex-start;
@@ -52,13 +52,16 @@ const RowContainer = styled.div`
 
   span.row-controls {
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: 2px;
+    bottom: 2px;
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    border-radius: 0.2rem;
     justify-content: center;
     display: none;
+    overflow: hidden;
+    height: 2.1rem;
   }
 
   &:hover span.row-controls {
@@ -70,8 +73,9 @@ const RemoveRowButton = styled.div`
   /* width: 100%; */
   /* height: 100%; */
   width: 3rem;
-  background-color: black;
+  background-color: #db2828;
   color: white;
+  font-weight: 700;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -80,21 +84,19 @@ const RemoveRowButton = styled.div`
 `;
 
 const RowHandle = styled.div`
-  background-color: green;
+  background-color: #767676;
   width: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 9px 0;
 
   span {
-    width: 60%;
+    width: 54%;
     height: 3px;
     position: relative;
-    margin: 2px 0;
-    /* transform-origin: 1px center; */
-    background: black;
-    border-radius: 10px;
+    background: #1c1c1c;
   }
 `;
 
