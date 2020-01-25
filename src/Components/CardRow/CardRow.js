@@ -29,6 +29,7 @@ const RowContainer = styled.div`
     /* border: 2px solid red; */
     background-color: rgba(255, 255, 255, 0.4);
 
+    /* only show "add a card" message if the row is empty (rowNotation is < 2) */
     &:after {
       ${({ rowNotation }) =>
         rowNotation.length <= 2 &&

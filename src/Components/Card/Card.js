@@ -36,7 +36,10 @@ const engraverParams = {
 };
 
 const SCard = styled.div`
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
+  /* border: 1px solid rgba(34, 36, 38, 0.15); */
+  /* box-shadow: 0px 1px 3px 0px #d4d4d5, 0px 0px 0px 1px #d4d4d5; */
+  box-shadow: 5px 5px 15px rgba(186, 126, 126, 0.5);
   background-color: white;
   border-radius: 5px;
   display: inline-flex;
