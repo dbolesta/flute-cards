@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { DragDropContext } from 'react-beautiful-dnd';
 import SelectorShelf from './Components/SelectorShelf';
 import Board from './Components/Board';
+import Menu from './Components/Menu';
 import './App.css';
 import allNotes from './notes';
 import uuid from 'react-uuid';
@@ -177,18 +179,26 @@ function App() {
     return;
   };
 
+  // styled-components
+  const TopSection = styled.div`
+    border: 1px solid orange;
+    display: flex;
+  `;
+
   return (
     <div className="App">
       <GlobalStyle />
-      <h2>Flute Cards</h2>
-      <SelectorShelf
-        notes={notes}
-        addCard={addCard}
-        setHoveredNote={setHoveredNote}
-        hoveredNote={hoveredNote}
-        staffHovered={staffHovered}
-        setStaffHovered={setStaffHovered}
-      />
+      <TopSection>
+        <Menu />
+        <SelectorShelf
+          notes={notes}
+          addCard={addCard}
+          setHoveredNote={setHoveredNote}
+          hoveredNote={hoveredNote}
+          staffHovered={staffHovered}
+          setStaffHovered={setStaffHovered}
+        />
+      </TopSection>
       <DragDropContext onDragEnd={onDragEnd}>
         <Board
           cards={cards}

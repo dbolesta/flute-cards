@@ -1,10 +1,8 @@
 import React from 'react';
-import CardSource from '../CardSource';
 import Registers from '../Registers';
 import Keyboard from '../Keyboard';
 import Staff from '../Staff';
 import styled from 'styled-components';
-import uuid from 'react-uuid';
 
 const Shelf = styled.div`
   border: 1px solid red;
