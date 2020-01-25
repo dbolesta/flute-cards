@@ -10,6 +10,7 @@ const Shelf = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  margin: auto;
 `;
 const SelectorContainer = styled.div`
   margin: 0.75rem;
