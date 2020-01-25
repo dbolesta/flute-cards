@@ -59,13 +59,14 @@ const RowContainer = styled.div`
     align-items: stretch;
     border-radius: 0.2rem;
     justify-content: center;
-    display: none;
     overflow: hidden;
     height: 2.1rem;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
   }
 
   &:hover span.row-controls {
-    display: flex;
+    opacity: 1;
   }
 `;
 
