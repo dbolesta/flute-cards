@@ -60,7 +60,11 @@ $whiteKey_BorderColor: #aaaaaa;
   width: $blackKey_Width;
   z-index: 2;
   border: $border_Width solid $blackKey_BorderColor;
+  border-top-width: 0;
   background-color: $blackKey_Color;
+
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 
 .a,
@@ -89,5 +93,9 @@ $whiteKey_BorderColor: #aaaaaa;
 
   &:hover {
     box-shadow: 0px 0px 0px 8px #fc5185;
+  }
+
+  .highlight {
+    background-color: #f0f7b3;
   }
 }

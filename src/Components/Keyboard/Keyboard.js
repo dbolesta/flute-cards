@@ -30,13 +30,17 @@ const Keyboard = ({
 }) => {
   return (
     <KeyboardContainer>
-      <div className="keyboard">
+      <div className="keyboard ">
         {notes.map(note => {
           const constructedClass =
             'key ' +
             (note.black ? 'black' : 'white') +
             ' ' +
-            note.noteClass;
+            note.noteClass +
+            ' ' +
+            (hoveredNote && hoveredNote.index === note.index
+              ? 'highlight'
+              : null);
 
           return (
             <div

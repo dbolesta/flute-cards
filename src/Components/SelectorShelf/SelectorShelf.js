@@ -21,11 +21,8 @@ const AllSelectors = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const TopShelf = styled.div`
-  border: 2px solid red;
-`;
+const TopShelf = styled.div``;
 const BottomShelf = styled.div`
-  border: 2px solid purple;
   display: flex;
   align-items: stretch;
   justify-content: center;

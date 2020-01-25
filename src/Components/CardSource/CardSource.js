@@ -17,7 +17,9 @@ const Card = styled.div`
   cursor: pointer;
 
   &.highlight {
-    border-color: red;
+    /* border-color: red; */
+    background-color: #f0f7b3;
+    color: #1c1c1c;
   }
 
   ${({ black }) =>
@@ -27,7 +29,6 @@ const Card = styled.div`
       background-color: #1C1C1C;
       color: white;
       width: 2rem;
-      
    `}
 `;
 

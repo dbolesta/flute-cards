@@ -8,11 +8,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(15, 66, 114, 1) 0%,
     rgba(120, 24, 118, 0.8505747126436781) 99%
-  );
+  ); */
+
+  background-color: #118181;
 
   height: 100vh;
 }
