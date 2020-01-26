@@ -5,7 +5,7 @@ import Staff from '../Staff';
 import styled from 'styled-components';
 
 const Shelf = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   display: flex;
   align-items: flex-start;
@@ -16,7 +16,7 @@ const SelectorContainer = styled.div`
   margin: 0.75rem;
 `;
 const AllSelectors = styled.div`
-  border: 2px solid green;
+  /* border: 2px solid green; */
   display: flex;
   flex-direction: column;
 `;

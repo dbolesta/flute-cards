@@ -15,13 +15,13 @@ const StaffContainer = styled.div`
   /* position: absolute; */
   /* top: 0;
   left: 0; */
-  box-shadow: 0px 0px 0px 5px #2fcafa;
+  box-shadow: 0px 0px 0px 5px ${props => props.theme.eighties.blue};
   border-radius: 10px;
   overflow: hidden;
   transition: box-shadow 0.3s cubic-bezier(0.7, 0.23, 0.31, 1.2);
 
   &:hover {
-    box-shadow: 0px 0px 0px 8px #2fcafa;
+    box-shadow: 0px 0px 0px 8px ${props => props.theme.eighties.blue};
   }
 `;
 

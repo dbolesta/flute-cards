@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { DragDropContext } from 'react-beautiful-dnd';
 import SelectorShelf from './Components/SelectorShelf';
 import Board from './Components/Board';
@@ -17,8 +16,12 @@ import {
   dragUuidRow
 } from './Utils/handleUuids'; // to save space, all uuid functions, which are almost identical to most card functions, are in their own file
 
-import { createGlobalStyle } from 'styled-components';
+import styled, {
+  createGlobalStyle,
+  ThemeProvider
+} from 'styled-components';
 import { globalStyles } from './Styles/global';
+import { theme } from './Styles/theme';
 
 const GlobalStyle = createGlobalStyle`
   ${globalStyles}
@@ -187,38 +190,40 @@ function App() {
   `;
 
   return (
-    <div className="App">
-      <GlobalStyle />
-      <TopSection>
-        <Menu
-          menuSelection={menuSelection}
-          setMenuSelection={setMenuSelection}
-        />
-        <SelectorShelf
-          notes={notes}
-          addCard={addCard}
-          setHoveredNote={setHoveredNote}
-          hoveredNote={hoveredNote}
-          staffHovered={staffHovered}
-          setStaffHovered={setStaffHovered}
-        />
-      </TopSection>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Board
-          cards={cards}
-          addRow={addRow}
-          removeCard={removeCard}
-          activeRow={activeRow}
-          setActiveRow={setActiveRow}
-          removeRow={removeRow}
-          deckName={deckName}
-          setDeckName={setDeckName}
-          setCards={setCards}
-          uuids={uuids}
-          setUuids={setUuids}
-        />
-      </DragDropContext>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <GlobalStyle />
+        <TopSection>
+          <Menu
+            menuSelection={menuSelection}
+            setMenuSelection={setMenuSelection}
+          />
+          <SelectorShelf
+            notes={notes}
+            addCard={addCard}
+            setHoveredNote={setHoveredNote}
+            hoveredNote={hoveredNote}
+            staffHovered={staffHovered}
+            setStaffHovered={setStaffHovered}
+          />
+        </TopSection>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Board
+            cards={cards}
+            addRow={addRow}
+            removeCard={removeCard}
+            activeRow={activeRow}
+            setActiveRow={setActiveRow}
+            removeRow={removeRow}
+            deckName={deckName}
+            setDeckName={setDeckName}
+            setCards={setCards}
+            uuids={uuids}
+            setUuids={setUuids}
+          />
+        </DragDropContext>
+      </div>
+    </ThemeProvider>
   );
 }
 

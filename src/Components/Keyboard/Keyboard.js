@@ -9,7 +9,6 @@ const KeyboardContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 5px solid #39d2fa; */
 `;
 
 const NoteHighlight = styled.div`
@@ -53,9 +52,9 @@ const Keyboard = ({
               {note.noteClass === 'c' ? (
                 <span>{note.spn}</span>
               ) : null}
-              {hoveredNote && hoveredNote.index === note.index ? (
+              {/* {hoveredNote && hoveredNote.index === note.index ? (
                 <NoteHighlight />
-              ) : null}
+              ) : null} */}
             </div>
           );
         })}

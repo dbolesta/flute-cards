@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const MenuContainer = styled.div`
-  background-color: hsl(180, 65.4%, 25.6%);
+  background-color: ${props => props.theme.windowsDark};
+  /* background-color: hsl(180, 65.4%, 25.6%); */
   flex: 0 1 25rem;
   padding: 0.5rem;
 
