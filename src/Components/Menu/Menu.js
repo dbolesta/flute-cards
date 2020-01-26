@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const MenuContainer = styled.div`
   background-color: hsl(180, 65.4%, 25.6%);
-  flex: 0 1 16rem;
+  flex: 0 1 25rem;
   padding: 0.5rem;
 
   & > h2 > span {
@@ -39,11 +39,64 @@ const MenuSelectors = styled.div`
   }
 `;
 
-const Menu = () => {
-  const [selectedMenu, setSelectedMenu] = useState('how');
+const HowToContainer = styled.div`
+  ol {
+    text-align: left;
 
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+`;
+
+const AboutContainer = styled.div`
+  text-align: left;
+`;
+
+// Sub Components
+const HowTo = () => {
+  return (
+    <HowToContainer>
+      <ol>
+        <li>
+          Select notes from the Keyboard, Staff, or Registers to add
+          cards to your Deck below
+        </li>
+        <li>
+          Each Card displays the note, and a Flute Fingering diagram
+        </li>
+        <li>
+          Arrange cards to create melodies and help you learn songs
+          easily!
+        </li>
+        <li>
+          Use the Play button to hear when your current Row of Cards
+          sounds like
+        </li>
+        <li>Save and load Decks to easily learn many songs!</li>
+      </ol>
+    </HowToContainer>
+  );
+};
+const About = () => {
+  return (
+    <AboutContainer>
+      <p>
+        I was learning a song on the flute, and found scanning flute
+        fingering charts to be not good enough.
+      </p>
+      <p>
+        I made this site to help myself and others learn songs on the
+        flute more easily.
+      </p>
+      <p>I hope you find it helpful!</p>
+    </AboutContainer>
+  );
+};
+
+const Menu = ({ menuSelection, setMenuSelection }) => {
   const handleClick = text => {
-    setSelectedMenu(text);
+    setMenuSelection(text);
   };
 
   return (
@@ -60,31 +113,21 @@ const Menu = () => {
         </span>
         ards
       </h2>
-      <MenuSelectors selectedMenu={selectedMenu}>
+      <MenuSelectors menuSelection={menuSelection}>
         <div
           onClick={() => handleClick('how')}
-          className={selectedMenu === 'how' ? 'selected' : null}
+          className={menuSelection === 'how' ? 'selected' : null}
         >
           How To
         </div>
         <div
           onClick={() => handleClick('about')}
-          className={selectedMenu === 'about' ? 'selected' : null}
+          className={menuSelection === 'about' ? 'selected' : null}
         >
           About
         </div>
       </MenuSelectors>
-      {selectedMenu === 'how' ? (
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Repellendus laudantium hic velit non eos blanditiis eaque
-          libero obcaecati autem at? Iusto laboriosam provident
-          deleniti reiciendis ipsa? Voluptatem provident expedita
-          maxime.
-        </p>
-      ) : (
-        <h1>I made this (:</h1>
-      )}
+      {menuSelection === 'how' ? <HowTo /> : <About />}
     </MenuContainer>
   );
 };

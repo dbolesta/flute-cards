@@ -32,6 +32,7 @@ function App() {
   const [deckName, setDeckName] = useState('Deck 1'); // Name of Deck, to be used when saving / loading
   const [uuids, setUuids] = useState([[]]); // unique ids for Cards, will match length of cards state
   const [staffHovered, setStaffHovered] = useState(false); // if the staff is being hovered over, used to check if we should show the optional sharp icon
+  const [menuSelection, setMenuSelection] = useState('how'); // which option is selected in the main menu
 
   ///////////////
   // CARD CRUD STUFF
@@ -189,7 +190,10 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <TopSection>
-        <Menu />
+        <Menu
+          menuSelection={menuSelection}
+          setMenuSelection={setMenuSelection}
+        />
         <SelectorShelf
           notes={notes}
           addCard={addCard}

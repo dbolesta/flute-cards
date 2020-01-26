@@ -19,8 +19,8 @@ Assists in learning the flute fingering for every note on the flute. Select note
 
   - Initially considered creating a function to keep track of the "absolute index" of elements within the nested `cards` state. That is, a single sequential index. Then I could have a single array of uuids, and have the cards call the uuids with their own "absolute index". But I decided that making a straight duplicate nested state would probably be a bit simpler. I'm still not positive if it would actually be easier
 
-- Ran into a tiny issue when making Sharps selectable on the Staff. At first, the problem was that clicking on the "Sharp" svg would cause both the sharp and regular note to be added. I quickly realized that good old `e.stopProppagatio()` on the sharp's `onClick` function easily solved this.
+- Ran into a tiny issue when making Sharps selectable on the Staff. At first, the problem was that clicking on the "Sharp" svg would cause both the sharp and regular note to be added. I quickly realized that good old `e.stopProppagation()` on the sharp's `onClick` function easily solved this.
 
 ## Known Issues
 
-- MIDI will not play the first note on the very first play after pageload
+- MIDI will not play the first note on the very first play after pageload (on Chrome)
