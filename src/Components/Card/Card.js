@@ -124,6 +124,7 @@ const Card = ({ card, removeCard, cardIndex, rowIndex, uuids }) => {
               <span key={i}>{letter}</span>
             ))}
           </Letters>
+          <div>{uniqueId.substring(0, 4)}</div>
           <Notation
             engraverParams={{
               ...engraverParams

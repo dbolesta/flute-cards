@@ -41,9 +41,15 @@ export const removeUuidRow = (uuids, rowIndex) => {
   return uuidsCopy;
 };
 
-export const dragUuid = (uuids, dropId, sourceIndex, destIndex) => {
+// react-beautiful-dnd onDragEnd clones
+export const dragUuid = (
+  uuids,
+  sourceDropId,
+  sourceIndex,
+  destIndex
+) => {
   // 1. make reference to row were working within
-  let row = uuids[dropId];
+  let row = uuids[sourceDropId];
 
   // 2. make deeper copy that we will tamper with
   const newRow = Array.from(row); // can also copy array with `const newRow = [...row];`
@@ -56,9 +62,38 @@ export const dragUuid = (uuids, dropId, sourceIndex, destIndex) => {
 
   // 5. copy state, and insert newly constructed array in place of old one
   let uuidsCopy = Array.from(uuids);
-  uuidsCopy[dropId] = newRow;
+  uuidsCopy[sourceDropId] = newRow;
 
   return uuidsCopy;
+};
+
+export const dragUuidBetweenRows = (
+  uuids,
+  start,
+  end,
+  sourceDropId,
+  sourceIndex,
+  destIndex
+) => {
+  // 1. reference starting row so we can get the card object to move later
+  let startUuidRow = uuids[sourceDropId];
+
+  // 2. shallow copy the Source Row, and remove card from position
+  const newUuidStartRow = Array.from(uuids[start]);
+  newUuidStartRow.splice(sourceIndex, 1);
+
+  // 3. shallow copt the Destination Row, and move card into new position
+  // startRow[source.index] is the card object were moving
+  const newUuidEndRow = Array.from(uuids[end]);
+  newUuidEndRow.splice(destIndex, 0, startUuidRow[sourceIndex]);
+
+  /// 4. shallow copy the card state, and directly replace the rows (indexes)
+  // with the newly constructed rows we made above
+  let newUuids = Array.from(uuids);
+  newUuids[start] = newUuidStartRow;
+  newUuids[end] = newUuidEndRow;
+
+  return newUuids;
 };
 
 export const dragUuidRow = (uuids, start, end) => {

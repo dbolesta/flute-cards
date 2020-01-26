@@ -13,6 +13,7 @@ import {
   addUuidRow,
   removeUuidRow,
   dragUuid,
+  dragUuidBetweenRows,
   dragUuidRow
 } from './Utils/handleUuids'; // to save space, all uuid functions, which are almost identical to most card functions, are in their own file
 
@@ -126,7 +127,9 @@ function App() {
       return;
     }
 
+    ////////////////////////
     // if we dragged a row...
+    ////////////////////////
     if (type === 'row') {
       let cardsCopy = [...cards]; // copy state
 
@@ -147,7 +150,54 @@ function App() {
       return; // end onDragEnd
     }
 
-    // if we dragged a card...
+    ////////////////////////
+    // check source/dest drop id to see if we dragged to the same row or not
+    //////////////////////
+    let start = parseInt(source.droppableId, 10);
+    let end = parseInt(destination.droppableId, 10);
+
+    ////////////////////////
+    // if we dragged card to a different row...
+    //////////////////////
+    if (start !== end) {
+      // 0. move uuid to new row / position
+      setUuids(
+        dragUuidBetweenRows(
+          uuids,
+          start,
+          end,
+          source.droppableId,
+          source.index,
+          destination.index
+        )
+      );
+
+      // 1. reference starting row so we can get the card object to move later
+      let startRow = cards[source.droppableId];
+
+      // 2. shallow copy the Source Row, and remove card from position
+      const newStartRow = Array.from(cards[start]);
+      newStartRow.splice(source.index, 1);
+
+      // 3. shallow copt the Destination Row, and move card into new position
+      // startRow[source.index] is the card object were moving
+      const newEndRow = Array.from(cards[end]);
+      newEndRow.splice(destination.index, 0, startRow[source.index]);
+
+      // 4. shallow copy the card state, and directly replace the rows (indexes)
+      // with the newly constructed rows we made above
+      let newCards = Array.from(cards);
+      newCards[start] = newStartRow;
+      newCards[end] = newEndRow;
+
+      // 5. save state
+      setCards(newCards);
+      return;
+    }
+
+    ////////////////////////
+    // if we dragged a card to the same row...
+    //////////////////////
     // 0. move uuid to new position in uuids state
     setUuids(
       dragUuid(

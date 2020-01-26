@@ -8,7 +8,8 @@ const MenuContainer = styled.div`
   padding: 0.5rem;
 
   & > h2 > span {
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    border-radius: 0.2rem;
     background-color: white;
     padding: 0.25rem;
     display: inline-flex;
