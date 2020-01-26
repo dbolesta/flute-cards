@@ -7,7 +7,8 @@ const ControlsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0.5rem 0.25rem;
+  /* border: 2px solid red; */
 `;
 const InnerContainerLeft = styled.div`
   display: flex;
@@ -16,6 +17,9 @@ const InnerContainerLeft = styled.div`
   input {
     font-size: 1.5rem;
     width: 100%;
+    /* border-radius: 0.2rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0; */
   }
 
   div {
@@ -23,9 +27,11 @@ const InnerContainerLeft = styled.div`
     display: flex;
     align-items: center;
     border-radius: 0.2rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     justify-content: center;
-    padding: 0.5rem;
-    margin-left: 0.5rem;
+    padding: 0.75rem 1rem;
+    /* margin-left: 0.5rem; */
     color: white;
     cursor: pointer;
   }
@@ -43,7 +49,7 @@ const InnerContainerRight = styled.div`
     align-items: center;
     justify-content: center;
     padding: 0.5rem;
-    margin-left: 0.5rem;
+    /* margin-left: 0.5rem; */
     cursor: pointer;
   }
 `;
@@ -113,7 +119,7 @@ const DeckControls = ({
         <select value={toLoad} onChange={e => handleChange(e)}>
           {/* we first loop through localStorage */}
           <option key={12093102} value={'load'}>
-            --load deck--
+            --Load a Deck--
           </option>
           {Object.keys(localStorage).map((key, i) => (
             <option key={i} value={key}>
@@ -123,7 +129,7 @@ const DeckControls = ({
 
           {/* then we loop through sample songs */}
           <option key={123841123} value={'sample'}>
-            --sample songs--
+            --Sample Decks--
           </option>
           {Object.keys(sampleSongs).map((key, i) => (
             <option key={i + 69} value={key}>

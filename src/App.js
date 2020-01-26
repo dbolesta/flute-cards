@@ -185,7 +185,7 @@ function App() {
 
   // styled-components
   const TopSection = styled.div`
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
     display: flex;
   `;
 

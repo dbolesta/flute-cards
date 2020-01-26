@@ -48,6 +48,20 @@ const HowToContainer = styled.div`
       margin-bottom: 0.5rem;
     }
   }
+
+  span {
+    font-weight: 600;
+  }
+
+  span:nth-of-type(1) {
+    color: ${props => props.theme.eighties.pink};
+  }
+  span:nth-of-type(2) {
+    color: ${props => props.theme.eighties.blue};
+  }
+  span:nth-of-type(3) {
+    color: ${props => props.theme.eighties.yellow};
+  }
 `;
 
 const AboutContainer = styled.div`
@@ -60,8 +74,9 @@ const HowTo = () => {
     <HowToContainer>
       <ol>
         <li>
-          Select notes from the Keyboard, Staff, or Registers to add
-          cards to your Deck below
+          Select notes from the <span>Keyboard</span>,{' '}
+          <span>Staff</span>, or <span>Registers</span> to add cards
+          to your Deck below
         </li>
         <li>
           Each Card displays the note, and a Flute Fingering diagram
