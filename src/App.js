@@ -187,6 +187,7 @@ function App() {
   const TopSection = styled.div`
     /* border: 1px solid orange; */
     display: flex;
+    background-color: ${props => props.theme.windows};
   `;
 
   return (

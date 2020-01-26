@@ -11,7 +11,7 @@ const RowsContainer = styled.div`
 `;
 
 const BoardContainer = styled.div`
-  border: 1px solid green;
+  /* border: 1px solid green; */
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;

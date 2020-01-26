@@ -8,6 +8,7 @@ export const theme = {
   },
   windows: '#118181',
   windowsDark: 'hsl(180, 65.4%, 25.6%)',
+  windowsLight: 'hsl(180, 65.4%, 35.6%)',
   breakpoints: {
     mobile: '900px',
     preMobile: '1110px'

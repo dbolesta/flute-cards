@@ -14,7 +14,7 @@ body {
     rgba(120, 24, 118, 0.8505747126436781) 99%
   ); */
 
-  background-color: #118181;
+  background-color: hsl(180, 65.4%, 35.6%);
 
   height: 100vh;
 }
