@@ -7,6 +7,7 @@ import './App.css';
 import allNotes from './notes';
 import uuid from 'react-uuid';
 
+// to save space, all uuid functions, which are almost identical to most card functions, are in their own file
 import {
   addUuid,
   removeUuid,
@@ -15,7 +16,7 @@ import {
   dragUuid,
   dragUuidBetweenRows,
   dragUuidRow
-} from './Utils/handleUuids'; // to save space, all uuid functions, which are almost identical to most card functions, are in their own file
+} from './Utils/handleUuids';
 
 import styled, {
   createGlobalStyle,
@@ -29,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const [notes, setNotes] = useState(allNotes); // all note objects (probably shoudnt be state, since never changed?)
+  // const [notes, setNotes] = useState(allNotes); // all note objects (probably shoudnt be state, since never changed?)
   const [cards, setCards] = useState([[]]); // all cards and rows
   const [activeRow, setActiveRow] = useState(0); // the currently selected row (which array index new cards will be added)
   const [hoveredNote, setHoveredNote] = useState(''); // note user is hovering over on any Selector (keyboard, staff, notes), which is used to display that note on all selectors
@@ -250,7 +251,7 @@ function App() {
             setMenuSelection={setMenuSelection}
           />
           <SelectorShelf
-            notes={notes}
+            notes={allNotes}
             addCard={addCard}
             setHoveredNote={setHoveredNote}
             hoveredNote={hoveredNote}
