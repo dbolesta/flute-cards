@@ -74,7 +74,7 @@ const InnerRow = React.memo(
           row={row}
           rowIndex={rowIndex}
           rowNotation={rowNotation}
-          key={rowIndex + rowNotation}
+          key={rowIndex}
           uuids={uuids}
         />
       );

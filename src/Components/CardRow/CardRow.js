@@ -2,6 +2,10 @@ import React from 'react';
 import Card from '../Card';
 import styled from 'styled-components';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+import {
+  CSSTransition,
+  TransitionGroup
+} from 'react-transition-group';
 import { Midi } from 'react-abc';
 // midi params: https://github.com/fuhton/react-abc/blob/3e200fd1649b5cc762269b832da1e825333ce016/src/defaults/README.md#midi-params
 // midi program number reference: https://en.wikipedia.org/wiki/General_MIDI
@@ -31,8 +35,8 @@ const RowContainer = styled.div`
 
     /* only show "add a card" message if the row is empty (rowNotation is < 2) */
     &:after {
-      ${({ rowNotation }) =>
-        rowNotation.length <= 2 &&
+      ${({ row }) =>
+        row.length <= 0 &&
         `
           content: 'Click a note above to add a Card';
           color: black;
@@ -108,14 +112,16 @@ const RowHandle = styled.div`
 const InnerCards = React.memo(
   ({ row, removeCard, rowIndex, uuids }) => {
     return row.map((card, cardIndex) => (
-      <Card
-        key={cardIndex + card.index + card.abcCode}
-        card={card}
-        removeCard={removeCard}
-        cardIndex={cardIndex}
-        rowIndex={rowIndex}
-        uuids={uuids}
-      />
+      <CSSTransition key={cardIndex} timeout={500} classNames="item">
+        <Card
+          key={cardIndex + card.index + card.abcCode}
+          card={card}
+          removeCard={removeCard}
+          cardIndex={cardIndex}
+          rowIndex={rowIndex}
+          uuids={uuids}
+        />
+      </CSSTransition>
     ));
   }
 );
@@ -148,7 +154,7 @@ const CardRow = ({
                 className={
                   activeRow === rowIndex ? 'activeRow' : null
                 }
-                rowNotation={rowNotation}
+                row={row}
                 onClick={e => {
                   /* update activeRow when row is clicked, first check if target matches */
                   /* maybe should extract this to its own function...? */
@@ -160,12 +166,31 @@ const CardRow = ({
               >
                 {/* loop through each array (cards) */}
                 {/* deferred to second function so we can memoize? */}
-                <InnerCards
-                  row={row}
-                  removeCard={removeCard}
-                  rowIndex={rowIndex}
-                  uuids={uuids}
-                />
+                <TransitionGroup component={null}>
+                  {/* <InnerCards
+                    row={row}
+                    removeCard={removeCard}
+                    rowIndex={rowIndex}
+                    uuids={uuids}
+                  /> */}
+
+                  {row.map((card, cardIndex) => (
+                    <CSSTransition
+                      key={cardIndex}
+                      timeout={500}
+                      classNames="item"
+                    >
+                      <Card
+                        key={cardIndex + card.index + card.abcCode}
+                        card={card}
+                        removeCard={removeCard}
+                        cardIndex={cardIndex}
+                        rowIndex={rowIndex}
+                        uuids={uuids}
+                      />
+                    </CSSTransition>
+                  ))}
+                </TransitionGroup>
 
                 <span className="row-controls">
                   <RemoveRowButton
