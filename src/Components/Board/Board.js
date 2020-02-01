@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import DeckControls from './DeckControls';
 import { Droppable } from 'react-beautiful-dnd';
+import {
+  CSSTransition,
+  TransitionGroup
+} from 'react-transition-group';
 
 import CardRow from '../CardRow';
 import uuid from 'react-uuid';
@@ -113,14 +117,46 @@ const Board = ({
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              <InnerRow
+              <TransitionGroup component={null}>
+                {/* <InnerRow
                 cards={cards}
                 removeCard={removeCard}
                 activeRow={activeRow}
                 setActiveRow={setActiveRow}
                 removeRow={removeRow}
                 uuids={uuids}
-              />
+              /> */}
+
+                {cards.map((row, rowIndex) => {
+                  let rowNotation = '|:';
+
+                  // collect complete abc notation of all cards in row, so we can use it for midi
+                  row.map(card => {
+                    rowNotation += card.midiCode;
+                    return rowNotation;
+                  });
+
+                  return (
+                    <CSSTransition
+                      key={rowIndex}
+                      timeout={500}
+                      classNames="row"
+                    >
+                      <CardRow
+                        removeCard={removeCard}
+                        activeRow={activeRow}
+                        setActiveRow={setActiveRow}
+                        removeRow={removeRow}
+                        row={row}
+                        rowIndex={rowIndex}
+                        rowNotation={rowNotation}
+                        key={rowIndex}
+                        uuids={uuids}
+                      />
+                    </CSSTransition>
+                  );
+                })}
+              </TransitionGroup>
 
               {provided.placeholder}
             </RowsContainer>

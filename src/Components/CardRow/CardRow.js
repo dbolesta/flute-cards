@@ -178,7 +178,7 @@ const CardRow = ({
                     <CSSTransition
                       key={cardIndex}
                       timeout={500}
-                      classNames="item"
+                      classNames="card"
                     >
                       <Card
                         key={cardIndex + card.index + card.abcCode}
