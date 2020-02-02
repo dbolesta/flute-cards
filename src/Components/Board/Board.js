@@ -139,7 +139,7 @@ const Board = ({
                   return (
                     <CSSTransition
                       key={rowIndex}
-                      timeout={500}
+                      timeout={200}
                       classNames="row"
                     >
                       <CardRow

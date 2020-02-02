@@ -112,7 +112,7 @@ const RowHandle = styled.div`
 const InnerCards = React.memo(
   ({ row, removeCard, rowIndex, uuids }) => {
     return row.map((card, cardIndex) => (
-      <CSSTransition key={cardIndex} timeout={500} classNames="item">
+      <CSSTransition key={cardIndex} timeout={300} classNames="card">
         <Card
           key={cardIndex + card.index + card.abcCode}
           card={card}
@@ -177,7 +177,7 @@ const CardRow = ({
                   {row.map((card, cardIndex) => (
                     <CSSTransition
                       key={cardIndex}
-                      timeout={500}
+                      timeout={200}
                       classNames="card"
                     >
                       <Card
