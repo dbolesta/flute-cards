@@ -41,6 +41,7 @@ const InnerContainerRight = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   div {
     background-color: #2185d0;
