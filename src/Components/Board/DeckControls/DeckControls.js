@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Loader from './Loader';
 import styled from 'styled-components';
 import sampleSongs from './sampleSongs';
 import uuid from 'react-uuid';
@@ -139,6 +140,8 @@ const DeckControls = ({
         </select>
 
         <div onClick={() => loadDeck()}>Load</div>
+
+        <Loader />
       </InnerContainerRight>
     </ControlsContainer>
   );
