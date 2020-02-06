@@ -43,7 +43,7 @@ const InnerContainerRight = styled.div`
   justify-content: center;
   position: relative;
 
-  div {
+  .loadButton {
     background-color: #2185d0;
     border-radius: 0.2rem;
     color: white;
@@ -140,9 +140,15 @@ const DeckControls = ({
           ))}
         </select>
 
-        <div onClick={() => loadDeck()}>Load</div>
+        <div className="loadButton" onClick={() => loadDeck()}>
+          Load
+        </div>
 
-        <Loader />
+        <Loader
+          setUuids={setUuids}
+          setCards={setCards}
+          setDeckName={setDeckName}
+        />
       </InnerContainerRight>
     </ControlsContainer>
   );
