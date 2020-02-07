@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import sampleSongs from '../sampleSongs';
 import uuid from 'react-uuid';
 
 const LoadContain = styled.div`
-  border: 2px solid purple;
-  background-color: #2185d0;
+  border-radius: 4px;
+  padding: 0.25rem;
+  /* background-color: #2185d0; */
+  background: rgb(33, 183, 251);
+  background: linear-gradient(
+    135deg,
+    rgba(33, 183, 251, 1) 0%,
+    rgba(88, 101, 243, 1) 99%
+  );
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -27,7 +34,6 @@ const LoadContain = styled.div`
 `;
 
 const DeckContain = styled.div`
-  border: 1px solid red;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -35,11 +41,33 @@ const DeckContain = styled.div`
   justify-content: space-between;
 `;
 
-const SaveLoadContain = styled.div`
-  border: 1px solid green;
+const LoadDeleteContain = styled.div`
+  span {
+    border-radius: 3px;
+    padding: 0.25rem;
+    cursor: pointer;
+  }
 `;
 
+const LoadButton = styled.span`
+  background-color: #2185d0;
+`;
+const DeleteButton = styled.span`
+  background-color: #db2828;
+  margin-left: 2px;
+`;
+
+// custom force render hook
+// thanks: https://stackoverflow.com/questions/46240647/react-how-can-i-force-render-a-function-component
+const useForceUpdate = () => {
+  const [value, setValue] = useState(0); // integer state
+  return () => setValue(value => ++value); // update the state to force render
+};
+
 const Loader = ({ setUuids, setCards, setDeckName }) => {
+  // create accessable forceRender function
+  const forceUpdate = useForceUpdate();
+
   // take currently selected select option and load it to state, along with deck name
   const loadDeck = loadValue => {
     console.log('loadDeck was reachted with a value of ');
@@ -72,28 +100,40 @@ const Loader = ({ setUuids, setCards, setDeckName }) => {
     setDeckName(loadValue); // load name as well
   };
 
+  const deleteDeck = deleteValue => {
+    // delete deck, then force render so we can see it removed
+    localStorage.removeItem(deleteValue);
+    forceUpdate();
+  };
+
   return (
     <div>
       <LoadContain>
+        <span>My Saved Decks</span>
         {Object.keys(localStorage).map((key, i) => (
           <DeckContain>
             <p key={i}>{key}</p>
-            <SaveLoadContain>
-              <span onClick={() => loadDeck(key)}>Load</span>
-              <span>Delete</span>
-            </SaveLoadContain>
+            <LoadDeleteContain>
+              <LoadButton onClick={() => loadDeck(key)}>
+                Load
+              </LoadButton>
+              <DeleteButton onClick={() => deleteDeck(key)}>
+                Delete
+              </DeleteButton>
+            </LoadDeleteContain>
           </DeckContain>
         ))}
 
-        <span>----</span>
+        <span>Load a Sample Deck</span>
 
         {Object.keys(sampleSongs).map((key, i) => (
           <DeckContain>
             <p key={i}>{key}</p>
-            <SaveLoadContain>
-              <span onClick={() => loadDeck(key)}>Load</span>
-              <span>Delete</span>
-            </SaveLoadContain>
+            <LoadDeleteContain>
+              <LoadButton onClick={() => loadDeck(key)}>
+                Load
+              </LoadButton>
+            </LoadDeleteContain>
           </DeckContain>
         ))}
       </LoadContain>
