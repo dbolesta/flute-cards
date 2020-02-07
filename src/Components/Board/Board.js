@@ -150,7 +150,7 @@ const Board = ({
                         row={row}
                         rowIndex={rowIndex}
                         rowNotation={rowNotation}
-                        key={rowIndex}
+                        key={rowIndex + rowNotation}
                         uuids={uuids}
                       />
                     </CSSTransition>
