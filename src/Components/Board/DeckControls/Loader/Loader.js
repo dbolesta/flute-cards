@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import sampleSongs from '../sampleSongs';
-import uuid from 'react-uuid';
 
 const LoadContain = styled.div`
   border-radius: 4px;
@@ -57,55 +56,7 @@ const DeleteButton = styled.span`
   margin-left: 2px;
 `;
 
-// custom force render hook
-// thanks: https://stackoverflow.com/questions/46240647/react-how-can-i-force-render-a-function-component
-const useForceUpdate = () => {
-  const [value, setValue] = useState(0); // integer state
-  return () => setValue(value => ++value); // update the state to force render
-};
-
-const Loader = ({ setUuids, setCards, setDeckName }) => {
-  // create accessable forceRender function
-  const forceUpdate = useForceUpdate();
-
-  // take currently selected select option and load it to state, along with deck name
-  const loadDeck = loadValue => {
-    console.log('loadDeck was reachted with a value of ');
-    console.log(loadValue);
-
-    let deckToLoad; // establish var
-
-    // first attempt to load from localStorage
-    deckToLoad = localStorage.getItem(loadValue);
-    // if we cant, check for it in sample songs
-    if (deckToLoad === null) {
-      deckToLoad = sampleSongs[`${loadValue}`];
-    }
-    if (deckToLoad === null) return; // if still nothing, abandon function
-
-    deckToLoad = JSON.parse(deckToLoad); // need to parse string
-
-    // create Uuids before we set the cards
-    let sampleUuids = [];
-    deckToLoad.forEach((arr, i) => {
-      sampleUuids.push([]);
-      deckToLoad[i].forEach((data, x) => {
-        sampleUuids[i].push(uuid());
-      });
-    });
-
-    setUuids(sampleUuids);
-
-    setCards(deckToLoad); // load state
-    setDeckName(loadValue); // load name as well
-  };
-
-  const deleteDeck = deleteValue => {
-    // delete deck, then force render so we can see it removed
-    localStorage.removeItem(deleteValue);
-    forceUpdate();
-  };
-
+const Loader = ({ loadDeck, deleteDeck }) => {
   return (
     <div>
       <LoadContain>

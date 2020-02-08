@@ -56,6 +56,13 @@ const InnerContainerRight = styled.div`
   }
 `;
 
+// custom force render hook
+// thanks: https://stackoverflow.com/questions/46240647/react-how-can-i-force-render-a-function-component
+const useForceUpdate = () => {
+  const [value, setValue] = useState(0); // integer state
+  return () => setValue(value => ++value); // update the state to force render
+};
+
 const DeckControls = ({
   deckName,
   setDeckName,
@@ -64,27 +71,35 @@ const DeckControls = ({
   uuids,
   setUuids
 }) => {
-  const [toLoad, setToLoad] = useState('');
+  const [toLoad, setToLoad] = useState(''); // do we still need? Maybe for simple Loader?
 
-  // stringify and save state in localStorage
-  const saveDeck = () => {
-    localStorage.setItem(deckName, JSON.stringify(cards));
-  };
+  // create accessable forceRender function
+  const forceUpdate = useForceUpdate();
 
   // update the select dropdown
   const handleChange = e => {
     setToLoad(e.target.value);
   };
 
+  // save, load, delete deck functions
+  // stringify and save state in localStorage
+  const saveDeck = () => {
+    localStorage.setItem(deckName, JSON.stringify(cards));
+    forceUpdate(); // force render so we can see saved deck immediately
+  };
+
   // take currently selected select option and load it to state, along with deck name
-  const loadDeck = () => {
+  const loadDeck = loadValue => {
+    console.log('loadDeck was reachted with a value of ');
+    console.log(loadValue);
+
     let deckToLoad; // establish var
 
     // first attempt to load from localStorage
-    deckToLoad = localStorage.getItem(toLoad);
+    deckToLoad = localStorage.getItem(loadValue);
     // if we cant, check for it in sample songs
     if (deckToLoad === null) {
-      deckToLoad = sampleSongs[`${toLoad}`];
+      deckToLoad = sampleSongs[`${loadValue}`];
     }
     if (deckToLoad === null) return; // if still nothing, abandon function
 
@@ -100,9 +115,14 @@ const DeckControls = ({
     });
 
     setUuids(sampleUuids);
-
     setCards(deckToLoad); // load state
-    setDeckName(toLoad); // load name as well
+    setDeckName(loadValue); // load name as well
+  };
+
+  const deleteDeck = deleteValue => {
+    // delete deck, then force render so we can see it removed
+    localStorage.removeItem(deleteValue);
+    forceUpdate();
   };
 
   return (
@@ -144,11 +164,7 @@ const DeckControls = ({
           Load
         </div>
 
-        <Loader
-          setUuids={setUuids}
-          setCards={setCards}
-          setDeckName={setDeckName}
-        />
+        <Loader loadDeck={loadDeck} deleteDeck={deleteDeck} />
       </InnerContainerRight>
     </ControlsContainer>
   );
