@@ -62,8 +62,8 @@ const Loader = ({ loadDeck, deleteDeck }) => {
       <LoadContain>
         <span>My Saved Decks</span>
         {Object.keys(localStorage).map((key, i) => (
-          <DeckContain>
-            <p key={i}>{key}</p>
+          <DeckContain key={i}>
+            <p>{key}</p>
             <LoadDeleteContain>
               <LoadButton onClick={() => loadDeck(key)}>
                 Load
@@ -78,8 +78,8 @@ const Loader = ({ loadDeck, deleteDeck }) => {
         <span>Load a Sample Deck</span>
 
         {Object.keys(sampleSongs).map((key, i) => (
-          <DeckContain>
-            <p key={i}>{key}</p>
+          <DeckContain key={i}>
+            <p>{key}</p>
             <LoadDeleteContain>
               <LoadButton onClick={() => loadDeck(key)}>
                 Load

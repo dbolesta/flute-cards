@@ -18,11 +18,11 @@ const StaffContainer = styled.div`
   box-shadow: 0px 0px 0px 5px ${props => props.theme.eighties.blue};
   border-radius: 10px;
   overflow: hidden;
-  transition: box-shadow 0.3s cubic-bezier(0.7, 0.23, 0.31, 1.2);
+  /* transition: box-shadow 0.3s cubic-bezier(0.7, 0.23, 0.31, 1.2); */
 
-  &:hover {
+  /* &:hover {
     box-shadow: 0px 0px 0px 8px ${props => props.theme.eighties.blue};
-  }
+  } */
 `;
 
 const TrebleContainer = styled.img`

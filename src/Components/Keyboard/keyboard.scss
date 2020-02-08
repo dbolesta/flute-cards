@@ -88,12 +88,12 @@ $whiteKey_BorderColor: #aaaaaa;
   box-shadow: 0px 0px 0px 5px #fc5185;
   border-radius: 10px;
   overflow: hidden;
-  transition: box-shadow 0.3s cubic-bezier(0.7, 0.23, 0.31, 1.2);
+  //transition: box-shadow 0.3s cubic-bezier(0.7, 0.23, 0.31, 1.2);
   // transition: box-shadow 0.1s ease-in;
 
-  &:hover {
-    box-shadow: 0px 0px 0px 8px #fc5185;
-  }
+  // &:hover {
+  //   box-shadow: 0px 0px 0px 8px #fc5185;
+  // }
 
   .highlight {
     background-color: #f0f7b3;
