@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Loader from './Loader';
+import SimpleLoader from './SimpleLoader';
 import styled from 'styled-components';
 import sampleSongs from './sampleSongs';
 import uuid from 'react-uuid';
 
 const ControlsContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
   padding: 0.5rem 0.25rem;
   /* border: 2px solid red; */
@@ -42,6 +43,7 @@ const InnerContainerRight = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+  width: 30%;
 
   .loadButton {
     background-color: #2185d0;
@@ -71,15 +73,8 @@ const DeckControls = ({
   uuids,
   setUuids
 }) => {
-  const [toLoad, setToLoad] = useState(''); // do we still need? Maybe for simple Loader?
-
   // create accessable forceRender function
   const forceUpdate = useForceUpdate();
-
-  // update the select dropdown
-  const handleChange = e => {
-    setToLoad(e.target.value);
-  };
 
   // save, load, delete deck functions
   // stringify and save state in localStorage
@@ -138,33 +133,8 @@ const DeckControls = ({
       </InnerContainerLeft>
 
       <InnerContainerRight>
-        <select value={toLoad} onChange={e => handleChange(e)}>
-          {/* we first loop through localStorage */}
-          <option key={12093102} value={'load'}>
-            --Load a Deck--
-          </option>
-          {Object.keys(localStorage).map((key, i) => (
-            <option key={i} value={key}>
-              {key}
-            </option>
-          ))}
-
-          {/* then we loop through sample songs */}
-          <option key={123841123} value={'sample'}>
-            --Sample Decks--
-          </option>
-          {Object.keys(sampleSongs).map((key, i) => (
-            <option key={i + 69} value={key}>
-              {key}
-            </option>
-          ))}
-        </select>
-
-        <div className="loadButton" onClick={() => loadDeck()}>
-          Load
-        </div>
-
         <Loader loadDeck={loadDeck} deleteDeck={deleteDeck} />
+        {/* <SimpleLoader loadDeck={loadDeck} deleteDeck={deleteDeck} /> */}
       </InnerContainerRight>
     </ControlsContainer>
   );

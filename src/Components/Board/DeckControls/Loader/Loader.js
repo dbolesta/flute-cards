@@ -58,37 +58,35 @@ const DeleteButton = styled.span`
 
 const Loader = ({ loadDeck, deleteDeck }) => {
   return (
-    <div>
-      <LoadContain>
-        <span>My Saved Decks</span>
-        {Object.keys(localStorage).map((key, i) => (
-          <DeckContain key={i}>
-            <p>{key}</p>
-            <LoadDeleteContain>
-              <LoadButton onClick={() => loadDeck(key)}>
-                Load
-              </LoadButton>
-              <DeleteButton onClick={() => deleteDeck(key)}>
-                Delete
-              </DeleteButton>
-            </LoadDeleteContain>
-          </DeckContain>
-        ))}
+    <LoadContain>
+      <span>My Saved Decks</span>
+      {Object.keys(localStorage).map((key, i) => (
+        <DeckContain key={i}>
+          <p>{key}</p>
+          <LoadDeleteContain>
+            <LoadButton onClick={() => loadDeck(key)}>
+              Load
+            </LoadButton>
+            <DeleteButton onClick={() => deleteDeck(key)}>
+              Delete
+            </DeleteButton>
+          </LoadDeleteContain>
+        </DeckContain>
+      ))}
 
-        <span>Load a Sample Deck</span>
+      <span>Load a Sample Deck</span>
 
-        {Object.keys(sampleSongs).map((key, i) => (
-          <DeckContain key={i}>
-            <p>{key}</p>
-            <LoadDeleteContain>
-              <LoadButton onClick={() => loadDeck(key)}>
-                Load
-              </LoadButton>
-            </LoadDeleteContain>
-          </DeckContain>
-        ))}
-      </LoadContain>
-    </div>
+      {Object.keys(sampleSongs).map((key, i) => (
+        <DeckContain key={i}>
+          <p>{key}</p>
+          <LoadDeleteContain>
+            <LoadButton onClick={() => loadDeck(key)}>
+              Load
+            </LoadButton>
+          </LoadDeleteContain>
+        </DeckContain>
+      ))}
+    </LoadContain>
   );
 };
 
