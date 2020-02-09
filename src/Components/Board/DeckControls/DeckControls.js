@@ -101,15 +101,46 @@ const DeckControls = ({
       }
     });
 
+    // if user declined, cancel function
+    if (!goodToSave) return;
+
     // only save if `goodToSave` wasnt flipped above
-    if (goodToSave) {
-      localStorage.setItem(deckName, deckToSave);
-      forceUpdate(); // force render so we can see saved deck immediately
-    }
+    localStorage.setItem(deckName, deckToSave);
+    forceUpdate(); // force render so we can see saved deck immediately
   };
 
   // take currently selected select option and load it to state, along with deck name
   const loadDeck = loadValue => {
+    // first, check if the current deck has been saved. if not, confirm with user that they are
+    // cool with loading a deck and losing current deck
+    let currentDeck = JSON.stringify(cards); // get current state as string
+
+    // deckExists is false by default, meaning the deck does not exists, and if we load a deck,
+    // we will lose what we currently have. This prompts a confirm dialogue
+    // we also use a shortcut to check if the deck is empty ([[]] or []), so we dont prompt whe deck is empty
+    let deckExists =
+      currentDeck === '[[]]' || currentDeck === '[]' ? true : false;
+
+    // check all values in local storage to see if the deck is already there
+    Object.values(localStorage).forEach(value => {
+      if (!deckExists && currentDeck === value) {
+        deckExists = true;
+      }
+    });
+
+    // initial variable to keep track in next confirm if use wants to load
+    let okayToLoad = true;
+
+    if (!deckExists) {
+      okayToLoad = window.confirm(
+        `Current deck is not saved. Loading will lose your current Deck.\nAre you sure you want to load a new Deck?`
+      );
+    }
+
+    // if user declined, cancel function
+    if (!okayToLoad) return;
+
+    // if use didn't decline, resume as usual
     let deckToLoad; // establish var
 
     // first attempt to load from localStorage

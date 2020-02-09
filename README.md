@@ -4,9 +4,10 @@ Assists in learning the flute fingering for every note on the flute. Select note
 
 ## Built With
 
-- [create-react-app](https://github.com/facebook/create-react-app) - Cool little package
+- [create-react-app](https://github.com/facebook/create-react-app) - Small little package by some indie developer
 - [react-abc](https://www.npmjs.com/package/react-abc) - Generates music note & staff svgs, and plays midi audio
-- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - Allows for dragging and dropping of cards and row
+- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - Allows for dragging and dropping of cards and rows
+- [react-transition-group](https://github.com/reactjs/react-transition-group) - Enables entrance / exit animations when state is modified
 
 ## Authors
 
