@@ -77,17 +77,39 @@ const DeckControls = ({
   const forceUpdate = useForceUpdate();
 
   // save, load, delete deck functions
-  // stringify and save state in localStorage
+  // Save function - also checks for duplicates
   const saveDeck = () => {
-    localStorage.setItem(deckName, JSON.stringify(cards));
-    forceUpdate(); // force render so we can see saved deck immediately
+    let deckToSave = JSON.stringify(cards); // stringify so state can be compared / saved to localStorage
+
+    let goodToSave = true; // var to keep track if we are good to save. Will turn false under conditions below
+
+    // loop through localStorage to see if key (name) already exists. If so, confirm with user user
+    Object.keys(localStorage).forEach(key => {
+      if (goodToSave && deckName === key) {
+        goodToSave = window.confirm(
+          `A Deck with the name of "${key}" already exists.\nDo you want to save over this Deck?`
+        );
+      }
+    });
+
+    // same as above, but check the value (state). To help prevent saving duplicates
+    Object.entries(localStorage).forEach(([key, value]) => {
+      if (goodToSave && deckToSave === value) {
+        goodToSave = window.confirm(
+          `This Deck is exactly the same as "${key}".\nDo you want to save anyway?`
+        );
+      }
+    });
+
+    // only save if `goodToSave` wasnt flipped above
+    if (goodToSave) {
+      localStorage.setItem(deckName, deckToSave);
+      forceUpdate(); // force render so we can see saved deck immediately
+    }
   };
 
   // take currently selected select option and load it to state, along with deck name
   const loadDeck = loadValue => {
-    console.log('loadDeck was reachted with a value of ');
-    console.log(loadValue);
-
     let deckToLoad; // establish var
 
     // first attempt to load from localStorage
