@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import sampleSongs from '../sampleSongs';
 
@@ -26,9 +26,27 @@ const LoadContain = styled.div`
   margin: auto;
   z-index: 99;
 
+  div.loader-label {
+    background-color: pink;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+  }
+
   &:hover {
     min-height: 15rem;
     overflow-y: scroll;
+
+    div.loader-label {
+      opacity: 0;
+    }
   }
 `;
 
@@ -57,10 +75,20 @@ const DeleteButton = styled.span`
 `;
 
 const Loader = ({ loadDeck, deleteDeck }) => {
-  return (
-    <LoadContain>
-      <span>My Saved Decks</span>
+  const loaderRef = useRef(null); // create ref for loader so we can manipulate scroll position
 
+  // reset scroll position
+  const handleMouseLeave = () => {
+    loaderRef.current.scrollTop = 0;
+  };
+
+  return (
+    <LoadContain
+      ref={loaderRef}
+      onMouseLeave={() => handleMouseLeave()}
+    >
+      <div className="loader-label">Load A deck</div>
+      <span>My Saved Decks</span>
       {/* if no saved Decks, show a message */}
       {localStorage.length <= 0 ? (
         <p>Save a Deck with the green Save button!</p>
