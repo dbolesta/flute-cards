@@ -121,6 +121,14 @@ const DeckControls = ({
     let deckExists =
       currentDeck === '[[]]' || currentDeck === '[]' ? true : false;
 
+    // check for sample songs. If the current state matches a sample song, we dont want to bother asking
+    // if they really want to get rid of it, since sample songs cant be deleted anyway
+    Object.values(sampleSongs).forEach(value => {
+      if (!deckExists && currentDeck === value) {
+        deckExists = true;
+      }
+    });
+
     // check all values in local storage to see if the deck is already there
     Object.values(localStorage).forEach(value => {
       if (!deckExists && currentDeck === value) {
@@ -131,6 +139,8 @@ const DeckControls = ({
     // initial variable to keep track in next confirm if use wants to load
     let okayToLoad = true;
 
+    // if none of the checks above were caught, we should prompt the user to let them know
+    // this current state is not saved, and will be lost if a new song is loaded
     if (!deckExists) {
       okayToLoad = window.confirm(
         `Current deck is not saved. Loading will lose your current Deck.\nAre you sure you want to load a new Deck?`
@@ -140,7 +150,7 @@ const DeckControls = ({
     // if user declined, cancel function
     if (!okayToLoad) return;
 
-    // if use didn't decline, resume as usual
+    // if user didn't decline, resume as usual
     let deckToLoad; // establish var
 
     // first attempt to load from localStorage

@@ -46,6 +46,7 @@ const LoadContain = styled.div`
 
     div.loader-label {
       opacity: 0;
+      z-index: -1; /* if we dont alter z-index, the hidden div will block clicks */
     }
   }
 `;
