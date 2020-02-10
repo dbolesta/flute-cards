@@ -60,19 +60,25 @@ const Loader = ({ loadDeck, deleteDeck }) => {
   return (
     <LoadContain>
       <span>My Saved Decks</span>
-      {Object.keys(localStorage).map((key, i) => (
-        <DeckContain key={i}>
-          <p>{key}</p>
-          <LoadDeleteContain>
-            <LoadButton onClick={() => loadDeck(key)}>
-              Load
-            </LoadButton>
-            <DeleteButton onClick={() => deleteDeck(key)}>
-              Delete
-            </DeleteButton>
-          </LoadDeleteContain>
-        </DeckContain>
-      ))}
+
+      {/* if no saved Decks, show a message */}
+      {localStorage.length <= 0 ? (
+        <p>Save a Deck with the green Save button!</p>
+      ) : (
+        Object.keys(localStorage).map((key, i) => (
+          <DeckContain key={i}>
+            <p>{key}</p>
+            <LoadDeleteContain>
+              <LoadButton onClick={() => loadDeck(key)}>
+                Load
+              </LoadButton>
+              <DeleteButton onClick={() => deleteDeck(key)}>
+                Delete
+              </DeleteButton>
+            </LoadDeleteContain>
+          </DeckContain>
+        ))
+      )}
 
       <span>Load a Sample Deck</span>
 
