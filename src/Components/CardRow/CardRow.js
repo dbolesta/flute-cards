@@ -199,6 +199,7 @@ const CardRow = ({
                     x
                   </RemoveRowButton>
                   <Midi
+                    key={rowNotation}
                     midiParams={{
                       generateInline: true,
                       qpm: 80,

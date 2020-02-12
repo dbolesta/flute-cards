@@ -117,7 +117,7 @@ const DeckControls = ({
 
     // deckExists is false by default, meaning the deck does not exists, and if we load a deck,
     // we will lose what we currently have. This prompts a confirm dialogue
-    // we also use a shortcut to check if the deck is empty ([[]] or []), so we dont prompt whe deck is empty
+    // we also use a shortcut to check if the deck is empty ([[]] or []), so we dont prompt when deck is empty
     let deckExists =
       currentDeck === '[[]]' || currentDeck === '[]' ? true : false;
 
