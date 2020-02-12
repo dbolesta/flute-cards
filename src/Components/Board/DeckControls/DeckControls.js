@@ -25,7 +25,7 @@ const InnerContainerLeft = styled.div`
   }
 
   div {
-    background-color: #21ba45;
+    background-color: hsl(134, 70%, 43%);
     display: flex;
     align-items: center;
     border-radius: 0.2rem;
@@ -36,6 +36,11 @@ const InnerContainerLeft = styled.div`
     /* margin-left: 0.5rem; */
     color: white;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: hsl(134, 70%, 53%);
+    }
   }
 `;
 const InnerContainerRight = styled.div`

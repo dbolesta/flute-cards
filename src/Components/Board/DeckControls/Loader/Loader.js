@@ -1,17 +1,13 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import sampleSongs from '../sampleSongs';
+import trashSVG from '../../../../Images/trash_white.svg';
 
 const LoadContain = styled.div`
   border-radius: 4px;
   padding: 0.25rem;
-  /* background-color: #2185d0; */
-  background: rgb(33, 183, 251);
-  background: linear-gradient(
-    135deg,
-    rgba(33, 183, 251, 1) 0%,
-    rgba(88, 101, 243, 1) 99%
-  );
+  background-color: hsl(219, 20%, 36%);
+  color: white;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -25,9 +21,10 @@ const LoadContain = styled.div`
   left: 0;
   margin: auto;
   z-index: 99;
+  box-shadow: 0 2px 4px rgba(50, 50, 93, 0.1);
 
   div.loader-label {
-    background-color: pink;
+    background-color: hsl(219, 20%, 26%);
     position: absolute;
     top: 0;
     left: 0;
@@ -37,6 +34,8 @@ const LoadContain = styled.div`
     align-items: center;
     justify-content: center;
     opacity: 1;
+    font-weight: 700;
+    font-size: 1.2rem;
     transition: opacity 0.2s ease-in-out;
   }
 
@@ -49,6 +48,15 @@ const LoadContain = styled.div`
       z-index: -1; /* if we dont alter z-index, the hidden div will block clicks */
     }
   }
+
+  .fake-save {
+    background-color: hsl(134, 70%, 43%);
+    display: inline-flex;
+    align-items: center;
+    border-radius: 0.2rem;
+    justify-content: center;
+    padding: 0.5rem;
+  }
 `;
 
 const DeckContain = styled.div`
@@ -60,19 +68,49 @@ const DeckContain = styled.div`
 `;
 
 const LoadDeleteContain = styled.div`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   span {
     border-radius: 3px;
-    padding: 0.25rem;
+    padding: 0.5rem;
     cursor: pointer;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out;
   }
 `;
 
 const LoadButton = styled.span`
-  background-color: #2185d0;
+  background-color: hsl(206, 73%, 47%);
+
+  &:hover {
+    background-color: hsl(206, 73%, 57%);
+  }
 `;
 const DeleteButton = styled.span`
-  background-color: #db2828;
-  margin-left: 2px;
+  background-color: hsl(0, 71%, 51%);
+  margin-left: 7px;
+  width: auto;
+
+  &:hover {
+    background-color: hsl(0, 71%, 61%);
+  }
+
+  img {
+    width: 1rem;
+  }
+`;
+
+const LoaderTitle = styled.h4`
+  margin: 0.2rem 0;
+  text-align: left;
+  font-size: 1.2rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #f1f7fb;
 `;
 
 const Loader = ({ loadDeck, deleteDeck }) => {
@@ -88,11 +126,14 @@ const Loader = ({ loadDeck, deleteDeck }) => {
       ref={loaderRef}
       onMouseLeave={() => handleMouseLeave()}
     >
-      <div className="loader-label">Load A deck</div>
-      <span>My Saved Decks</span>
+      <div className="loader-label">Load a Deck</div>
+      <LoaderTitle>My Saved Decks</LoaderTitle>
       {/* if no saved Decks, show a message */}
       {localStorage.length <= 0 ? (
-        <p>Save a Deck with the green Save button!</p>
+        <p>
+          Save a Deck with the green{' '}
+          <span className="fake-save">Save</span> button!
+        </p>
       ) : (
         Object.keys(localStorage).map((key, i) => (
           <DeckContain key={i}>
@@ -102,14 +143,14 @@ const Loader = ({ loadDeck, deleteDeck }) => {
                 Load
               </LoadButton>
               <DeleteButton onClick={() => deleteDeck(key)}>
-                Delete
+                <img src={trashSVG} alt="Delete Deck" />
               </DeleteButton>
             </LoadDeleteContain>
           </DeckContain>
         ))
       )}
 
-      <span>Load a Sample Deck</span>
+      <LoaderTitle>Sample Decks</LoaderTitle>
 
       {Object.keys(sampleSongs).map((key, i) => (
         <DeckContain key={i}>
