@@ -7,6 +7,7 @@ import Menu from './Components/Menu';
 import './App.css';
 import allNotes from './notes';
 import uuid from 'react-uuid';
+import ReactGA from 'react-ga';
 
 // to save space, all uuid functions, which are almost identical to most card functions, are in their own file
 import {
@@ -26,11 +27,19 @@ import styled, {
 import { globalStyles } from './Styles/global';
 import { theme } from './Styles/theme';
 
+function initializeAnalytics() {
+  ReactGA.initialize('UA-158613280-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
+
 const GlobalStyle = createGlobalStyle`
   ${globalStyles}
 `;
 
 function App() {
+  // start google analytics
+  initializeAnalytics();
+
   const [cards, setCards] = useState([[]]); // all cards and rows
   const [activeRow, setActiveRow] = useState(0); // the currently selected row (which array index new cards will be added)
   const [hoveredNote, setHoveredNote] = useState(''); // note user is hovering over on any Selector (keyboard, staff, notes), which is used to display that note on all selectors
