@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
+import Notifications, { notify } from 'react-notify-toast';
 import SelectorShelf from './Components/SelectorShelf';
 import Board from './Components/Board';
 import Menu from './Components/Menu';
@@ -30,6 +31,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
+  notify.show = notify.createShowQueue();
+
   // const [notes, setNotes] = useState(allNotes); // all note objects (probably shoudnt be state, since never changed?)
   const [cards, setCards] = useState([[]]); // all cards and rows
   const [activeRow, setActiveRow] = useState(0); // the currently selected row (which array index new cards will be added)
@@ -63,6 +66,14 @@ function App() {
 
     // 3. set new cardsCopy as card state
     setCards(cardsCopy);
+
+    console.log(note);
+
+    notify.show(
+      `Added ${note.letters[0]} to Row ${activeRow + 1}`,
+      'success',
+      800
+    );
   };
   const removeCard = (rowIndex, cardIndex) => {
     // 0. remove uuid from the uuid state
@@ -245,6 +256,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <GlobalStyle />
+        <Notifications />
         <TopSection>
           <Menu
             menuSelection={menuSelection}
