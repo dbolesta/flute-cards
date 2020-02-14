@@ -9,6 +9,6 @@ export const globalStyles = css`
 
   * {
     box-sizing: border-box;
-    font-family: 'Tenor Sans';
+    font-family: 'Nunito';
   }
 `;
