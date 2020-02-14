@@ -31,9 +31,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  notify.show = notify.createShowQueue();
-
-  // const [notes, setNotes] = useState(allNotes); // all note objects (probably shoudnt be state, since never changed?)
   const [cards, setCards] = useState([[]]); // all cards and rows
   const [activeRow, setActiveRow] = useState(0); // the currently selected row (which array index new cards will be added)
   const [hoveredNote, setHoveredNote] = useState(''); // note user is hovering over on any Selector (keyboard, staff, notes), which is used to display that note on all selectors
@@ -250,6 +247,10 @@ function App() {
     /* border: 1px solid orange; */
     display: flex;
     background-color: ${props => props.theme.windows};
+
+    @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+      flex-direction: column;
+    }
   `;
 
   return (

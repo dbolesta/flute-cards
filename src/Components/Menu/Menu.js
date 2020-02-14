@@ -55,14 +55,20 @@ const HowToContainer = styled.div`
     font-weight: 600;
   }
 
-  span:nth-of-type(1) {
+  span.menu-keyboard {
     color: ${props => props.theme.eighties.pink};
   }
-  span:nth-of-type(2) {
+  span.menu-staff {
     color: ${props => props.theme.eighties.blue};
   }
-  span:nth-of-type(3) {
+  span.menu-registers {
     color: ${props => props.theme.eighties.yellow};
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    .mobile-hide {
+      display: none;
+    }
   }
 `;
 
@@ -76,9 +82,13 @@ const HowTo = () => {
     <HowToContainer>
       <ol>
         <li>
-          Select notes from the <span>Keyboard</span>,{' '}
-          <span>Staff</span>, or <span>Registers</span> to add cards
-          to your Deck below.
+          Select notes from the{' '}
+          <div className="mobile-hide">
+            <span className="menu-keyboard">Keyboard</span>,{' '}
+            <span className="menu-staff">Staff</span>, or{' '}
+          </div>
+          <span className="menu-registers">Registers</span> to add
+          cards to your Deck below.
         </li>
         <li>
           Each Card displays the note, and a Flute Fingering diagram.

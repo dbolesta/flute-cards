@@ -11,6 +11,10 @@ const ControlsContainer = styled.div`
   justify-content: space-between;
   padding: 0.5rem 0.25rem;
   /* border: 2px solid red; */
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    flex-direction: column;
+  }
 `;
 const InnerContainerLeft = styled.div`
   display: flex;
@@ -42,6 +46,10 @@ const InnerContainerLeft = styled.div`
       background-color: hsl(134, 70%, 53%);
     }
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 const InnerContainerRight = styled.div`
   display: flex;
@@ -60,6 +68,12 @@ const InnerContainerRight = styled.div`
     padding: 0.5rem;
     /* margin-left: 0.5rem; */
     cursor: pointer;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    width: 100%;
+    height: 3rem;
+    margin-top: 0.5rem;
   }
 `;
 
