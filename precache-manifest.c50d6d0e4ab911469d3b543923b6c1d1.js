@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2c9b6c95966bc0127c8b5f7b3d3e00f2",
+    "revision": "f84c2b712b3c4115cf9caa65ca09d68c",
     "url": "/flute-cards/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/flute-cards/static/css/2.d2a31a36.chunk.css"
   },
   {
-    "revision": "e845d7cade579260edeb",
+    "revision": "fdce7bf4e920a5159a07",
     "url": "/flute-cards/static/css/main.d5016946.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/flute-cards/static/js/2.11ce0fb6.chunk.js.LICENSE"
   },
   {
-    "revision": "e845d7cade579260edeb",
-    "url": "/flute-cards/static/js/main.43874f2f.chunk.js"
+    "revision": "fdce7bf4e920a5159a07",
+    "url": "/flute-cards/static/js/main.c29ac25e.chunk.js"
   },
   {
     "revision": "22d388a14d2b0fcb1303",
