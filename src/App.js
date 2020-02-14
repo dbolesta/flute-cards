@@ -64,8 +64,6 @@ function App() {
     // 3. set new cardsCopy as card state
     setCards(cardsCopy);
 
-    console.log(note);
-
     notify.show(
       `Added ${note.letters[0]} to Row ${activeRow + 1}`,
       'success',
