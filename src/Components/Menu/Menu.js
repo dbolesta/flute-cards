@@ -25,7 +25,7 @@ const MenuContainer = styled.div`
 const MenuSelectors = styled.div`
   display: inline-flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
   /* border: 1px solid red; */
 
@@ -34,6 +34,7 @@ const MenuSelectors = styled.div`
     padding: 0.3rem 0.6rem;
     border-radius: 5px;
     cursor: pointer;
+    margin: 0 1rem;
 
     &.selected {
       background-color: rgba(211, 211, 211, 1);
@@ -77,10 +78,10 @@ const HowTo = () => {
         <li>
           Select notes from the <span>Keyboard</span>,{' '}
           <span>Staff</span>, or <span>Registers</span> to add cards
-          to your Deck below
+          to your Deck below.
         </li>
         <li>
-          Each Card displays the note, and a Flute Fingering diagram
+          Each Card displays the note, and a Flute Fingering diagram.
         </li>
         <li>
           Arrange cards to create melodies and help you learn songs
@@ -88,7 +89,7 @@ const HowTo = () => {
         </li>
         <li>
           Use the Play button to hear when your current Row of Cards
-          sounds like
+          sounds like.
         </li>
         <li>Save and load Decks to easily learn many songs!</li>
       </ol>
@@ -107,6 +108,9 @@ const About = () => {
         flute more easily.
       </p>
       <p>I hope you find it helpful!</p>
+      <p>
+        <a href="https://github.com/dbolesta/flute-cards">Github</a>
+      </p>
     </AboutContainer>
   );
 };
