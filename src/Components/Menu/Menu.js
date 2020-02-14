@@ -79,6 +79,8 @@ const HowToContainer = styled.div`
 
 const AboutContainer = styled.div`
   text-align: left;
+  margin: 0 1rem;
+  color: #e8e8e8;
 `;
 
 // Sub Components

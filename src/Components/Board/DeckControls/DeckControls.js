@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Loader from './Loader';
 import SimpleLoader from './SimpleLoader';
+import { notify } from 'react-notify-toast';
 import styled from 'styled-components';
 import sampleSongs from './sampleSongs';
 import uuid from 'react-uuid';
@@ -126,6 +127,7 @@ const DeckControls = ({
     // only save if `goodToSave` wasnt flipped above
     localStorage.setItem(deckName, deckToSave);
     forceUpdate(); // force render so we can see saved deck immediately
+    notify.show(`${deckName} was saved!`, 'success', 800);
   };
 
   // take currently selected select option and load it to state, along with deck name
