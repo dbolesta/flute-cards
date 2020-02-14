@@ -14,13 +14,21 @@ const Shelf = styled.div`
 `;
 const SelectorContainer = styled.div`
   margin: 0.75rem;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    margin: 0.5rem 0;
+  }
 `;
 const AllSelectors = styled.div`
   /* border: 2px solid green; */
   display: flex;
   flex-direction: column;
 `;
-const TopShelf = styled.div``;
+const TopShelf = styled.div`
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    display: none;
+  }
+`;
 const BottomShelf = styled.div`
   display: flex;
   align-items: stretch;

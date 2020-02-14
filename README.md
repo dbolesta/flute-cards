@@ -27,3 +27,4 @@ Assists in learning the flute fingering for every note on the flute. Select note
 ## Known Issues
 
 - MIDI will not play the first note on the very first play after pageload (on Chrome)
+- MIDI seems to not work great on mobile Safari

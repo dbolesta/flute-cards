@@ -43,6 +43,7 @@ const NewRowButton = styled.div`
   &.green {
     background-color: #2ecc71;
     box-shadow: 0px 5px 0px 0px #15b358;
+    transition: background-color 0.2s ease-in-out;
   }
 
   &.green:hover {

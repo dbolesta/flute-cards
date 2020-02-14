@@ -30,6 +30,12 @@ const Card = styled.div`
       color: white;
       width: 2rem;
    `}
+
+
+@media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    width: 1.55rem;
+    font-size: 0.8rem;
+  }
 `;
 
 const CardSource = ({
