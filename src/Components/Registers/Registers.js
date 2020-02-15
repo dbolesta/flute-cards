@@ -2,6 +2,7 @@ import React from 'react';
 import CardSource from '../CardSource';
 import styled from 'styled-components';
 import uuid from 'react-uuid';
+import { uppercaseFirstChar } from '../../Utils/utils';
 
 const RegistersContainer = styled.div`
   /* border: 2px solid green; */
@@ -48,9 +49,7 @@ const renderRow = (notes, addCard, setHoveredNote, hoveredNote) => {
   return (
     <RegisterRow key={uuid()}>
       {/* super terrible way to display name of register row..*/}
-      <span>
-        {notes[2].register.replace(/^\w/, c => c.toUpperCase())}
-      </span>
+      <span>{uppercaseFirstChar(notes[2].register)}</span>
       {notes.map(note => (
         <CardSource
           note={note}
@@ -71,7 +70,7 @@ const Registers = ({
   addCard
 }) => {
   // in order to render each set of notes per register, we need to do some trickery
-  // rowsHolder holds the rows themselves, while rows conains each note selector
+  // rowsHolder holds the rows themselves, while rows contains each note selector
   let rowsHolder = [];
   let rows = [];
 
@@ -80,7 +79,7 @@ const Registers = ({
     // we push each note into the rows array
     rows.push(note);
     if (note.index === 11 || note.index === 23) {
-      // at the end of each register (hardcoded), we then send the rows array
+      // at the end of each register (hardcoded as 11th and 23rd note), we send the rows array
       // up to this point into the renderRow function, as well as all the props each of those
       // notes will need
       rowsHolder.push(
