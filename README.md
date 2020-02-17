@@ -1,5 +1,7 @@
 # Flute Cards
 
+Try it here: https://dbolesta.github.io/flute-cards/
+
 Assists in learning the flute fingering for every note on the flute. Select notes, and a card will display a fingering chart for that note.
 
 ## Built With
