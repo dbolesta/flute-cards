@@ -134,7 +134,8 @@ const CardRow = ({
   row,
   rowIndex,
   rowNotation,
-  uuids
+  uuids,
+  hasNewCard
 }) => {
   return (
     <Draggable draggableId={rowNotation + rowIndex} index={rowIndex}>
@@ -177,8 +178,8 @@ const CardRow = ({
                   {row.map((card, cardIndex) => (
                     <CSSTransition
                       key={cardIndex}
-                      timeout={200}
-                      classNames="card"
+                      timeout={hasNewCard ? 200 : 0}
+                      classNames={hasNewCard ? 'newcard' : 'card'}
                     >
                       <Card
                         key={cardIndex + card.index + card.abcCode}

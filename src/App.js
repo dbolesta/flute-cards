@@ -40,6 +40,8 @@ function App() {
   // start google analytics
   initializeAnalytics();
 
+  ///////////
+  // states
   const [cards, setCards] = useState([[]]); // all cards and rows
   const [activeRow, setActiveRow] = useState(0); // the currently selected row (which array index new cards will be added)
   const [hoveredNote, setHoveredNote] = useState(''); // note user is hovering over on any Selector (keyboard, staff, notes), which is used to display that note on all selectors
@@ -47,10 +49,12 @@ function App() {
   const [uuids, setUuids] = useState([[]]); // unique ids for Cards, will match length of cards state
   const [staffHovered, setStaffHovered] = useState(false); // if the staff is being hovered over, used to check if we should show the optional sharp icon
   const [menuSelection, setMenuSelection] = useState('how'); // which option is selected in the main menu
+  const [hasNewCard, setHasNewCard] = useState(false); // to help differentiate between a new card getting added to state, or a card being altered by react-beautiful-dnd (to prevent animations)
 
   ///////////////
   // CARD CRUD STUFF
   const addCard = note => {
+    setHasNewCard(true);
     // if no rows exist (activeRow === -1),
     // just manually set the cards state to the note, set active row, and uuid
     if (activeRow === -1) {
@@ -73,11 +77,17 @@ function App() {
     // 3. set new cardsCopy as card state
     setCards(cardsCopy);
 
+    // toast notification
     notify.show(
       `Added ${note.letters[0]} to Row ${activeRow + 1}`,
       'success',
       800
     );
+
+    // ???
+    setTimeout(() => {
+      setHasNewCard(false);
+    });
   };
   const removeCard = (rowIndex, cardIndex) => {
     // 0. remove uuid from the uuid state
@@ -208,6 +218,7 @@ function App() {
 
       // 5. save state
       setCards(newCards);
+
       return;
     }
 
@@ -292,6 +303,7 @@ function App() {
             setCards={setCards}
             uuids={uuids}
             setUuids={setUuids}
+            hasNewCard={hasNewCard}
           />
         </DragDropContext>
       </div>

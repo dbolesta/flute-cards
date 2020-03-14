@@ -84,6 +84,26 @@ span.row-controls div.abcjs-inline-midi button.abcjs-midi-start {
 
 /* transition-group styles */
 /* for cards */
+.newcard-enter {
+  opacity: 0;
+  transform: translateY(-120%);
+  /* transition: 0.5s; */
+}
+.newcard-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 200ms ease-out;
+}
+.newcard-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+.newcard-exit-active {
+  opacity: 0;
+  transform: translateY(120%);
+  transition: all 200ms ease-out;
+}
+
 .card-enter {
   opacity: 0;
   transform: translateY(-120%);
@@ -92,7 +112,7 @@ span.row-controls div.abcjs-inline-midi button.abcjs-midi-start {
 .card-enter-active {
   opacity: 1;
   transform: translateY(0);
-  transition: all 200ms ease-out;
+  /* transition: all 200ms ease-out; */
 }
 .card-exit {
   transform: translateY(0);
@@ -101,7 +121,7 @@ span.row-controls div.abcjs-inline-midi button.abcjs-midi-start {
 .card-exit-active {
   opacity: 0;
   transform: translateY(120%);
-  transition: all 200ms ease-out;
+  /* transition: all 200ms ease-out; */
 }
 
 /* for card rows */

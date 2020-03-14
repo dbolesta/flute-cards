@@ -98,7 +98,8 @@ const Board = ({
   setDeckName,
   setCards,
   uuids,
-  setUuids
+  setUuids,
+  hasNewCard
 }) => {
   return (
     <>
@@ -118,7 +119,7 @@ const Board = ({
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              <TransitionGroup component={null}>
+              <TransitionGroup component={null} exit={hasNewCard}>
                 {/* <InnerRow
                 cards={cards}
                 removeCard={removeCard}
@@ -153,6 +154,7 @@ const Board = ({
                         rowNotation={rowNotation}
                         key={rowIndex}
                         uuids={uuids}
+                        hasNewCard={hasNewCard}
                       />
                     </CSSTransition>
                   );
