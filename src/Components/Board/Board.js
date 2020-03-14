@@ -119,7 +119,7 @@ const Board = ({
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              <TransitionGroup component={null} exit={hasNewCard}>
+              <TransitionGroup component={null}>
                 {/* <InnerRow
                 cards={cards}
                 removeCard={removeCard}
