@@ -13,6 +13,10 @@ import { Midi } from 'react-abc';
 const OuterContainer = styled.div`
   /* border: 1px solid white; */
   margin: 0.25rem;
+
+  * {
+    user-select: none;
+  }
 `;
 
 const RowContainer = styled.div`
