@@ -125,7 +125,10 @@ const About = () => {
         flute more easily.
       </p>
       <p>I hope you find it helpful!</p>
-      <p>Made by Damon Bolesta - <a href="https://damonbolesta.com">Website</a></p>
+      <p>
+        Made by Damon Bolesta -{' '}
+        <a href="https://damonbolesta.com">Website</a>
+      </p>
       <p>
         <a href="https://github.com/dbolesta/flute-cards">Github</a>
       </p>

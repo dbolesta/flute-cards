@@ -54,7 +54,7 @@ function App() {
   ///////////////
   // CARD CRUD STUFF
   const addCard = note => {
-    setHasNewCard(true);
+    setHasNewCard(true); // is this a real new card? (meaning card was NOT dragged) (turn this back off at the end of this function)
     // if no rows exist (activeRow === -1),
     // just manually set the cards state to the note, set active row, and uuid
     if (activeRow === -1) {
@@ -84,7 +84,9 @@ function App() {
       800
     );
 
-    // ???
+    // turn newCard state off
+    // by putting it in a `setTimeout`, we throw this line in to the Task Queue, which will cause this function to run immediatly
+    // after the current event loop finishes; just enough time for the animation condition to be altered
     setTimeout(() => {
       setHasNewCard(false);
     });

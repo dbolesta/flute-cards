@@ -134,7 +134,7 @@ const Board = ({
 
                   // collect complete abc notation of all cards in row, so we can use it for midi
                   row.map(card => {
-                    rowNotation += card.midiCode + '|';
+                    rowNotation += card.midiCode + ' | ';
                     return rowNotation;
                   });
 
