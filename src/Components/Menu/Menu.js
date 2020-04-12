@@ -117,12 +117,8 @@ const About = () => {
   return (
     <AboutContainer>
       <p>
-        I was learning a song on the flute, and found scanning flute
-        fingering charts to be not good enough.
-      </p>
-      <p>
-        I made this site to help myself and others learn songs on the
-        flute more easily.
+        The purpose of this site is to help people learn songs and
+        phrases on the flute.
       </p>
       <p>I hope you find it helpful!</p>
       <p>
@@ -131,6 +127,12 @@ const About = () => {
       </p>
       <p>
         <a href="https://github.com/dbolesta/flute-cards">Github</a>
+      </p>
+      <p>
+        Contact me:{' '}
+        <a href="mailto:dbolesta@gmail.com?subject=Flute Cards">
+          dbolesta@gmail.com
+        </a>
       </p>
     </AboutContainer>
   );
