@@ -13,7 +13,7 @@ const ControlsContainer = styled.div`
   padding: 0.5rem 0.25rem;
   /* border: 2px solid red; */
 
-  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     flex-direction: column;
   }
 `;
@@ -48,10 +48,15 @@ const InnerContainerLeft = styled.div`
     }
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     width: 100%;
   }
 `;
+
+const InnerContainerMiddle = styled.div`
+  display: flex;
+`;
+
 const InnerContainerRight = styled.div`
   display: flex;
   align-items: center;
@@ -71,7 +76,7 @@ const InnerContainerRight = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     width: 100%;
     height: 3rem;
     margin-top: 0.5rem;
@@ -82,7 +87,7 @@ const InnerContainerRight = styled.div`
 // thanks: https://stackoverflow.com/questions/46240647/react-how-can-i-force-render-a-function-component
 const useForceUpdate = () => {
   const [value, setValue] = useState(0); // integer state
-  return () => setValue(value => ++value); // update the state to force render
+  return () => setValue((value) => ++value); // update the state to force render
 };
 
 const DeckControls = ({
@@ -91,7 +96,9 @@ const DeckControls = ({
   cards,
   setCards,
   uuids,
-  setUuids
+  setUuids,
+  compactView,
+  setCompactView,
 }) => {
   // create accessable forceRender function
   const forceUpdate = useForceUpdate();
@@ -104,7 +111,7 @@ const DeckControls = ({
     let goodToSave = true; // var to keep track if we are good to save. Will turn false under conditions below
 
     // loop through localStorage to see if key (name) already exists. If so, confirm with user user
-    Object.keys(localStorage).forEach(key => {
+    Object.keys(localStorage).forEach((key) => {
       if (goodToSave && deckName === key) {
         goodToSave = window.confirm(
           `A Deck with the name of "${key}" already exists.\nDo you want to save over this Deck?`
@@ -131,7 +138,7 @@ const DeckControls = ({
   };
 
   // take currently selected select option and load it to state, along with deck name
-  const loadDeck = loadValue => {
+  const loadDeck = (loadValue) => {
     // first, check if the current deck has been saved. if not, confirm with user that they are
     // cool with loading a deck and losing current deck
     let currentDeck = JSON.stringify(cards); // get current state as string
@@ -144,14 +151,14 @@ const DeckControls = ({
 
     // check for sample songs. If the current state matches a sample song, we dont want to bother asking
     // if they really want to get rid of it, since sample songs cant be deleted anyway
-    Object.values(sampleSongs).forEach(value => {
+    Object.values(sampleSongs).forEach((value) => {
       if (!deckExists && currentDeck === value) {
         deckExists = true;
       }
     });
 
     // check all values in local storage to see if the deck is already there
-    Object.values(localStorage).forEach(value => {
+    Object.values(localStorage).forEach((value) => {
       if (!deckExists && currentDeck === value) {
         deckExists = true;
       }
@@ -198,7 +205,7 @@ const DeckControls = ({
     setDeckName(loadValue); // load name as well
   };
 
-  const deleteDeck = deleteValue => {
+  const deleteDeck = (deleteValue) => {
     // delete deck, then force render so we can see it removed
     localStorage.removeItem(deleteValue);
     forceUpdate();
@@ -210,11 +217,22 @@ const DeckControls = ({
         <input
           type="text"
           value={deckName}
-          onChange={e => setDeckName(e.target.value)}
+          onChange={(e) => setDeckName(e.target.value)}
         />
 
         <div onClick={() => saveDeck()}>Save</div>
       </InnerContainerLeft>
+
+      <InnerContainerMiddle>
+        <input
+          type="checkbox"
+          id="compactToggle"
+          name="compactToggle"
+          checked={compactView}
+          onChange={() => setCompactView(!compactView)}
+        />
+        <label htmlFor="compactToggle">Compact View</label>
+      </InnerContainerMiddle>
 
       <InnerContainerRight>
         <Loader loadDeck={loadDeck} deleteDeck={deleteDeck} />

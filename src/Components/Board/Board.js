@@ -4,7 +4,7 @@ import DeckControls from './DeckControls';
 import { Droppable } from 'react-beautiful-dnd';
 import {
   CSSTransition,
-  TransitionGroup
+  TransitionGroup,
 } from 'react-transition-group';
 
 import CardRow from '../CardRow';
@@ -58,14 +58,14 @@ const InnerRow = React.memo(
     activeRow,
     setActiveRow,
     removeRow,
-    uuids
+    uuids,
   }) => {
     /* loop through first dimension of array (rows) */
     return cards.map((row, rowIndex) => {
       let rowNotation = '|:';
 
       // collect complete abc notation of all cards in row, so we can use it for midi
-      row.map(card => {
+      row.map((card) => {
         rowNotation += card.midiCode;
         return rowNotation;
       });
@@ -99,7 +99,9 @@ const Board = ({
   setCards,
   uuids,
   setUuids,
-  hasNewCard
+  hasNewCard,
+  compactView,
+  setCompactView,
 }) => {
   return (
     <>
@@ -110,11 +112,13 @@ const Board = ({
         setCards={setCards}
         uuids={uuids}
         setUuids={setUuids}
+        compactView={compactView}
+        setCompactView={setCompactView}
       />
 
       <BoardContainer>
         <Droppable droppableId="all-rows" type="row">
-          {provided => (
+          {(provided) => (
             <RowsContainer
               {...provided.droppableProps}
               ref={provided.innerRef}
@@ -133,7 +137,7 @@ const Board = ({
                   let rowNotation = '|:';
 
                   // collect complete abc notation of all cards in row, so we can use it for midi
-                  row.map(card => {
+                  row.map((card) => {
                     rowNotation += card.midiCode + ' | ';
                     return rowNotation;
                   });
