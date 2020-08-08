@@ -64,7 +64,6 @@ const renderRow = (
           setHoveredNote={setHoveredNote}
           hoveredNote={hoveredNote}
           key={note.index}
-          usingAndroid={usingAndroid}
         />
       ))}
     </RegisterRow>
@@ -76,7 +75,6 @@ const Registers = ({
   setHoveredNote,
   notes,
   addCard,
-  usingAndroid,
 }) => {
   // in order to render each set of notes per register, we need to do some trickery
   // rowsHolder holds the rows themselves, while rows contains each note selector

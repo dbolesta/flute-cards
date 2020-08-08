@@ -46,11 +46,10 @@ const CardSource = ({
   note,
   setHoveredNote,
   hoveredNote,
-  usingAndroid,
 }) => {
   return (
     <Card
-      onClick={() => addCard(note)}
+      onPointerUp={() => addCard(note)}
       onMouseEnter={() => setHoveredNote(note)}
       onMouseLeave={() => setHoveredNote(null)}
       black={note.black}

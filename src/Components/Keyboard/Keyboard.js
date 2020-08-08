@@ -25,12 +25,12 @@ const Keyboard = ({
   notes,
   hoveredNote,
   setHoveredNote,
-  addCard
+  addCard,
 }) => {
   return (
     <KeyboardContainer>
       <div className="keyboard ">
-        {notes.map(note => {
+        {notes.map((note) => {
           const constructedClass =
             'key ' +
             (note.black ? 'black' : 'white') +
@@ -46,7 +46,7 @@ const Keyboard = ({
               className={constructedClass}
               onMouseEnter={() => setHoveredNote(note)}
               onMouseLeave={() => setHoveredNote(null)}
-              onClick={() => addCard(note)}
+              onPointerUp={() => addCard(note)}
               key={note.index}
             >
               {note.noteClass === 'c' ? (

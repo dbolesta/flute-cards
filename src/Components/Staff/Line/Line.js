@@ -56,7 +56,7 @@ const SharpImg = styled.img`
   left: -35%;
   top: 50%;
   transform: translate(-50%, -50%);
-  opacity: ${props => (props.staffHovered ? 0.2 : 0)};
+  opacity: ${(props) => (props.staffHovered ? 0.2 : 0)};
 
   &:hover {
     opacity: 1;
@@ -80,7 +80,7 @@ const Line = ({
   note,
   addCard,
   sharp,
-  staffHovered
+  staffHovered,
 }) => {
   return (
     <StyledLine
@@ -111,7 +111,7 @@ const Line = ({
             src={sharpSVG}
             onMouseEnter={() => setHoveredNote(sharp)}
             onMouseLeave={() => setHoveredNote(note)}
-            onClick={e => {
+            onPointerUp={(e) => {
               e.stopPropagation(); // important, so we dont add the regular note too
               addCard(sharp);
             }}

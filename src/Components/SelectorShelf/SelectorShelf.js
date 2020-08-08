@@ -66,7 +66,6 @@ const SelectorShelf = (props) => {
               setHoveredNote={props.setHoveredNote}
               notes={props.notes}
               addCard={props.addCard}
-              usingAndroid={props.usingAndroid}
             />
           </SelectorContainer>
         </BottomShelf>

@@ -298,7 +298,6 @@ function App() {
             hoveredNote={hoveredNote}
             staffHovered={staffHovered}
             setStaffHovered={setStaffHovered}
-            usingAndroid={usingAndroid}
           />
         </TopSection>
         <DragDropContext onDragEnd={onDragEnd}>
