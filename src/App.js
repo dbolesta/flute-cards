@@ -51,7 +51,7 @@ function App() {
   const [menuSelection, setMenuSelection] = useState('how'); // which option is selected in the main menu
   const [hasNewCard, setHasNewCard] = useState(false); // to help differentiate between a new card getting added to state, or a card being altered by react-beautiful-dnd (to prevent animations)
   const [usingAndroid, setUsingAndroid] = useState(false); // detects if we're using android (to not allow onTouchEnd for selectors if android)
-  const [compactView, setCompactView] = useState(true); // toggle for compact view (do not show music staff on cards, to save space and show more flute charts per screen)
+  const [compactView, setCompactView] = useState(false); // toggle for compact view (do not show music staff on cards, to save space and show more flute charts per screen)
 
   useEffect(() => {
     // if we're using Android

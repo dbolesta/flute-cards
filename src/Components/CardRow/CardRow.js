@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import {
   CSSTransition,
-  TransitionGroup
+  TransitionGroup,
 } from 'react-transition-group';
 import { Midi } from 'react-abc';
 // midi params: https://github.com/fuhton/react-abc/blob/3e200fd1649b5cc762269b832da1e825333ce016/src/defaults/README.md#midi-params
@@ -139,11 +139,12 @@ const CardRow = ({
   rowIndex,
   rowNotation,
   uuids,
-  hasNewCard
+  hasNewCard,
+  compactView,
 }) => {
   return (
     <Draggable draggableId={rowNotation + rowIndex} index={rowIndex}>
-      {provided => (
+      {(provided) => (
         <OuterContainer
           {...provided.draggableProps}
           ref={provided.innerRef}
@@ -160,7 +161,7 @@ const CardRow = ({
                   activeRow === rowIndex ? 'activeRow' : null
                 }
                 row={row}
-                onClick={e => {
+                onClick={(e) => {
                   /* update activeRow when row is clicked, first check if target matches */
                   /* maybe should extract this to its own function...? */
                   if (e.currentTarget !== e.target) return; // need to click on empty space in row
@@ -192,6 +193,7 @@ const CardRow = ({
                         cardIndex={cardIndex}
                         rowIndex={rowIndex}
                         uuids={uuids}
+                        compactView={compactView}
                       />
                     </CSSTransition>
                   ))}
@@ -209,7 +211,7 @@ const CardRow = ({
                       generateInline: true,
                       qpm: 80,
                       program: 73 /* 74 is flute, check "General MIDI" on wikipedia for full reference (73 piccolo might be better..) */,
-                      inlineControls: { startPlaying: false }
+                      inlineControls: { startPlaying: false },
                     }}
                     notation={rowNotation}
                   />

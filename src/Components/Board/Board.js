@@ -159,6 +159,7 @@ const Board = ({
                         key={rowIndex}
                         uuids={uuids}
                         hasNewCard={hasNewCard}
+                        compactView={compactView}
                       />
                     </CSSTransition>
                   );

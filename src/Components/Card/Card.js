@@ -32,7 +32,7 @@ const engraverParams = {
   paddingtop: 15,
   responsive: 'resize',
   scale: 1,
-  staffwidth: 100
+  staffwidth: 100,
 };
 
 const SCard = styled.div`
@@ -91,7 +91,14 @@ const FingerImg = styled.img`
   /* padding-top: 0; */
 `;
 
-const Card = ({ card, removeCard, cardIndex, rowIndex, uuids }) => {
+const Card = ({
+  card,
+  removeCard,
+  cardIndex,
+  rowIndex,
+  uuids,
+  compactView,
+}) => {
   const { letters, abcCode, imgRef } = card;
 
   // only first card in row should have treble clef
@@ -124,12 +131,15 @@ const Card = ({ card, removeCard, cardIndex, rowIndex, uuids }) => {
               <span key={i}>{letter}</span>
             ))}
           </Letters>
-          <Notation
-            engraverParams={{
-              ...engraverParams
-            }}
-            notation={`K:clef=${clef}\nL:1\n${abcCode}`}
-          />
+          {!compactView && (
+            <Notation
+              engraverParams={{
+                ...engraverParams,
+              }}
+              notation={`K:clef=${clef}\nL:1\n${abcCode}`}
+            />
+          )}
+
           <FingerImg src={svgs[imgRef]} />
         </SCard>
       )}
