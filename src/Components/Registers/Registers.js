@@ -13,14 +13,15 @@ const RegistersContainer = styled.div`
   justify-content: space-around;
   height: 100%;
 
-  box-shadow: 0px 0px 0px 5px ${props => props.theme.eighties.yellow};
+  box-shadow: 0px 0px 0px 5px ${(props) =>
+    props.theme.eighties.yellow};
   border-radius: 10px;
   overflow: hidden;
   /* transition: box-shadow 0.3s cubic-bezier(0.7, 0.23, 0.31, 1.2);
 
   &:hover {
     box-shadow: 0px 0px 0px 8px
-      ${props => props.theme.eighties.yellow};
+      ${(props) => props.theme.eighties.yellow};
   } */
 `;
 
@@ -45,18 +46,25 @@ const RegisterRow = styled.div`
 // we want each register to be in its own row, so we create this row generating function
 // to help us create them individually
 // this SO post helped: https://stackoverflow.com/questions/39774851/how-to-conditionally-add-closing-and-starting-jsx-tags
-const renderRow = (notes, addCard, setHoveredNote, hoveredNote) => {
+const renderRow = (
+  notes,
+  addCard,
+  setHoveredNote,
+  hoveredNote,
+  usingAndroid
+) => {
   return (
     <RegisterRow key={uuid()}>
       {/* super terrible way to display name of register row..*/}
       <span>{uppercaseFirstChar(notes[2].register)}</span>
-      {notes.map(note => (
+      {notes.map((note) => (
         <CardSource
           note={note}
           addCard={addCard}
           setHoveredNote={setHoveredNote}
           hoveredNote={hoveredNote}
           key={note.index}
+          usingAndroid={usingAndroid}
         />
       ))}
     </RegisterRow>
@@ -67,7 +75,8 @@ const Registers = ({
   hoveredNote,
   setHoveredNote,
   notes,
-  addCard
+  addCard,
+  usingAndroid,
 }) => {
   // in order to render each set of notes per register, we need to do some trickery
   // rowsHolder holds the rows themselves, while rows contains each note selector
@@ -75,7 +84,7 @@ const Registers = ({
   let rows = [];
 
   // loop through all the notes
-  notes.forEach(note => {
+  notes.forEach((note) => {
     // we push each note into the rows array
     rows.push(note);
     if (note.index === 11 || note.index === 23) {

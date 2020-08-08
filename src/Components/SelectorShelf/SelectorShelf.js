@@ -15,7 +15,7 @@ const Shelf = styled.div`
 const SelectorContainer = styled.div`
   margin: 0.75rem;
 
-  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     margin: 0.5rem 0;
   }
 `;
@@ -25,7 +25,7 @@ const AllSelectors = styled.div`
   flex-direction: column;
 `;
 const TopShelf = styled.div`
-  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: none;
   }
 `;
@@ -35,7 +35,7 @@ const BottomShelf = styled.div`
   justify-content: center;
 `;
 
-const SelectorShelf = props => {
+const SelectorShelf = (props) => {
   return (
     <Shelf>
       <AllSelectors>
@@ -66,6 +66,7 @@ const SelectorShelf = props => {
               setHoveredNote={props.setHoveredNote}
               notes={props.notes}
               addCard={props.addCard}
+              usingAndroid={props.usingAndroid}
             />
           </SelectorContainer>
         </BottomShelf>

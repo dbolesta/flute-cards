@@ -20,6 +20,7 @@ const Card = styled.div`
     /* border-color: red; */
     background-color: #f0f7b3;
     color: #1c1c1c;
+    cursor:pointer;
   }
 
   ${({ black }) =>
@@ -29,12 +30,14 @@ const Card = styled.div`
       background-color: #1C1C1C;
       color: white;
       width: 2rem;
+      cursor: pointer;
    `}
 
 
-@media (max-width: ${props => props.theme.breakpoints.mobile}) {
+@media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     width: 1.55rem;
     font-size: 0.8rem;
+    cursor: pointer;
   }
 `;
 
@@ -42,14 +45,15 @@ const CardSource = ({
   addCard,
   note,
   setHoveredNote,
-  hoveredNote
+  hoveredNote,
+  usingAndroid,
 }) => {
   return (
     <Card
       onClick={() => addCard(note)}
-      black={note.black}
       onMouseEnter={() => setHoveredNote(note)}
       onMouseLeave={() => setHoveredNote(null)}
+      black={note.black}
       className={
         hoveredNote && hoveredNote.index === note.index
           ? 'highlight'

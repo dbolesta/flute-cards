@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import Notifications, { notify } from 'react-notify-toast';
 import SelectorShelf from './Components/SelectorShelf';
@@ -17,12 +17,12 @@ import {
   removeUuidRow,
   dragUuid,
   dragUuidBetweenRows,
-  dragUuidRow
+  dragUuidRow,
 } from './Utils/handleUuids';
 
 import styled, {
   createGlobalStyle,
-  ThemeProvider
+  ThemeProvider,
 } from 'styled-components';
 import { globalStyles } from './Styles/global';
 import { theme } from './Styles/theme';
@@ -50,10 +50,18 @@ function App() {
   const [staffHovered, setStaffHovered] = useState(false); // if the staff is being hovered over, used to check if we should show the optional sharp icon
   const [menuSelection, setMenuSelection] = useState('how'); // which option is selected in the main menu
   const [hasNewCard, setHasNewCard] = useState(false); // to help differentiate between a new card getting added to state, or a card being altered by react-beautiful-dnd (to prevent animations)
+  const [usingAndroid, setUsingAndroid] = useState(false); // detects if we're using android (to not allow onTouchEnd for selectors if android)
+
+  useEffect(() => {
+    // if we're using Android
+    let ua = navigator.userAgent.toLowerCase();
+    let isAndroid = ua.indexOf('android') > -1;
+    setUsingAndroid(isAndroid);
+  }, []);
 
   ///////////////
   // CARD CRUD STUFF
-  const addCard = note => {
+  const addCard = (note) => {
     setHasNewCard(true); // is this a real new card? (meaning card was NOT dragged) (turn this back off at the end of this function)
     // if no rows exist (activeRow === -1),
     // just manually set the cards state to the note, set active row, and uuid
@@ -122,7 +130,7 @@ function App() {
     setActiveRow(cardsCopy.length - 1);
   };
 
-  const removeRow = rowIndex => {
+  const removeRow = (rowIndex) => {
     // 0. remove uuid row
     setUuids(removeUuidRow(uuids, rowIndex));
     // 1. copy current cards
@@ -141,7 +149,7 @@ function App() {
   };
 
   /// react beautiful dnd-stuff
-  const onDragEnd = result => {
+  const onDragEnd = (result) => {
     const { destination, source, draggableId, type } = result;
 
     // if no target, cancel method
@@ -266,9 +274,9 @@ function App() {
   const TopSection = styled.div`
     /* border: 1px solid orange; */
     display: flex;
-    background-color: ${props => props.theme.windows};
+    background-color: ${(props) => props.theme.windows};
 
-    @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
       flex-direction: column;
     }
   `;
@@ -290,6 +298,7 @@ function App() {
             hoveredNote={hoveredNote}
             staffHovered={staffHovered}
             setStaffHovered={setStaffHovered}
+            usingAndroid={usingAndroid}
           />
         </TopSection>
         <DragDropContext onDragEnd={onDragEnd}>
