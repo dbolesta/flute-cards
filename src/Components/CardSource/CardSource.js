@@ -20,7 +20,7 @@ const Card = styled.div`
     /* border-color: red; */
     background-color: #f0f7b3;
     color: #1c1c1c;
-    cursor:pointer;
+    cursor: pointer;
   }
 
   ${({ black }) =>
@@ -33,8 +33,11 @@ const Card = styled.div`
       cursor: pointer;
    `}
 
+  span {
+    pointer-events: none;
+  }
 
-@media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     width: 1.55rem;
     font-size: 0.8rem;
     cursor: pointer;
@@ -47,6 +50,34 @@ const CardSource = ({
   setHoveredNote,
   hoveredNote,
 }) => {
+  const eventHandler = (event) => {
+    const { type, bubbles } = event;
+    switch (type) {
+      case 'mouseover':
+      case 'mouseenter':
+        setHoveredNote(note);
+        console.log('mouse entered');
+        break;
+      case 'mouseout':
+      case 'mouseleave':
+        setHoveredNote(null);
+        console.log('mouse leaved');
+        break;
+      case 'click':
+        console.log('clikked');
+        addCard(note);
+        if (bubbles) {
+          // handle hover state
+          setHoveredNote(note);
+        }
+        break;
+      default:
+        break;
+    }
+  };
+  const onMouseEnter = (event) => eventHandler(event);
+  const onMouseLeave = (event) => eventHandler(event);
+
   return (
     <Card
       onPointerUp={() => addCard(note)}
@@ -58,6 +89,7 @@ const CardSource = ({
           ? 'highlight'
           : null
       }
+      role="button"
     >
       {note.letters.map((letter, i) => {
         return <span key={i}>{letter}</span>;
