@@ -82,7 +82,7 @@ const Letters = styled.div`
 `;
 
 const FingerImg = styled.img`
-  margin-top: -3rem;
+  margin-top: ${(props) => (props.compactView ? '0rem' : '-3rem')};
   padding: 0;
   /* width: auto; */
   /* width: 160px; */
@@ -140,7 +140,7 @@ const Card = ({
             />
           )}
 
-          <FingerImg src={svgs[imgRef]} />
+          <FingerImg src={svgs[imgRef]} compactView={compactView} />
         </SCard>
       )}
     </Draggable>

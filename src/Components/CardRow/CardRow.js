@@ -25,9 +25,13 @@ const RowContainer = styled.div`
   /* border: 2px solid palevioletred; */
   border-radius: 0.2rem;
   overflow: hidden;
-  min-height: 11.25rem;
+  min-height: ${(props) =>
+    props.compactView
+      ? 'none'
+      : '11.25rem'}; /* to adjust height of row when in compact mode */
   justify-content: flex-start;
-  flex: 1 0 auto;
+  /* flex: 1 0 auto; */
+  flex: 1 1 11.25rem;
   position: relative;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
@@ -169,6 +173,9 @@ const CardRow = ({
                 }}
                 {...provided.droppableProps}
                 ref={provided.innerRef}
+                compactView={
+                  compactView
+                } /* to adjust height of row when in compact mode */
               >
                 {/* loop through each array (cards) */}
                 {/* deferred to second function so we can memoize? */}
