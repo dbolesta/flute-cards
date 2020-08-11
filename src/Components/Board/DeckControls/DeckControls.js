@@ -55,6 +55,7 @@ const InnerContainerLeft = styled.div`
 
 const InnerContainerMiddle = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const InnerContainerRight = styled.div`

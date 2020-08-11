@@ -27,7 +27,7 @@ const RowContainer = styled.div`
   overflow: hidden;
   min-height: ${(props) =>
     props.compactView
-      ? 'none'
+      ? '110px'
       : '11.25rem'}; /* to adjust height of row when in compact mode */
   justify-content: flex-start;
   /* flex: 1 0 auto; */
