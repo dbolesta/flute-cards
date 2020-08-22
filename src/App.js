@@ -275,7 +275,7 @@ function App() {
   const TopSection = styled.div`
     /* border: 1px solid orange; */
     display: flex;
-    background-color: ${(props) => props.theme.windows};
+    /* background-color: ${(props) => props.theme.windows}; */
 
     @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
       flex-direction: column;

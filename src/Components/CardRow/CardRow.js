@@ -36,6 +36,8 @@ const RowContainer = styled.div`
   width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
   transition: background-color 0.25s ease-in-out;
+  /* backdrop-filter: saturate(180%) blur(20px); */ /* this breaks react-beautiful-dnd :( */
+  /* https://github.com/atlassian/react-beautiful-dnd/issues/1826 */
 
   &.activeRow {
     /* border: 2px solid red; */

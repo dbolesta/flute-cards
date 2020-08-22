@@ -2,15 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MenuContainer = styled.div`
-  background-color: ${props => props.theme.windowsDark};
-  /* background-color: hsl(180, 65.4%, 25.6%); */
-  flex: 0 1 25rem;
-  padding: 0.5rem;
-
-  & > h2 > span {
-    /* border: 1px solid black; */
-    border-radius: 0.2rem;
-    background-color: white;
+   /* background-color: ${(props) => props.theme.windowsDark}; */	
+   background-color: #fff;	
+  /* background-color: hsl(180, 65.4%, 25.6%); */	
+  flex: 0 1 25rem;	
+  margin: 1rem;	
+  padding: 0.5rem;	
+  border-radius: 6px;	
+  box-shadow: 4px 4px 16px #888888;	
+  & > h2 > span {	
+    /* border: 1px solid black; */	
+    border-radius: 0.2rem;	
+    /* background-color: white; */	
+    background-color: rgba(211, 211, 211, 1);
     padding: 0.25rem;
     display: inline-flex;
     flex-direction: column;
@@ -49,7 +53,8 @@ const MenuSelectors = styled.div`
 const HowToContainer = styled.div`
   ol {
     text-align: left;
-    color: #e8e8e8;
+    /* color: #e8e8e8; */
+    color: #333;
 
     li {
       margin-bottom: 0.5rem;
@@ -61,16 +66,16 @@ const HowToContainer = styled.div`
   }
 
   span.menu-keyboard {
-    color: ${props => props.theme.eighties.pink};
+    color: ${(props) => props.theme.eighties.pink};
   }
   span.menu-staff {
-    color: ${props => props.theme.eighties.blue};
+    color: ${(props) => props.theme.eighties.blue};
   }
   span.menu-registers {
-    color: ${props => props.theme.eighties.yellow};
+    color: ${(props) => props.theme.eighties.yellow};
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     .mobile-hide {
       display: none;
     }
@@ -139,7 +144,7 @@ const About = () => {
 };
 
 const Menu = ({ menuSelection, setMenuSelection }) => {
-  const handleClick = text => {
+  const handleClick = (text) => {
     setMenuSelection(text);
   };
 

@@ -14,7 +14,29 @@ body {
     rgba(120, 24, 118, 0.8505747126436781) 99%
   ); */
 
-  background-color: hsl(180, 65.4%, 35.6%);
+  /* background-color: hsl(180, 65.4%, 35.6%); */
+  /* shore */
+  /* background: #70e1f5;	
+  background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);	
+  background: linear-gradient(to right, #ffd194, #70e1f5); */
+  background: linear-gradient(
+      217deg,
+      rgba(20, 22, 20, 0.8),
+      rgba(255, 0, 0, 0) 90.71%
+    ),
+    linear-gradient(
+      127deg,
+      rgba(255, 209, 148, 0.8),
+      rgba(0, 255, 0, 0) 70.71%
+    ),
+    linear-gradient(
+      336deg,
+      rgba(112, 225, 245, 0.8),
+      rgba(0, 0, 255, 0) 70.71%
+    );
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
   height: 100vh;
 }
