@@ -18,7 +18,7 @@ const LoadContain = styled.div`
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: 30%;
   margin: auto;
   z-index: 99;
   box-shadow: 0 2px 4px rgba(50, 50, 93, 0.1);

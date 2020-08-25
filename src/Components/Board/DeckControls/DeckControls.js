@@ -61,9 +61,9 @@ const InnerContainerMiddle = styled.div`
 const InnerContainerRight = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
-  width: 30%;
+  width: 40%;
 
   .loadButton {
     background-color: #2185d0;
@@ -224,18 +224,22 @@ const DeckControls = ({
         <div onClick={() => saveDeck()}>Save</div>
       </InnerContainerLeft>
 
-      <InnerContainerMiddle>
-        <input
-          type="checkbox"
-          id="compactToggle"
-          name="compactToggle"
-          checked={compactView}
-          onChange={() => setCompactView(!compactView)}
-        />
-        <label htmlFor="compactToggle">Compact View</label>
-      </InnerContainerMiddle>
+      {/* <InnerContainerMiddle>
+        
+      </InnerContainerMiddle> */}
 
       <InnerContainerRight>
+        <div>
+          <input
+            type="checkbox"
+            id="compactToggle"
+            name="compactToggle"
+            checked={compactView}
+            onChange={() => setCompactView(!compactView)}
+          />
+          <label htmlFor="compactToggle">Compact View</label>
+        </div>
+
         <Loader loadDeck={loadDeck} deleteDeck={deleteDeck} />
         {/* <SimpleLoader loadDeck={loadDeck} deleteDeck={deleteDeck} /> */}
       </InnerContainerRight>
