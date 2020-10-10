@@ -1,19 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import logoSVG from '../../Images/logo.svg';
 
 const MenuContainer = styled.div`
-   /* background-color: ${(props) => props.theme.windowsDark}; */	
-   background-color: #fff;	
-  /* background-color: hsl(180, 65.4%, 25.6%); */	
-  flex: 0 1 25rem;	
-  margin: 1rem;	
-  padding: 0.5rem;	
-  border-radius: 6px;	
-  box-shadow: 4px 4px 16px #888888;	
-  & > h2 > span {	
-    /* border: 1px solid black; */	
-    border-radius: 0.2rem;	
-    /* background-color: white; */	
+  /* background-color: ${(props) => props.theme.windowsDark}; */
+  background-color: #fff;
+  /* background-color: hsl(180, 65.4%, 25.6%); */
+  flex: 0 1 25rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  box-shadow: 4px 4px 16px #888888;
+  & > h2 > span {
+    /* border: 1px solid black; */
+    border-radius: 0.2rem;
+    /* background-color: white; */
     background-color: rgba(211, 211, 211, 1);
     padding: 0.25rem;
     display: inline-flex;
@@ -27,6 +28,15 @@ const MenuContainer = styled.div`
 
   div.mobile-hide {
     display: inline-block;
+  }
+`;
+
+const LogoContainer = styled.div`
+  width: 100%;
+  padding: 1rem 4rem;
+
+  img {
+    width: 100%;
   }
 `;
 
@@ -151,7 +161,7 @@ const Menu = ({ menuSelection, setMenuSelection }) => {
 
   return (
     <MenuContainer>
-      <h2>
+      <h2 style={{ display: 'none' }}>
         <span>
           F<br />
           <span>...'...,</span>
@@ -163,6 +173,9 @@ const Menu = ({ menuSelection, setMenuSelection }) => {
         </span>
         ards
       </h2>
+      <LogoContainer>
+        <img src={logoSVG} alt="Flute Cards" />
+      </LogoContainer>
       <MenuSelectors menuSelection={menuSelection}>
         <div
           onClick={() => handleClick('how')}
