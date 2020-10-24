@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/flute-cards/static/css/main.254c1bc0.chunk.css",
-    "main.js": "/flute-cards/static/js/main.caafecc9.chunk.js",
-    "main.js.map": "/flute-cards/static/js/main.caafecc9.chunk.js.map",
+    "main.js": "/flute-cards/static/js/main.13be7687.chunk.js",
+    "main.js.map": "/flute-cards/static/js/main.13be7687.chunk.js.map",
     "runtime-main.js": "/flute-cards/static/js/runtime-main.7eb06f2f.js",
     "runtime-main.js.map": "/flute-cards/static/js/runtime-main.7eb06f2f.js.map",
     "static/css/2.d2a31a36.chunk.css": "/flute-cards/static/css/2.d2a31a36.chunk.css",
-    "static/js/2.4f2dd6a0.chunk.js": "/flute-cards/static/js/2.4f2dd6a0.chunk.js",
-    "static/js/2.4f2dd6a0.chunk.js.map": "/flute-cards/static/js/2.4f2dd6a0.chunk.js.map",
+    "static/js/2.626e15c1.chunk.js": "/flute-cards/static/js/2.626e15c1.chunk.js",
+    "static/js/2.626e15c1.chunk.js.map": "/flute-cards/static/js/2.626e15c1.chunk.js.map",
     "index.html": "/flute-cards/index.html",
-    "precache-manifest.8b1c0b0310b2912e553612cae8d93d18.js": "/flute-cards/precache-manifest.8b1c0b0310b2912e553612cae8d93d18.js",
+    "precache-manifest.fa6f24fd4e4c763e00b85affd535815c.js": "/flute-cards/precache-manifest.fa6f24fd4e4c763e00b85affd535815c.js",
     "service-worker.js": "/flute-cards/service-worker.js",
     "static/css/2.d2a31a36.chunk.css.map": "/flute-cards/static/css/2.d2a31a36.chunk.css.map",
     "static/css/main.254c1bc0.chunk.css.map": "/flute-cards/static/css/main.254c1bc0.chunk.css.map",
-    "static/js/2.4f2dd6a0.chunk.js.LICENSE": "/flute-cards/static/js/2.4f2dd6a0.chunk.js.LICENSE",
+    "static/js/2.626e15c1.chunk.js.LICENSE": "/flute-cards/static/js/2.626e15c1.chunk.js.LICENSE",
     "static/media/0_C.svg": "/flute-cards/static/media/0_C.6f3257b4.svg",
     "static/media/10-22_As.svg": "/flute-cards/static/media/10-22_As.5c6f8bb9.svg",
     "static/media/11-23_B.svg": "/flute-cards/static/media/11-23_B.3a27533a.svg",
@@ -42,6 +42,7 @@
     "static/media/8-20_Gs.svg": "/flute-cards/static/media/8-20_Gs.ddded7cf.svg",
     "static/media/9-21_A.svg": "/flute-cards/static/media/9-21_A.df00abe8.svg",
     "static/media/style.css": "/flute-cards/static/media/step-backward.e3f28009.svg",
+    "static/media/logo.svg": "/flute-cards/static/media/logo.bb822efc.svg",
     "static/media/sharp.svg": "/flute-cards/static/media/sharp.fe409d06.svg",
     "static/media/trash_white.svg": "/flute-cards/static/media/trash_white.c937265a.svg",
     "static/media/treble.svg": "/flute-cards/static/media/treble.6cd88816.svg",
@@ -50,8 +51,8 @@
   "entrypoints": [
     "static/js/runtime-main.7eb06f2f.js",
     "static/css/2.d2a31a36.chunk.css",
-    "static/js/2.4f2dd6a0.chunk.js",
+    "static/js/2.626e15c1.chunk.js",
     "static/css/main.254c1bc0.chunk.css",
-    "static/js/main.caafecc9.chunk.js"
+    "static/js/main.13be7687.chunk.js"
   ]
 }
