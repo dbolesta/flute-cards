@@ -48,7 +48,7 @@ const RowContainer = styled.div`
       ${({ row }) =>
         row.length <= 0 &&
         `
-          content: 'Click a note above to add a Card';
+          content: 'Select a note above to add a Card';
           color: black;
           position: absolute;
           height: 100%;
@@ -99,7 +99,7 @@ const RemoveRowButton = styled.div`
 `;
 
 const RowHandle = styled.div`
-  background-color: #767676;
+  background-color: #989898;
   width: 3rem;
   display: flex;
   flex-direction: column;

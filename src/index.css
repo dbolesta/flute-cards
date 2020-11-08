@@ -19,7 +19,8 @@ body {
   /* background: #70e1f5;	
   background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);	
   background: linear-gradient(to right, #ffd194, #70e1f5); */
-  background: linear-gradient(
+
+  /* background: linear-gradient(
       217deg,
       rgba(20, 22, 20, 0.8),
       rgba(255, 0, 0, 0) 90.71%
@@ -32,6 +33,22 @@ body {
     linear-gradient(
       336deg,
       rgba(112, 225, 245, 0.8),
+      rgba(0, 0, 255, 0) 70.71%
+    ); */
+
+  background: linear-gradient(
+      217deg,
+      rgb(144 229 255 / 80%),
+      rgba(255, 0, 0, 0) 90.71%
+    ),
+    linear-gradient(
+      127deg,
+      rgb(255 195 213 / 80%),
+      rgb(34 78 34 / 0%) 70.71%
+    ),
+    linear-gradient(
+      336deg,
+      rgba(241, 232, 105, 0.8),
       rgba(0, 0, 255, 0) 70.71%
     );
 

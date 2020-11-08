@@ -87,7 +87,7 @@ const HowToContainer = styled.div`
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     .mobile-hide {
-      display: none;
+      display: none !important;
     }
   }
 `;
@@ -117,11 +117,11 @@ const HowTo = () => {
           Each Card displays the note, and a Flute Fingering diagram.
         </li>
         <li>
-          Arrange cards to create melodies and help you learn songs
+          Drag &amp; drop cards to create melodies and help you learn songs
           easily!
         </li>
         <li>
-          Use the Play button to hear when your current Row of Cards
+          Use the Play button to hear what your current Row of Cards
           sounds like.
         </li>
         <li>Save and load Decks to easily learn many songs!</li>
@@ -142,10 +142,10 @@ const About = () => {
         <a href="https://damonbolesta.com">Website</a>
       </p>
       <p>
-        <a href="https://github.com/dbolesta/flute-cards">Github</a>
+        View this project on <a href="https://github.com/dbolesta/flute-cards">Github</a>
       </p>
       <p>
-        Contact me:{' '}
+        Suggestions? Comments? Questions? Contact me:{' '}
         <a href="mailto:dbolesta@gmail.com?subject=Flute Cards">
           dbolesta@gmail.com
         </a>

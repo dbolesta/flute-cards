@@ -14,6 +14,7 @@ const Shelf = styled.div`
 `;
 const SelectorContainer = styled.div`
   margin: 0.75rem;
+  box-shadow: 4px 4px 16px #888888;
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     margin: 0.5rem 0;
