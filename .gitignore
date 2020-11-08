@@ -25,3 +25,5 @@ yarn-error.log*
 #damon
 # misc
 /misc
+# Local Netlify folder
+.netlify

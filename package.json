@@ -5,16 +5,16 @@
   "homepage": "https://dbolesta.github.io/flute-cards",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.12.0",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "react": "^16.14.0",
     "react-abc": "^0.4.0",
     "react-beautiful-dnd": "^12.2.0",
-    "react-dom": "^16.12.0",
+    "react-dom": "^16.14.0",
     "react-ga": "^2.7.0",
     "react-notify-toast": "^0.5.1",
     "react-scripts": "3.3.0",
-    "react-transition-group": "^4.3.0",
+    "react-transition-group": "^4.4.1",
     "react-uuid": "^1.0.2",
     "styled-components": "^4.4.1"
   },
@@ -43,6 +43,6 @@
   },
   "devDependencies": {
     "gh-pages": "^2.2.0",
-    "node-sass": "^4.13.0"
+    "node-sass": "^4.14.1"
   }
 }
