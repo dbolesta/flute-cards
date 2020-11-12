@@ -13,7 +13,7 @@
     "react-dom": "^16.14.0",
     "react-ga": "^2.7.0",
     "react-notify-toast": "^0.5.1",
-    "react-scripts": "3.3.0",
+    "react-scripts": "4.0.0",
     "react-transition-group": "^4.4.1",
     "react-uuid": "^1.0.2",
     "styled-components": "^4.4.1"
