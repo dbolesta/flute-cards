@@ -50,33 +50,32 @@ const CardSource = ({
   setHoveredNote,
   hoveredNote,
 }) => {
-  const eventHandler = (event) => {
-    const { type, bubbles } = event;
-    switch (type) {
-      case 'mouseover':
-      case 'mouseenter':
-        setHoveredNote(note);
-        console.log('mouse entered');
-        break;
-      case 'mouseout':
-      case 'mouseleave':
-        setHoveredNote(null);
-        console.log('mouse leaved');
-        break;
-      case 'click':
-        console.log('clikked');
-        addCard(note);
-        if (bubbles) {
-          // handle hover state
-          setHoveredNote(note);
-        }
-        break;
-      default:
-        break;
-    }
-  };
-  const onMouseEnter = (event) => eventHandler(event);
-  const onMouseLeave = (event) => eventHandler(event);
+  // for debugging
+  // const eventHandler = (event) => {
+  //   const { type, bubbles } = event;
+  //   switch (type) {
+  //     case 'mouseover':
+  //     case 'mouseenter':
+  //       setHoveredNote(note);
+  //       console.log('mouse entered');
+  //       break;
+  //     case 'mouseout':
+  //     case 'mouseleave':
+  //       setHoveredNote(null);
+  //       console.log('mouse leaved');
+  //       break;
+  //     case 'click':
+  //       console.log('clikked');
+  //       addCard(note);
+  //       if (bubbles) {
+  //         // handle hover state
+  //         setHoveredNote(note);
+  //       }
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // };
 
   return (
     <Card

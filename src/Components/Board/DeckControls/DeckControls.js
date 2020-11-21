@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Loader from './Loader';
-import SimpleLoader from './SimpleLoader';
+// import SimpleLoader from './SimpleLoader';
 import { notify } from 'react-notify-toast';
 import styled from 'styled-components';
 import sampleSongs from './sampleSongs';
@@ -53,11 +53,6 @@ const InnerContainerLeft = styled.div`
   }
 `;
 
-const InnerContainerMiddle = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
 const InnerContainerRight = styled.div`
   display: flex;
   align-items: center;
@@ -87,7 +82,7 @@ const InnerContainerRight = styled.div`
 // custom force render hook
 // thanks: https://stackoverflow.com/questions/46240647/react-how-can-i-force-render-a-function-component
 const useForceUpdate = () => {
-  const [value, setValue] = useState(0); // integer state
+  const [, setValue] = useState(0); // integer state
   return () => setValue((value) => ++value); // update the state to force render
 };
 
@@ -224,9 +219,6 @@ const DeckControls = ({
         <div onClick={() => saveDeck()}>Save</div>
       </InnerContainerLeft>
 
-      {/* <InnerContainerMiddle>
-        
-      </InnerContainerMiddle> */}
 
       <InnerContainerRight>
         <div>

@@ -119,22 +119,22 @@ const RowHandle = styled.div`
 
 // function used to try and memoize Cards? increase performance?
 // loop for cards is moved here, was previously where InnerCards is within CardRow function
-const InnerCards = React.memo(
-  ({ row, removeCard, rowIndex, uuids }) => {
-    return row.map((card, cardIndex) => (
-      <CSSTransition key={cardIndex} timeout={300} classNames="card">
-        <Card
-          key={cardIndex + card.index + card.abcCode}
-          card={card}
-          removeCard={removeCard}
-          cardIndex={cardIndex}
-          rowIndex={rowIndex}
-          uuids={uuids}
-        />
-      </CSSTransition>
-    ));
-  }
-);
+// const InnerCards = React.memo(
+//   ({ row, removeCard, rowIndex, uuids }) => {
+//     return row.map((card, cardIndex) => (
+//       <CSSTransition key={cardIndex} timeout={300} classNames="card">
+//         <Card
+//           key={cardIndex + card.index + card.abcCode}
+//           card={card}
+//           removeCard={removeCard}
+//           cardIndex={cardIndex}
+//           rowIndex={rowIndex}
+//           uuids={uuids}
+//         />
+//       </CSSTransition>
+//     ));
+//   }
+// );
 
 const CardRow = ({
   removeCard,

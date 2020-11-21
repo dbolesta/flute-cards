@@ -11,15 +11,6 @@ const KeyboardContainer = styled.div`
   justify-content: center;
 `;
 
-const NoteHighlight = styled.div`
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: red;
-  bottom: 15px;
-  margin: auto;
-`;
 
 const Keyboard = ({
   notes,

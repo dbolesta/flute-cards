@@ -8,7 +8,6 @@ import {
 } from 'react-transition-group';
 
 import CardRow from '../CardRow';
-import uuid from 'react-uuid';
 
 const RowsContainer = styled.div`
   /* border: 5px solid purple; */
@@ -51,41 +50,41 @@ const NewRowButton = styled.div`
   }
 `;
 
-const InnerRow = React.memo(
-  ({
-    cards,
-    removeCard,
-    activeRow,
-    setActiveRow,
-    removeRow,
-    uuids,
-  }) => {
-    /* loop through first dimension of array (rows) */
-    return cards.map((row, rowIndex) => {
-      let rowNotation = '|:';
+// const InnerRow = React.memo(
+//   ({
+//     cards,
+//     removeCard,
+//     activeRow,
+//     setActiveRow,
+//     removeRow,
+//     uuids,
+//   }) => {
+//     /* loop through first dimension of array (rows) */
+//     return cards.map((row, rowIndex) => {
+//       let rowNotation = '|:';
 
-      // collect complete abc notation of all cards in row, so we can use it for midi
-      row.map((card) => {
-        rowNotation += card.midiCode;
-        return rowNotation;
-      });
+//       // collect complete abc notation of all cards in row, so we can use it for midi
+//       row.map((card) => {
+//         rowNotation += card.midiCode;
+//         return rowNotation;
+//       });
 
-      return (
-        <CardRow
-          removeCard={removeCard}
-          activeRow={activeRow}
-          setActiveRow={setActiveRow}
-          removeRow={removeRow}
-          row={row}
-          rowIndex={rowIndex}
-          rowNotation={rowNotation}
-          key={rowIndex}
-          uuids={uuids}
-        />
-      );
-    });
-  }
-);
+//       return (
+//         <CardRow
+//           removeCard={removeCard}
+//           activeRow={activeRow}
+//           setActiveRow={setActiveRow}
+//           removeRow={removeRow}
+//           row={row}
+//           rowIndex={rowIndex}
+//           rowNotation={rowNotation}
+//           key={rowIndex}
+//           uuids={uuids}
+//         />
+//       );
+//     });
+//   }
+// );
 
 const Board = ({
   cards,

@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import normalize from './normalize';
+import { normalize } from './normalize';
 
 export const globalStyles = css`
   /* @import url('https://fonts.googleapis.com/css?family=Tenor+Sans&display=swap'); */

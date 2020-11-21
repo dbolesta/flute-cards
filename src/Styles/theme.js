@@ -1,5 +1,3 @@
-import { css } from 'styled-components';
-
 export const theme = {
   eighties: {
     yellow: '#f1e95e',

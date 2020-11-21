@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import Notifications, { notify } from 'react-notify-toast';
 import SelectorShelf from './Components/SelectorShelf';
@@ -50,15 +50,8 @@ function App() {
   const [staffHovered, setStaffHovered] = useState(false); // if the staff is being hovered over, used to check if we should show the optional sharp icon
   const [menuSelection, setMenuSelection] = useState('how'); // which option is selected in the main menu
   const [hasNewCard, setHasNewCard] = useState(false); // to help differentiate between a new card getting added to state, or a card being altered by react-beautiful-dnd (to prevent animations)
-  const [usingAndroid, setUsingAndroid] = useState(false); // detects if we're using android (to not allow onTouchEnd for selectors if android)
   const [compactView, setCompactView] = useState(false); // toggle for compact view (do not show music staff on cards, to save space and show more flute charts per screen)
 
-  useEffect(() => {
-    // if we're using Android
-    let ua = navigator.userAgent.toLowerCase();
-    let isAndroid = ua.indexOf('android') > -1;
-    setUsingAndroid(isAndroid);
-  }, []);
 
   ///////////////
   // CARD CRUD STUFF
@@ -151,7 +144,7 @@ function App() {
 
   /// react beautiful dnd-stuff
   const onDragEnd = (result) => {
-    const { destination, source, draggableId, type } = result;
+    const { destination, source, type } = result;
 
     // if no target, cancel method
     if (!destination) return;
