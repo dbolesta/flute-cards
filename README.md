@@ -15,6 +15,13 @@ Assists in learning the flute fingering for every note on the flute. Select note
 
 - **Damon Bolesta** - [Website](https://damonbolesta.com)
 
+## Known Issues
+
+- MIDI will not play the first note on the very first play after pageload (on Chrome).
+- MIDI seems to not work great on Webkit Browsers (Safari).
+- Note selectors slightly change width after first selection on mobile.
+- Note highlighting (yellow color when hovering) hangs sometimes or does not highlight, especially on the Registers selectors.
+
 ## Learning Log
 
 - Array.from() is a great way to quickly make a copy of state before you tamper with it
@@ -25,8 +32,3 @@ Assists in learning the flute fingering for every note on the flute. Select note
 - Ran into a tiny issue when making Sharps selectable on the Staff. At first, the problem was that clicking on the "Sharp" svg would cause both the sharp and regular note to be added. I quickly realized that good old `e.stopProppagation()` on the sharp's `onClick` function easily solved this.
 
 - With help from [my stackoverflow question](https://stackoverflow.com/questions/60177932/react-transition-group-and-react-abc-abcjs-midi-will-not-work-at-the-same-time), I was able to realize that the `Midi` component itself needed a `key` in order to have animations and Midi working together. Midi needs a `key` because it needs to remount with the new notation code even when the `CardRow` itself doesn't remount.
-
-## Known Issues
-
-- MIDI will not play the first note on the very first play after pageload (on Chrome)
-- MIDI seems to not work great on mobile Safari
