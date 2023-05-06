@@ -37,8 +37,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  // start google analytics
-  initializeAnalytics();
+  // start google analytics 
+  // May 2023: hiding this for now as not sure how ga4 needs to be set up
+  // initializeAnalytics();
 
   ///////////
   // states
