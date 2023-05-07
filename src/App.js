@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import Notifications, { notify } from 'react-notify-toast';
 import SelectorShelf from './Components/SelectorShelf';
@@ -7,7 +7,7 @@ import Menu from './Components/Menu';
 import './App.css';
 import allNotes from './notes';
 import uuid from 'react-uuid';
-import ReactGA from 'react-ga';
+import analytics from './analytics';
 
 // to save space, all uuid functions, which are almost identical to most card functions, are in their own file
 import {
@@ -27,19 +27,16 @@ import styled, {
 import { globalStyles } from './Styles/global';
 import { theme } from './Styles/theme';
 
-function initializeAnalytics() {
-  ReactGA.initialize('UA-158613280-1');
-  ReactGA.pageview(window.location.pathname + window.location.search);
-}
 
 const GlobalStyle = createGlobalStyle`
   ${globalStyles}
 `;
 
 function App() {
-  // start google analytics 
-  // May 2023: hiding this for now as not sure how ga4 needs to be set up
-  // initializeAnalytics();
+  // initiate google analytics 4
+  useEffect(() => {
+    analytics.send('pageview');
+  }, []);
 
   ///////////
   // states
